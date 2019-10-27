@@ -1,0 +1,24 @@
+.welcome {
+    height: 100vh;
+}
+
+.course-title {
+    height: 85%;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.course-title h1 {
+    color: rgb(63, 63, 63);
+}
+
+.course-title p {
+    font-size: 1.4em;
+    color: rgb(131, 131, 131);
+}
+
+.course-title strong {
+    font-weight: bold;
+}
