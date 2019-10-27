@@ -1,0 +1,11 @@
+{
+  "name": "controle_de_faltas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Experluan/controle_de_faltas.git",
+  "author": "Luan Rodrigues <luanrodrigues007@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "create-react-app": "^3.2.0"
+  }
+}
