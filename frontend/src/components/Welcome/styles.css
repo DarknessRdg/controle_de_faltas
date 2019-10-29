@@ -3,6 +3,7 @@
 }
 
 .course-title {
+    position: relative;
     height: 85%;   
     display: flex;
     justify-content: center;
@@ -11,12 +12,12 @@
 }
 
 .course-title h1 {
-    color: rgb(63, 63, 63);
+    color: rgb(32, 32, 32);
 }
 
 .course-title p {
     font-size: 1.4em;
-    color: rgb(131, 131, 131);
+    color: rgb(83, 83, 83);
 }
 
 .course-title strong {
