@@ -4,12 +4,12 @@ import "./styles.css"
 
 import '../node_modules/materialize-css/dist/css/materialize.min.css';
 
-import Navbar from "./components/Navbar";
+import Welcome from "./components/Welcome";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Welcome />
     </div>
   );
 }
