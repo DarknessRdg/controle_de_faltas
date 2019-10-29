@@ -11,9 +11,7 @@ const About = () => (
             </div>  
             <div className="col m12 l9 h-100">
                 <p>
-                    O curso comça a jornada introduzindo a lógica de programção com uma linguagem divertida
-                    e orientada a blocos, onde os alunos poderão entender visualmente como funciona a 
-                    programção.
+                    O curso começa a jornada introduzindo a lógica de programção com uma linguagem divertida e orientada a blocos, onde os alunos poderão entender visualmente como funciona a programação.
                 </p>
             </div>
         </div>
@@ -23,9 +21,7 @@ const About = () => (
             </div>  
             <div className="col m12 l9 h-100">
                 <p>
-                    O curso comça a jornada introduzindo a lógica de programção com uma linguagem divertida
-                    e orientada a blocos, onde os alunos poderão entender visualmente como funciona a 
-                    programção.
+                    Após uma boa base em resolver problemas pensando algoritmicamente, é hora de iniciar os estudos com uma linguagem de programação fácil, elegante, legível e extremamente poderosa, o Python 3. Neste módulo o aluno aprenderá programação em um nível um pouco menor.
                 </p>
             </div>
         </div>
@@ -35,9 +31,7 @@ const About = () => (
             </div>  
             <div className="col m12 l9 h-100">
                 <p>
-                    O curso comça a jornada introduzindo a lógica de programção com uma linguagem divertida
-                    e orientada a blocos, onde os alunos poderão entender visualmente como funciona a 
-                    programção.
+                    Para finalizar a jornada, o aluno verá uma das utilidades práticas da programação no mundo real: Arduino.
                 </p>
             </div>
         </div>
