@@ -2,26 +2,28 @@ import React from "react";
 import Particles from "react-particles-js";
 import "./styles.css";
 
-import {styles, params, interactivity} from "./particles";
+import { styles, params, interactivity } from "./particles";
 import Navbar from "../Navbar";
+import CourseName from "./CourseName";
+import About from "./About";
 
 
 const Welcome = () => (
     <div className="welcome" id="particles-js">
-        <Particles 
+        <Particles
             params={params}
             style={styles}
             interactivity={interactivity}
         />
 
         <Navbar />
+        <div className="clearfix"></div>
+        <CourseName />
+
+        <About />
         
-        <div className="course-title">    
-            <h1>Curso de Lógica de Programação</h1>
-            <p>com <strong> Scratch </strong>,  <strong>Python</strong> e <strong>Arduino</strong></p>
-        </div>
     </div>
 );
 
 
-export default Welcome
+export default Welcome;
