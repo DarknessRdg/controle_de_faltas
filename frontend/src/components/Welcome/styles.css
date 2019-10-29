@@ -4,7 +4,7 @@
 
 .course-title {
     position: relative;
-    height: 85%;   
+    height: 85%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,11 +13,13 @@
 
 .course-title h1 {
     color: rgb(32, 32, 32);
+    text-align: center;
 }
 
 .course-title p {
     font-size: 1.4em;
     color: rgb(83, 83, 83);
+    text-align: center;
 }
 
 .course-title strong {
