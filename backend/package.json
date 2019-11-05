@@ -1,6 +1,21 @@
 {
   "name": "backend",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "version": "0.0.1",
+  "description": "backend",
+  "main": "Index.js",
+  "scripts": {
+    "start": "nodemon src/app/Index.js",
+    "test": "tests"
+  },
+  "author": "Nelson Dias",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "nodemon": "^1.19.4",
+    "sucrase": "^3.10.1"
+  }
 }
