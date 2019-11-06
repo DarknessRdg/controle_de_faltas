@@ -1,0 +1,63 @@
+import Sequelize, { Model } from 'sequelize';
+
+class Teacher extends Model {
+    
+    static init(sequelize) {
+        super.init({
+
+            teacher_id: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true 
+            },
+            
+            name: {
+                type: Sequelize.STRING(20),
+                allowNull: false
+            },
+
+            sex: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+
+            email: {
+                type: Sequelize.STRING,
+                allowNull: false,
+                unique: true
+            },
+
+            password: {
+                type: Sequelize.VIRTUAL,
+                allowNull: false
+            },
+
+            registration: {
+                type: Sequelize.STRING(30),
+                allowNull: false,
+                unique: true
+            },
+
+            birthdate: {
+                type: Sequelize.DATE,
+                allowNull: false,
+            },
+
+            is_supersu: {
+                type: Sequelize.BOOLEAN,
+                defaultValue: false
+            },
+
+            createdAt: Sequelize.DATE,
+            updatedAt: Sequelize.DATE
+
+        }, {
+            sequelize
+        });
+
+        return this;
+    }
+}
+
+export default new Teacher();
