@@ -61,7 +61,6 @@
 
 #about img {
     height: 10em;
-    margin: 0 20%;
 }
 
 #about h3 {
@@ -82,9 +81,15 @@
     margin-top: 5%;
 }
 
+
+@media(min-device-width: 768px) {
+    .container {
+        width: 60%;
+    }
+}
+
 .container {
     margin-left: auto;
-    width: 60%;
     position: relative;
     background: #ffffff !important;
 }
