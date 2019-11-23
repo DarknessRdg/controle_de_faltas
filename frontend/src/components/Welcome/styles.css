@@ -1,5 +1,14 @@
-.vh {
-    height: 100vh;
+@media (min-device-width: 996px) {
+    .vh {
+        height: 100vh !important;
+    }
+}
+
+@media (max-device-width: 995px) {
+    .vh {
+        margin-top: 95px !important;
+        min-height: 100vh;
+    }
 }
 
 .welcome {
@@ -42,9 +51,11 @@
     background: white;
 }
 
-.row {
+#about > .row {
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 
@@ -74,8 +85,53 @@
 .container {
     margin-left: auto;
     width: 60%;
+    position: relative;
+    background: #ffffff !important;
 }
 
 .clearfix {
     clear: both;
+}
+
+
+#teachers ul {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around !important;
+}
+
+.teacher {
+    margin-right: 2rem;
+    margin-left: 2rem;
+}
+
+.teacher h5 {
+    background: rgba(168, 168, 168, 0.158);
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.img-container {
+    padding: 0 !important;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    height: 250px !important;
+    width: 250px !important;
+    transition: .35s;
+    margin-top: 5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.img-container:hover {
+    transform: scale(1.1);
+    /* margin-bottom: 1.8em; */
+}
+
+.img-container > img {
+    position: relative;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
