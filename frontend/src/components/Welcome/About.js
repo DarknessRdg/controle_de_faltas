@@ -11,7 +11,7 @@ const About = () => (
             </div>  
             <div className="col m12 l9 h-100">
                 <p>
-                    O curso começa a jornada introduzindo a lógica de programção com uma linguagem divertida e orientada a blocos, onde os alunos poderão entender visualmente como funciona a programação.
+                O curso começa a jornada introduzindo a lógica de programação com uma linguagem divertida e orientada a blocos, onde os alunos poderão entender visualmente como funciona a programação.
                 </p>
             </div>
         </div>
