@@ -5,12 +5,8 @@ import './bootstrapClasses.css';
 
 import '../node_modules/materialize-css/dist/css/materialize.min.css';
 
-import Routes from './routes';
+import Routes from './routes/routes';
 
-function App() {
-  return (
-    <Routes/>
-  );
-}
+const App = () => <Routes/>
 
 export default App;
