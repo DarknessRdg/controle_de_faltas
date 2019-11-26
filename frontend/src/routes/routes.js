@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
-import Welcome from "../components/Welcome";
-import NotAuthenticated from '../components/NotAuthenticated'
+import Welcome from "../pages/Welcome";
+import NotAuthenticated from '../pages/NotAuthenticated'
 import PrivateRoute from './privateRoute';
 
 const Routes = () => (
