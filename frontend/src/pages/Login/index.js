@@ -35,7 +35,10 @@ function Login() {
                             <label htmlFor="password">Senha</label>
                          </div>
                         
-                        <button className="btn col s12 m8 offset-m2 mt-4" type="submit">Entrar</button>
+                        <button 
+                            className="btn col s12 m8 offset-m2 mt-4" 
+                            type="submit" 
+                            onClick={authenticate}>Entrar</button>
                     </form>
                 </div>
 
