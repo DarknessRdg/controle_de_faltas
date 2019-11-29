@@ -23,14 +23,14 @@ function Login() {
                     <form className="row">
                         <h6 className="center mb-3">Faça login para ter acesso ao sistema.</h6>
                         <div className="input-field col s12 m10 offset-m1">
-                            <i class="material-icons prefix">account_circle</i>
+                            <i className="material-icons prefix">account_circle</i>
                             <input ref={username} id="username" type="text" />
                             <label htmlFor="username">Usuário</label>
                             
                         </div>
 
                         <div className="input-field col s12 m10 offset-m1">
-                            <i class="material-icons prefix">lock</i>
+                            <i className="material-icons prefix">lock</i>
                             <input ref={password} id="password" type="password"/>
                             <label htmlFor="password">Senha</label>
                          </div>
