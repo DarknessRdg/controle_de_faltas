@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 
 import "./styles.css";
 
@@ -10,11 +11,11 @@ const Navbar = () => (
             <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li><a href="#about" className="grey-text text-darken-4">Sobre</a></li>
                 <li><a href="#teachers" className="grey-text text-darken-4">Professores</a></li>
-                <li><a href="collapsible.html" className="grey-text text-darken-4">Login</a></li>
+                <li><Link to="/login" className="grey-text text-darken-4">Login</Link></li>
             </ul>
         </div>
         <div className="fixed-action-btn hide-on-med-and-up">
-            <a className="btn-floating btn-samll  blue lighten-4  black-text center">Login</a>
+            <Link to="/login" className="btn-floating btn-samll  blue lighten-4  black-text center">Login</Link>
         </div>
         
     </nav>

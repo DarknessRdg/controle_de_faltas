@@ -1,0 +1,52 @@
+body {
+    /* background: #4bb8d0; */
+}
+
+.container {
+    /* background: #4bb8d0 !important; */
+}
+
+form {
+    height: 100%;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 10px;
+    padding: 2rem;
+    /* background: #EFEFEF; */
+}
+
+form > button {
+    background: #3454D1 !important;
+}
+
+.blue.maastricht {
+    background: #02182B !important;
+}
+
+.blue-text.text-maastricht {
+    color: #02182B !important;
+}
+
+.input-field > * {
+    color: #02182B;
+}
+
+.input-field > .prefix.active {
+    color: #D72638;
+}
+
+.input-field input:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #D72638 !important;
+}
+
+.input-field input:focus, .materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #D72638 !important;
+    box-shadow: 0 1px 0 0 #D72638 !important;
+}
+
+.input-field {
+    color: rgb(37, 36, 43) !important;
+}
+
+input::placeholder, label {
+    color: rgb(143, 143, 143) !important;
+}
