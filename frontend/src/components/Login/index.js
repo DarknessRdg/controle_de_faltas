@@ -2,7 +2,8 @@ import React, {useEffect, useRef} from 'react';
 import M from 'materialize-css';
 import './styles.css';
 
-function Login() {
+
+export default (props) => {
     const username = useRef();
     const password = useRef();
 
@@ -11,17 +12,21 @@ function Login() {
     }, [])
 
     const authenticate = (e) => {
-        e.preventDefaul();
+        e.preventDefault();
         // TODO
-    } 
+    }
 
+    useEffect(() => {
+        M.AutoInit()
+    }, [])
+
+    
     return (
-        <div className="container pt-5">
+        <div id="login" className="modal ">
             <div className="row">
-                <div className="col s12 m6 offset-m3 login-content">
+                <div className="login-content">
                     
-                    <form className="row">
-                        <h6 className="center mb-3">Faça login para ter acesso ao sistema.</h6>
+                    <form className="row pt-5 mb-0">
                         <div className="input-field col s12 m10 offset-m1">
                             <i className="material-icons prefix">account_circle</i>
                             <input ref={username} id="username" type="text" />
@@ -35,18 +40,20 @@ function Login() {
                             <label htmlFor="password">Senha</label>
                          </div>
                         
-                        <button 
-                            className="btn col s12 m8 offset-m2 mt-4" 
-                            type="submit" 
-                            onClick={authenticate}>Entrar</button>
+                        <div className="row">
+                            <button 
+                                className="btn col s4 offset-s1 mt-4" 
+                                type="submit" 
+                                onClick={authenticate}>Entrar</button>
+                            
+                            <button
+                                className="modal-close btn col s4 offset-s2 mt-4 red lighten-1"
+                                type="submit">Cacelar</button>
+                        </div>
                     </form>
                 </div>
 
             </div>
         </div>
-        
     )
-} 
-
-
-export default Login;
+}
