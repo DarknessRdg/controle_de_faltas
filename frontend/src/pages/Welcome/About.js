@@ -7,7 +7,7 @@ const About = () => (
         <h3 className="center">Sobre o curso</h3>   
         <div className="row">
             <div className="col s12 m12 l3 center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Scratch_Cat.png" alt="scratch"></img>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcZ9VgjNVa88DZdFkUWhXI-dSkcVnDOWWB-Zeb6XA37zP0IF-2Ww&s" alt="scratch"></img>
             </div>  
             <div className="col m12 l9 h-100">
                 <p>
