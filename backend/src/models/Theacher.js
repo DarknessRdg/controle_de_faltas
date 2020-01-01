@@ -1,7 +1,7 @@
 import Sequelize, { Model } from 'sequelize';
 
 class Teacher extends Model {
-    
+
     static init(sequelize) {
         super.init({
 
@@ -21,6 +21,11 @@ class Teacher extends Model {
                 type: Sequelize.STRING,
                 allowNull: false
             },
+            
+            birthdate: {
+                type: Sequelize.DATE,
+                allowNull: false,
+            },
 
             email: {
                 type: Sequelize.STRING,
@@ -37,11 +42,6 @@ class Teacher extends Model {
                 type: Sequelize.STRING(30),
                 allowNull: false,
                 unique: true
-            },
-
-            birthdate: {
-                type: Sequelize.DATE,
-                allowNull: false,
             },
 
             is_supersu: {
