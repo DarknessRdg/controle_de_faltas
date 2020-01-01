@@ -1,11 +1,11 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Teacher extends Model {
+class Student extends Model {
 
     static init(sequelize) {
         super.init({
 
-            teacher_id: {
+            student_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 autoIncrement: true,
@@ -13,18 +13,8 @@ class Teacher extends Model {
             },
             
             name: {
-                type: Sequelize.STRING(20),
-                allowNull: false
-            },
-
-            sex: {
                 type: Sequelize.STRING,
                 allowNull: false
-            },
-            
-            birthdate: {
-                type: Sequelize.DATE,
-                allowNull: false,
             },
 
             email: {
@@ -38,15 +28,26 @@ class Teacher extends Model {
                 allowNull: false
             },
 
+            sex: {
+                type: Sequelize.STRING,
+                allowNull: false
+            },
+
+            phone: {
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
+
             registration: {
                 type: Sequelize.STRING(30),
                 allowNull: false,
                 unique: true
             },
 
-            is_supersu: {
-                type: Sequelize.BOOLEAN,
-                defaultValue: false
+            identity: {
+                type: Sequelize.STRING(30),
+                allowNull: false,
+                unique: true
             },
 
             createdAt: Sequelize.DATE,
@@ -60,4 +61,4 @@ class Teacher extends Model {
     }
 }
 
-export default Teacher;
+export default Student;
