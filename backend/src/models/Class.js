@@ -55,6 +55,14 @@ class Class extends Model {
         return this;
     }
 
+    static associate (models) { 
+
+        /* Relations (1, N) */
+        this.hasMany(models.Teacher, {as: 'teachers', foreignKey: 'teacher_id', onDelete: 'cascade'});
+        
+        /* Relations (1, N) */
+        this.hasMany(models.Module, {as: 'modules', foreignKey: 'module_id', onDelete: 'cascade'});
+    }
 }
 
 export default Class;
