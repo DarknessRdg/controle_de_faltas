@@ -6,7 +6,9 @@
   "scripts": {
     "start": "nodemon src/app/server.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
-    "test": "tests"
+    "pretest": "set NODE_ENV=test&& sequelize db:migrate",
+    "test": "set NODE_ENV=test&& jest",
+    "posttest": "set NODE_ENV=test&& sequelize db:migrate:undo:all"
   },
   "author": "Nelson Dias",
   "license": "MIT",
@@ -16,7 +18,6 @@
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
-    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "jest": "^24.9.0",
     "nodemon": "^1.19.4",

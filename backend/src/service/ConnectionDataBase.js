@@ -1,8 +1,12 @@
 import databaseConfig from '../database/config/config';
-import Teacher from '../models/Theacher';
+import Frequency from '../models/Frequency';
+import Student from '../models/Student';
+import Teacher from '../models/Teacher';
+import Module from '../models/Module';
+import Class from '../models/Class';
 import Sequelize from 'sequelize';
 
-const models = [Teacher];
+const models = [Teacher, Class, Student, Frequency, Module];
 
 class ConnectionDatabase {
     constructor() {

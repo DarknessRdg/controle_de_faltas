@@ -1,4 +1,5 @@
 import router from '../routes/index.router';
+import '../service/ConnectionDataBase';
 import { config } from 'dotenv';
 import Express from 'express';
 
