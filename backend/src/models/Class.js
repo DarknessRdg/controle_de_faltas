@@ -54,6 +54,7 @@ class Class extends Model {
 
         return this;
     }
+
 }
 
 export default Class;
