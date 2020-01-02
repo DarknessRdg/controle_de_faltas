@@ -3,7 +3,7 @@ import teacherHandler from '../handlers/teacher.handler';
 import router from './config.router';
 
 export default [
-        
-    router.get('api/v1/teachers/', teacherValidator, teacherHandler.store)
-
+    
+    router.post('/api/v1/teachers/', teacherValidator, teacherHandler.store),
+    
 ]

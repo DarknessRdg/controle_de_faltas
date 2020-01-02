@@ -3,11 +3,10 @@ import Teacher from '../models/Teacher';
 class TeacherRepository {
 
     async create(data) {
-        const teacher = new Teacher(data);
-        return await teacher.save();
+        return await Teacher.create(data);
     }
     
-    async all() {
+    async getAll() {
         return await Teacher.findAll({});
     }
 }

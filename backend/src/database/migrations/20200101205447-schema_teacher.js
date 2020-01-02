@@ -28,7 +28,7 @@ module.exports = {
       },
 
       password: {
-          type: Sequelize.VIRTUAL,
+          type: Sequelize.STRING,
           allowNull: false
       },
 

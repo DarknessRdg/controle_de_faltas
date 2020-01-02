@@ -29,7 +29,7 @@ class Frequency extends Model {
                 allowNull: false,
                 references: {
                     model: 'student',
-                    key:  'studen_id',
+                    key:  'student_id',
                     as: 'students',
                 }
             },

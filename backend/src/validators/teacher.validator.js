@@ -14,13 +14,16 @@ export default async (req, res, next) => {
     try {
         
         if (!(await schema.isValid(req.body))) {
+            console.log("\n\nError")
             throw new Error("Validation Error");
         }
 
         next();
 
     } catch (error) {
-        return res.status(400).json({ error: 'Validation fails', messages: error.inner });
+        switch (error.message) {
+            case error.message:
+                return res.status(400).json({ error: 'Validation fails', messages: error.message });
+        }
     }
-
 }

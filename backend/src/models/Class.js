@@ -19,7 +19,7 @@ class Class extends Model {
                 references: {
                     model: 'teacher',
                     key:  'teacher_id',
-                    as: 'teacher',
+                    as: 'teachers',
                 }
             },
 
@@ -30,7 +30,7 @@ class Class extends Model {
                 references: {
                     model: 'module',
                     key:  'module_id',
-                    as: 'module',
+                    as: 'modules',
                 }
             },
             
