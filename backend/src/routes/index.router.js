@@ -1,7 +1,7 @@
-import tests  from './tests.router';
+import teacher  from './teacher.router';
 
 export default [
 
-    tests
+    teacher
 
 ]
