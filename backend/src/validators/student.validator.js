@@ -7,22 +7,13 @@ export default async (req, res, next) => {
         sex: Yup.string().required(),
         email: Yup.string().required(),
         password: Yup.string().min(6).required(),
+        phone: Yup.string().required(),
         registration: Yup.string().required(),
+        identity: Yup.string().required(),
         is_supersu: Yup.bool()
     });
     
-    try {
-        
-        if (!(await schema.isValid(req.body))) {
-            throw new Error("Validation Error");
-        }
-
-        next();
-
-    } catch (error) {
-        switch (error.message) {
-            case error.message:
-                return res.status(400).json({ error: 'Validation fails', messages: error.message });
-        }
-    }
+    if (!(await schema.isValid(req.body).catch(err => {})));
+    
+    return next();
 }
