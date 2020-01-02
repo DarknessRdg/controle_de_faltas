@@ -14,7 +14,6 @@ export default async (req, res, next) => {
     try {
         
         if (!(await schema.isValid(req.body))) {
-            console.log("\n\nError")
             throw new Error("Validation Error");
         }
 
