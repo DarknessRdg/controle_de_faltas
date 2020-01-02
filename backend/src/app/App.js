@@ -4,7 +4,7 @@ import { config } from 'dotenv';
 import Express from 'express';
 import cors from 'cors';
 
-config({path: process.cwd() + '/environments/.env'});
+config();
 
 class App {
     constructor() {
