@@ -30,7 +30,7 @@ class AuthenticateAuth {
 
             const token = await Token.generate(JWTData);
 
-            return { student, token };
+            return { token };
         }
 
         if (teacher) {
@@ -50,7 +50,7 @@ class AuthenticateAuth {
 
             const token = await Token.generate(JWTData);
 
-            return { teacher, token };
+            return { token };
         }
     }
 }
