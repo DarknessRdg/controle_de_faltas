@@ -5,7 +5,7 @@ class TokenAuth {
 
     generate(data) {
         const Token = new Promise((resolve) => {
-            JWT.sign(data, process.env.SECRET_KEY, {algorithm: ALGORITHM}, (error, token) => {
+            JWT.sign(data, process.env.SECRET_KEY, {algorithm: 'HS256'}, (error, token) => {
                 if (error) { throw new Error('TOKEN_ERROR'); }
                 resolve(token);
             });
@@ -20,7 +20,7 @@ class TokenAuth {
             return res.status(401).send({ auth: false, message: 'NO_TOKEN_PROVIDED' });
         }
 
-        JWT.verify(token, process.env.SECRET_KEY, {algorithm: ALGORITHM}, (error, decodedToken) => {
+        JWT.verify(token, process.env.SECRET_KEY, {algorithm: 'HS256'}, (error, decodedToken) => {
         
             if (error){
                 switch (error.message){

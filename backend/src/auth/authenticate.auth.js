@@ -8,11 +8,11 @@ import hash from './hash.auth';
 class AuthenticateAuth {
 
     async login(data) {
-        const student =  await studentRepository.findByIndentity(data.identity);
-        const teacher = await teacherRepository.findByEmail(data.email);
+        const student =  await studentRepository.findByIndentity(data.identity || null);
+        const teacher = await teacherRepository.findByEmail(data.email || null);
         
-        if (!student) { throw new Error('ERR_STUDENT_NOT_FOUND'); }
-        if (!teacher) { throw new Error('ERR_TEACHER_NOT_FOUND'); }
+        if (!student && !teacher) { throw new Error('ERR_STUDENT_NOT_FOUND'); }
+        if (!teacher && !student) { throw new Error('ERR_TEACHER_NOT_FOUND'); }
 
         if (student) {
             const passwordOk = await hash.compare(data.password, student.password);
@@ -20,7 +20,7 @@ class AuthenticateAuth {
             if (!passwordOk) { throw new Error('ERR_INVALID_PASSWORD'); }
 
             const JWTData = {
-                exp: Math.floor(Date.now() / 1000) + LOGIN_EXPIRATION_TIME,
+                exp: Math.floor(Date.now() / 1000) + 7200,
                 info: 'api',
                 data: {
                   student_id: student.student_id,
@@ -40,7 +40,7 @@ class AuthenticateAuth {
             if (!passwordOk) { throw new Error('ERR_INVALID_PASSWORD'); }
 
             const JWTData = {
-                exp: Math.floor(Date.now() / 1000) + LOGIN_EXPIRATION_TIME,
+                exp: Math.floor(Date.now() / 1000) + 7200,
                 info: 'api',
                 data: {
                   teacher_id: teacher.teacher_id,

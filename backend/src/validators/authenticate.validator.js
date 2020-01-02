@@ -12,28 +12,15 @@ export default async (req, res, next) => {
         password: Yup.string().min(6).required(),
     });
 
-    try {
+    if (req.body.email) {
 
-        if (req.body.email) {
+        if (!(await schemaTeacher.isValid(req.body).catch(err => {})));
+        return next();
+    }
 
-            if (!(await schemaTeacher.isValid(req.body))) {
-                throw new Error("Validation Error");
-            }
-            return next();
-        }
+    if (req.body.identity) {
 
-        if (req.body.identity) {
-
-            if (!(await schemaStudent.isValid(req.body))) {
-                throw new Error("Validation Error");
-            }
-            return next();
-        }
-
-    } catch (error) {
-        switch (error.message) {
-            case error.message:
-                return res.status(400).json({ error: 'Validation fails', messages: error.message });
-        }
+        if (!(await schemaStudent.isValid(req.body).catch(err => {})));
+        return next();
     }
 }

@@ -20,6 +20,8 @@ class LoginHandler {
                     return res.status(401).json({ error: 'ERR_TEACHER_NOT_FOUND' });
                 case 'ERR_INVALID_TOKEN':
                     return res.status(401).json({ error: 'ERR_INVALID_TOKEN' });
+                default:
+                    return res.status(401).json({ error: error.message });
             }
         }
     }
