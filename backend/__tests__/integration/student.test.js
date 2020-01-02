@@ -6,28 +6,28 @@ import { expect } from 'chai';
 
 const prefix = '/api/v1';
 
-describe('TEACHER', () => {
+describe('STUDENT', () => {
     
     beforeAll(async () => {
         await truncate();
     });
     
-    it('Create teacher', async (done) => {
+    it('Create student', async (done) => {
 
         const res = await request(app)
-            .post(`${prefix}/teachers/`)
-            .send(mockes.teacher);
+            .post(`${prefix}/students/`)
+            .send(mockes.student);
                 
         expect(res.status).to.equal(201);
         
         done();
     });
 
-    it('Get token teacher', async (done) => {
+    it('Get token student', async (done) => {
         
         const { status, body } = await request(app)
             .post(`${prefix}/sessions/`)
-            .send(mockes.credentialsTeacher);
+            .send(mockes.credentialsStudent);
 
         expect(status).to.equal(200);
         expect(body).to.have.property('token');
@@ -35,13 +35,3 @@ describe('TEACHER', () => {
         done();
     });
 });
-
-/* 
-
-beforeAll(): Executa apenas uma vez antes de iniciar os tests.
-afterAll(): Executa apenas uma vez depois de todos os tests.
-
-beforeEach(): Executa antes de cada caso de teste.
-afterEach(): Executa após cada caso de teste
-
-*/
