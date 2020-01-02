@@ -11,18 +11,7 @@ export default async (req, res, next) => {
         is_supersu: Yup.bool()
     });
     
-    try {
-        
-        if (!(await schema.isValid(req.body))) {
-            throw new Error("Validation Error");
-        }
-
-        next();
-
-    } catch (error) {
-        switch (error.message) {
-            case error.message:
-                return res.status(400).json({ error: 'Validation fails', messages: error.message });
-        }
-    }
+    if (!(await schema.isValid(req.body).catch(err => {})));
+    
+    return next();
 }
