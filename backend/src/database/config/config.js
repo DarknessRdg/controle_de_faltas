@@ -1,9 +1,5 @@
 const path = require('path');
 
-require('dotenv').config({
-  path: process.cwd() + '../../../environments/.env'
-});
-
 module.exports = {
   dialect: "sqlite",
   host: process.env.DB_HOST,
