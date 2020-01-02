@@ -9,6 +9,10 @@ class TeacherRepository {
     async getAll() {
         return await Teacher.findAll({});
     }
+
+    async findByEmail(email) {
+        return await Teacher.findOne({where: { email: email }});
+    }
 }
 
 export default new TeacherRepository();

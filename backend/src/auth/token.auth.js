@@ -37,3 +37,5 @@ class TokenAuth {
         });
     }
 }
+
+export default new TokenAuth();
