@@ -7,4 +7,16 @@ const teacher = {
 	registration: "12345787489"
 }
 
-export default { teacher };
+const credentialsTeacher = {
+
+    email: "nelson@gmail.com",
+	password: "admin@123"
+
+}
+
+export default { 
+
+    teacher, 
+    credentialsTeacher 
+
+};

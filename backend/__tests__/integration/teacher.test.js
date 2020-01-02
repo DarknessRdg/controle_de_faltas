@@ -7,10 +7,10 @@ const prefix = '/api/v1';
 
 describe('TEACHER', () => {
     
-    beforeEach(async () => {
+    beforeAll(async () => {
         await truncate();
     });
-
+    
     it('Create teacher', async (done) => {
 
         const res = await request(app)
@@ -22,4 +22,25 @@ describe('TEACHER', () => {
         done();
     });
 
+    it('Get token teacher', async (done) => {
+        
+        const res = await request(app)
+            .post(`${prefix}/sessions/`)
+            .send(mockes.credentialsTeacher);
+
+        expect(res.status).toBe(200);
+
+        done();
+    });
+
 });
+
+/* 
+
+beforeAll(): Executa apenas uma vez antes de iniciar os tests.
+afterAll(): Executa apenas uma vez depois de todos os tests.
+
+beforeEach(): Executa antes de cada caso de teste.
+afterEach(): Executa após cada caso de teste
+
+*/
