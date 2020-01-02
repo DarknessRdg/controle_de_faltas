@@ -8,7 +8,7 @@
     "build": "sucrase ./src -d ./dist --transforms imports",
     "pretest": "set NODE_ENV=test&& sequelize db:migrate",
     "test": "set NODE_ENV=test&& jest",
-    "posttest": "set NODE_ENV=test&& sequelize db:migrate:undo:all"
+    "postest": "set NODE_ENV=test&& sequelize db:migrate:undo:all"
   },
   "author": "Nelson Dias",
   "license": "MIT",
