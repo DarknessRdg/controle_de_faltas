@@ -20,11 +20,6 @@ module.exports = {
           type: Sequelize.STRING,
           allowNull: false
       },
-      
-      birthdate: {
-          type: Sequelize.DATE,
-          allowNull: false,
-      },
 
       email: {
           type: Sequelize.STRING,
@@ -45,7 +40,7 @@ module.exports = {
 
       is_supersu: {
           type: Sequelize.BOOLEAN,
-          defaultValue: false
+          defaultValue: true
       },
 
       createdAt: Sequelize.DATE,

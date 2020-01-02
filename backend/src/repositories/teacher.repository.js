@@ -6,7 +6,7 @@ class TeacherRepository {
         const teacher = new Teacher(data);
         return await teacher.save();
     }
-
+    
     async all() {
         return await Teacher.findAll({});
     }

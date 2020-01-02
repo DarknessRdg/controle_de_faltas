@@ -21,11 +21,6 @@ class Teacher extends Model {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            
-            birthdate: {
-                type: Sequelize.DATE,
-                allowNull: false,
-            },
 
             email: {
                 type: Sequelize.STRING,
@@ -46,9 +41,9 @@ class Teacher extends Model {
 
             is_supersu: {
                 type: Sequelize.BOOLEAN,
-                defaultValue: false
+                defaultValue: true
             },
-
+            
             createdAt: Sequelize.DATE,
             updatedAt: Sequelize.DATE
 
