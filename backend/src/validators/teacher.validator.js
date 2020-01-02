@@ -10,7 +10,7 @@ export default async (req, res, next) => {
         registration: Yup.string().required(),
         is_supersu: Yup.bool()
     });
-
+    
     try {
         
         if (!(await schema.isValid(req.body))) {

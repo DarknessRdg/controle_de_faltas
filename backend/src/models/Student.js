@@ -43,7 +43,7 @@ class Student extends Model {
                 allowNull: false,
                 unique: true
             },
-
+            
             identity: {
                 type: Sequelize.STRING(30),
                 allowNull: false,
