@@ -24,7 +24,7 @@ class Student extends Model {
             },
 
             password: {
-                type: Sequelize.VIRTUAL,
+                type: Sequelize.STRING,
                 allowNull: false
             },
 

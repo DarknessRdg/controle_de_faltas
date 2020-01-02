@@ -14,10 +14,8 @@ class LoginHandler {
             switch (error.message){
                 case 'ERR_INVALID_PASSWORD':
                     return res.status(401).json({ error: 'ERR_INVALID_PASSWORD' });
-                case 'ERR_STUDENT_NOT_FOUND':
-                    return res.status(401).json({ error: 'ERR_STUDENT_NOT_FOUND' });
-                case 'ERR_TEACHER_NOT_FOUND':
-                    return res.status(401).json({ error: 'ERR_TEACHER_NOT_FOUND' });
+                case 'ERR_USER_NOT_FOUND':
+                    return res.status(401).json({ error: 'ERR_USER_NOT_FOUND' });
                 case 'ERR_INVALID_TOKEN':
                     return res.status(401).json({ error: 'ERR_INVALID_TOKEN' });
                 default:
