@@ -1,6 +1,5 @@
 import teacherRepository from '../repositories/teacher.repository';
 import studentRepository from '../repositories/student.repository';
-import { LOGIN_EXPIRATION_TIME } from '../auth/config';
 import Token from './token.auth';
 import hash from './hash.auth';
 
@@ -11,8 +10,8 @@ class AuthenticateAuth {
         const student =  await studentRepository.findByIndentity(data.identity || null);
         const teacher = await teacherRepository.findByEmail(data.email || null);
         
-        if (!student && !teacher) { throw new Error('ERR_STUDENT_NOT_FOUND'); }
-        if (!teacher && !student) { throw new Error('ERR_TEACHER_NOT_FOUND'); }
+        if (!student && !teacher) { throw new Error('ERR_USER_NOT_FOUND'); }
+        if (!teacher && !student) { throw new Error('ERR_USER_NOT_FOUND'); }
 
         if (student) {
             const passwordOk = await hash.compare(data.password, student.password);

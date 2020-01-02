@@ -1,4 +1,3 @@
-import { ALGORITHM } from './config';
 import JWT from 'jsonwebtoken';
 
 class TokenAuth {
