@@ -12,7 +12,14 @@ class TeacherRepository {
 
     async getTeacher(id) {
         const teacher = [
-            'teacher_id','name','sex','email','registration','is_supersu'
+            'teacher_id',
+            'name',
+            'sex',
+            'email',
+            'registration',
+            'is_supersu',
+            'updatedAt',
+            'createdAt'
         ]
         return await Teacher.findOne({where: {teacher_id: id}, attributes: teacher});
     }

@@ -20,9 +20,9 @@ class FrequencyHandler {
             req.body['student_id'] = student.student_id;
             req.body['class_id'] = classs.class_id;
 
-            const frequency = await frequencyRepository.create(req.body);
+            await frequencyRepository.create(req.body);
 
-            return res.status(201).json(frequency);
+            return res.status(201);
 
         } catch (error) {
             

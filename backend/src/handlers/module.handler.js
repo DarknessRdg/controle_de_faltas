@@ -6,8 +6,8 @@ class ModuleHandler {
 
         try {
          
-            const modulee = await moduleRepository.create(req.body);
-            return res.status(201).json(modulee);
+            await moduleRepository.create(req.body);
+            return res.status(201);
 
         } catch (error) {
             switch (error.errors) {

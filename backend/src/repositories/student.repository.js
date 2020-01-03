@@ -11,7 +11,17 @@ class StudentRepository {
     }
 
     async getStudent(id) {
-        return await Student.findOne({where: {student_id: id}});
+        const student = [
+            'student_id', 
+            'name', 
+            'email', 
+            'registration', 
+            'phone', 
+            'identity',
+            'updatedAt',
+            'createdAt'
+        ]
+        return await Student.findOne({where: {student_id: id, attributes: student}});
     }
 
     async findByIndentity(identity) {

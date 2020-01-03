@@ -19,9 +19,9 @@ class ClassHandler {
             req.body['module_id'] = modulee.module_id;
             req.body['teacher_id'] = teacher.teacher_id;
             
-            const classs = await classRepository.create(req.body);
+            await classRepository.create(req.body);
 
-            return res.status(201).json(classs);
+            return res.status(201);
 
         } catch (error) {
             switch (error.message) {

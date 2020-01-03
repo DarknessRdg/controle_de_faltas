@@ -9,8 +9,8 @@ class TeacherHandler {
             
             const passwordHashed = await hash.encrypt(req.body.password);
             req.body.password = passwordHashed;
-            const teacher = await teacherRepository.create(req.body);
-            return res.status(201).json(teacher);
+            await teacherRepository.create(req.body);
+            return res.status(201);
 
         } catch (error) { 
             switch (error.errors) {
