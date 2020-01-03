@@ -1,3 +1,5 @@
+import teacherRepository from '../repositories/teacher.repository';
+import moduleRepository from '../repositories/module.repository';
 import classRepository from '../repositories/class.repository';
 
 class ClassHandler {
@@ -5,6 +7,11 @@ class ClassHandler {
     async store(req, res) {
 
         try {
+            
+            const teacher_id = await teacherRepository.getTeacher(req.auth.user_id);
+
+            req.body['module_id'] = req.params['module_id'];
+            req.body['teacher_id'] = teacher_id;
             
             const classs = await classRepository.create(req.body);
             return res.status(201).json(classs);

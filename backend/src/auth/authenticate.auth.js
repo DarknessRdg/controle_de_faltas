@@ -22,8 +22,8 @@ class AuthenticateAuth {
                 exp: Math.floor(Date.now() / 1000) + 7200,
                 info: 'api',
                 data: {
-                  student_id: student.student_id,
-                  student_name: student.name
+                  user_id: student.student_id,
+                  student: student.name
                 }
             };
 
@@ -42,8 +42,8 @@ class AuthenticateAuth {
                 exp: Math.floor(Date.now() / 1000) + 7200,
                 info: 'api',
                 data: {
-                  teacher_id: teacher.teacher_id,
-                  teacher_name: teacher.name
+                  user_id: teacher.teacher_id,
+                  teacher: teacher.name
                 }
             };
 

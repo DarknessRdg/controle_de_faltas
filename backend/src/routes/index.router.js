@@ -5,6 +5,7 @@ import moduleValidator from '../validators/module.validator';
 import teacherHandler from '../handlers/teacher.handler';
 import studentHandler from '../handlers/student.handler';
 import moduleHandler from '../handlers/module.handler';
+import classHandler from '../handlers/class.handler';
 import loginHandler from '../handlers/login.handler';
 import authToken from '../auth/token.auth';
 import { Router } from 'express';
@@ -19,5 +20,6 @@ router.post('/api/v1/students/', studentValidator, studentHandler.store)
 router.use(authToken.checkToken);
 
 router.post('/api/v1/modules/', moduleValidator, moduleHandler.store)
+router.post('/api/v1/class/:module_id/', classHandler.store)
 
 export default router;
