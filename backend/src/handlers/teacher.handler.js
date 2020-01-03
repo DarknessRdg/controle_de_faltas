@@ -19,6 +19,22 @@ class TeacherHandler {
             }
         }
     }
+
+    async index(req, res) {
+
+        try {
+            
+            const teacher = await teacherRepository.getTeacher(req.auth.data.user_id);
+            return res.status(200).json(teacher);
+            
+        } catch (error) { 
+            console.log(error)
+            switch (error.errors) {
+                case error.errors:
+                    return res.status(401).json({error: error.errors[0].message });
+            }
+        }
+    }
 }
 
 export default new TeacherHandler();

@@ -25,5 +25,6 @@ router.use(authToken.checkToken);
 router.post('/modules/', moduleValidator, moduleHandler.store)
 router.post('/class/:module_id/', classValidator, classHandler.store)
 router.post('/:class_id/frequency/:student_id/', frequencyValidator, frequencyHandler.store)
+router.get('/teachers/', teacherHandler.index)
 
 export default router;

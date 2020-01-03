@@ -22,6 +22,8 @@ npm run start
 
 ```bash
 npm run pretest
+
 npm run test
+
 npm run postest
 ```
