@@ -21,7 +21,7 @@ class StudentRepository {
             'updatedAt',
             'createdAt'
         ]
-        return await Student.findOne({where: {student_id: id, attributes: student}});
+        return await Student.findOne({where: {student_id: id}, attributes: student});
     }
 
     async findByIndentity(identity) {
