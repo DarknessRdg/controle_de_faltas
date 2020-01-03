@@ -19,7 +19,7 @@ class Class extends Model {
                 references: {
                     model: 'teacher',
                     key:  'teacher_id',
-                    as: 'teachers',
+                    as: 'class',
                 }
             },
 
@@ -56,12 +56,15 @@ class Class extends Model {
     }
 
     static associate (models) { 
+    
+        /* Relations (1, 1) Class -> Module */
+        this.belongsTo(models.Module, {as: 'modules', foreignKey: 'module_id', onDelete: 'cascade'});
 
-        /* Relations (1, N) */
-        this.hasMany(models.Teacher, {as: 'teachers', foreignKey: 'teacher_id', onDelete: 'cascade'});
+        /* Relations (1, 1) Class -> Teacher */
+        this.belongsTo(models.Teacher, {as: 'teachers', foreignKey: 'teacher_id', onDelete: 'cascade'});
         
-        /* Relations (1, N) */
-        this.hasMany(models.Module, {as: 'modules', foreignKey: 'module_id', onDelete: 'cascade'});
+        /* Relations (1, N) Class -> Frequency */
+        this.hasMany(models.Frequency, {as: 'frequences', foreignKey: 'class_id', onDelete: 'cascade'});
     }
 }
 

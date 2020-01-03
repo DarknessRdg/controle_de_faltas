@@ -27,6 +27,12 @@ class Module extends Model {
 
         return this;
     }
+
+    static associate (models) { 
+
+        /* Relations (1, N)  Module -> class */
+        this.hasMany(models.Class, {as: 'class', foreignKey: 'class_id', onDelete: 'cascade'});
+    }
 }
 
 export default Module;

@@ -1,4 +1,6 @@
+import Frequency from '../models/Frequency';
 import Student from '../models/Student';
+import Class from '../models/Class';
 
 class StudentRepository {
 
@@ -11,7 +13,19 @@ class StudentRepository {
     }
 
     async getStudent(id) {
-        return await Student.findOne({where: {student_id: id}});
+        const student = [
+            'student_id', 
+            'name', 
+            'email', 
+            'registration', 
+            'phone', 
+            'identity',
+            'updatedAt',
+            'createdAt'
+        ]
+        return await Student.findOne({where: {student_id: id}, attributes: student, include: [
+            {as: 'frequences', model: Frequency, include: [{as: 'classes', model: Class}]}
+        ]});
     }
 
     async findByIndentity(identity) {

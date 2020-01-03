@@ -19,15 +19,15 @@ class TokenAuth {
 
     async checkToken(req, res, next) {
         let token = req.headers.authorization;
-     
+        
         if (!token){
             return res.status(401).send({ auth: false, message: 'NO_TOKEN_PROVIDED' });
         }
 
         token = token.slice(7);
-
+       
         JWT.verify(token, SECRET_KEY, {algorithm: ALGORITHM}, (error, decodedToken) => {
-          
+           
             if (error){
                 switch (error.message){
                     case "jwt expired":

@@ -1,3 +1,5 @@
+import Frequency from '../models/Frequency';
+import Module from '../models/Module';
 import Class from '../models/Class';
 
 class ClassRepository {
@@ -11,7 +13,10 @@ class ClassRepository {
     }
     
     async getClass(id) {
-        return await Class.findOne({where: {class_id: id}});
+        return await Class.findOne({where: {class_id: id}, include: [
+            {as: 'modules', model: Module},
+            {as: 'frequences', model: Frequency} 
+        ]});
     }
 }
 
