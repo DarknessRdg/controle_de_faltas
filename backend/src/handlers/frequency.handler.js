@@ -10,10 +10,10 @@ class FrequencyHandler {
             
             const student_id = req.params['student_id'];
             const class_id = req.params['class_id'];
-            
+          
             const student = await studentRepository.getStudent(student_id);
             const classs = await classRepository.getClass(class_id);
-
+            
             if (!student) { throw new Error('STUDENT NOT FOUND'); }
             if (!classs) { throw new Error('CLASS NOT FOUND'); }
             
@@ -25,6 +25,7 @@ class FrequencyHandler {
             return res.status(201).json(frequency);
 
         } catch (error) {
+            
             switch (error.message) {
                 case 'STUDENT NOT FOUND': 
                     return res.status(404).json({error: 'STUDENT NOT FOUND' });
