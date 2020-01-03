@@ -51,12 +51,12 @@ class Frequency extends Model {
     }
 
     static associate (models) { 
-
-        /* Relations (1, N) */
-        this.hasMany(models.Class, {as: 'classes', foreignKey: 'class_id', onDelete: 'cascade'});
         
-        /* Relations (1, N) */
-        this.hasMany(models.Student, {as: 'students', foreignKey: 'student_id', onDelete: 'cascade'});
+        /* Relations (1, 1)  Frenquency -> Class */
+        this.belongsTo(models.Class, {as: 'classes', foreignKey: 'class_id', onDelete: 'cascade'});
+        
+        /* Relations (1, 1) Frequency -> Student */
+        this.belongsTo(models.Student, {as: 'students', foreignKey: 'student_id', onDelete: 'cascade'});
     }
 }
 

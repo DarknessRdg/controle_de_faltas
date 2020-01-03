@@ -19,7 +19,7 @@ module.exports = {
           references: {
               model: 'teacher',
               key:  'teacher_id',
-              as: 'teachers',
+              as: 'class',
           }
       },
 

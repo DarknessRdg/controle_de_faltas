@@ -59,6 +59,12 @@ class Student extends Model {
 
         return this;
     }
+
+    static associate (models) { 
+
+        /* Relations (1, N)  Student -> Frequency */
+        this.hasMany(models.Frequency, {as: 'frequences', foreignKey: 'frequency_id', onDelete: 'cascade'});
+    }
 }
 
 export default Student;

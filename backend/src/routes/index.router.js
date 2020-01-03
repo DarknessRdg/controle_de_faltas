@@ -27,5 +27,7 @@ router.post('/class/:module_id/', classValidator, classHandler.store)
 router.post('/:class_id/frequency/:student_id/', frequencyValidator, frequencyHandler.store)
 router.get('/teachers/', teacherHandler.index)
 router.get('/students/', studentHandler.index)
+router.get('/class/:class_id/', classHandler.index)
+router.get('/frequency/:frequency_id/', frequencyHandler.index)
 
 export default router;
