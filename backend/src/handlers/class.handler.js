@@ -15,7 +15,7 @@ class ClassHandler {
             if (!modulee) { throw new Error("MODULE NOT FOUND"); }
 
             const teacher = await teacherRepository.getTeacher(req.auth.data.user_id);
-
+            
             req.body['module_id'] = modulee.module_id;
             req.body['teacher_id'] = teacher.teacher_id;
             

@@ -11,7 +11,7 @@ class ClassRepository {
     }
     
     async getClass(id) {
-        return await Module.findOne({where: {class_id: id}});
+        return await Class.findOne({where: {class_id: id}});
     }
 }
 

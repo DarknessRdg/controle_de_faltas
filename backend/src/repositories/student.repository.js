@@ -10,6 +10,10 @@ class StudentRepository {
         return await Student.findAll({});
     }
 
+    async getStudent(id) {
+        return await Student.findOne({where: {student_id: id}});
+    }
+
     async findByIndentity(identity) {
         return await Student.findOne({where: { identity: identity }});
     }
