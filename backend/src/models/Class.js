@@ -35,7 +35,7 @@ class Class extends Model {
             },
             
             date: {
-                type: Sequelize.DATE,
+                type: Sequelize.STRING,
                 allowNull: false,
             },
             

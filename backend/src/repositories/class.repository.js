@@ -9,7 +9,7 @@ class ClassRepository {
     async getAll() {
         return await Class.findAll({});
     }
-
+    
     async getClass(id) {
         return await Module.findOne({where: {class_id: id}});
     }

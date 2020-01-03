@@ -11,7 +11,11 @@ class TeacherRepository {
     }
 
     async getTeacher(id) {
-        return await Teacher.findOne({where: { teacher_id: id }});
+        return await Teacher.findOne({where: {teacher_id: id}});
+    }
+
+    async findByEmail(email) {
+        return await Teacher.findOne({where: {email: email}});
     }
 }
 
