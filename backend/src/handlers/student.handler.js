@@ -19,6 +19,21 @@ class StudentHandler {
             }
         }
     }
+
+    async index(req, res) {
+
+        try {
+            
+            const student = await studentRepository.getStudent(req.auth.data.user_id);
+            return res.status(200).json(student);
+            
+        } catch (error) { 
+            switch (error.errors) {
+                case error.errors:
+                    return res.status(401).json({error: error.errors[0].message });
+            }
+        }
+    }
 }
 
 export default new StudentHandler();
