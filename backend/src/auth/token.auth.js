@@ -17,15 +17,17 @@ class TokenAuth {
         return Token;
     }
 
-    checkToken(req, res, next) {
-        let token = req.headers['authorization'].slice(7);
-
+    async checkToken(req, res, next) {
+        let token = req.headers.authorization;
+     
         if (!token){
             return res.status(401).send({ auth: false, message: 'NO_TOKEN_PROVIDED' });
         }
 
+        token = token.slice(7);
+
         JWT.verify(token, SECRET_KEY, {algorithm: ALGORITHM}, (error, decodedToken) => {
-        
+          
             if (error){
                 switch (error.message){
                     case "jwt expired":
@@ -35,7 +37,7 @@ class TokenAuth {
                 }
             }
             
-            req.body = decodedToken; /* Pega os dados decodificados do token, e passa para o body da resquest. */
+            req.auth = decodedToken; /* Pega os dados decodificados do token, e cria uma nova key no resquest. */
             
             next();
         });

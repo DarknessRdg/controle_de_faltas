@@ -5,7 +5,7 @@ class ModuleHandler {
     async store(req, res) {
 
         try {
-            
+         
             const modulee = await moduleRepository.create(req.body);
             return res.status(201).json(modulee);
 
