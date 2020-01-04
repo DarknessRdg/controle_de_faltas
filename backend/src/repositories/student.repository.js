@@ -24,7 +24,7 @@ class StudentRepository {
             'createdAt'
         ]
         return await Student.findOne({where: {student_id: id}, attributes: student, include: [
-            {as: 'frequences', model: Frequency, include: [{as: 'classes', model: Class}]}
+            {all: true}
         ]});
     }
 

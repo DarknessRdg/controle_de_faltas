@@ -30,12 +30,12 @@ npm run postest
 
 | Endpoints 				| Verbos						| Funcionalidade |
 |:---------:				|:-----:						|:----------------|
-| www.hostname.com/sessions/ | POST | Login, recebe um token.
-| www.hostname.com/teachers/ | POST, GET | Listagem de um item, e cadastro do teacher
-| www.hostname.com/students/ | POST, GET |Listagem de um item, e cadastro do student
-| www.hostname.com/modules/ | POST | Cadastro do modulo		
-| www.hostname.com/class/module_id/ | POST | Cadastro da aula
-| www.hostname.com/class/class_id/ | GET | Listagem de um item aula
-| www.hostname.com/class_id/frequency/student_id/ | POST | Cadastro frequencia
-| www.hostname.com/frequency/frequency_id/ | GET | Listagem de um item frequency
+| http://www.hostname.com/sessions/ | POST | Login, recebe um token.
+| http://www.hostname.com/teachers/ | POST, GET | Listagem de um item, e cadastro do teacher
+| http://www.hostname.com/students/ | POST, GET |Listagem de um item, e cadastro do student
+| http://www.hostname.com/modules/ | POST | Cadastro do modulo		
+| http://www.hostname.com/class/module_id/ | POST | Cadastro da aula
+| http://www.hostname.com/class/class_id/ | GET | Listagem de um item aula
+| http://www.hostname.com/class_id/frequency/student_id/ | POST | Cadastro frequencia
+| http://www.hostname.com/frequency/frequency_id/ | GET | Listagem de um item frequency
 			

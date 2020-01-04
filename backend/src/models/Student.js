@@ -63,7 +63,7 @@ class Student extends Model {
     static associate (models) { 
 
         /* Relations (1, N)  Student -> Frequency */
-        this.hasMany(models.Frequency, {as: 'frequences', foreignKey: 'frequency_id', onDelete: 'cascade'});
+        this.hasMany(models.Frequency, {as: 'frequences', foreignKey: 'student_id', onDelete: 'cascade'});
     }
 }
 
