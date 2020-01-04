@@ -1,24 +1,48 @@
 import React, {useEffect, useRef} from 'react';
+import Api from '../../services/Api';
 import M from 'materialize-css';
 import './styles.css';
 
 
-export default (props) => {
-    const username = useRef();
+export default () => {
+    const email = useRef();
+    const messageError = useRef();
     const password = useRef();
 
     useEffect(() => {
         M.AutoInit();
     }, [])
 
-    const authenticate = (e) => {
-        e.preventDefault();
-        // TODO
-    }
+    const authenticate = async (e) => {
+        e.preventDefault()
+        
+        const data = {
+            email: email.current.value,
+            password: password.current.value
+        }
+        
+        try {
+            const response = await Api.post('/sessions', data);
+        
+            const {token} = response.data;
 
-    useEffect(() => {
-        M.AutoInit()
-    }, [])
+            localStorage.setItem('@user/token', token);
+
+            const headers = {'Authorization': 'Bearer ' + token}
+            let urlPush;
+            try {
+                await Api.get('/teachers', {headers})
+                urlPush = `home/teacher`
+            } catch (error) {
+                return
+                // urlPush = `/home/stuendt/${token}`
+            }
+
+            window.location.href = window.location.href.replace('?', '') + urlPush
+        } catch (error) {
+            messageError.current.classList.remove('hide')
+        }
+    }
 
     
     return (
@@ -29,8 +53,8 @@ export default (props) => {
                     <form className="row pt-5 mb-0">
                         <div className="input-field col s12 m10 offset-m1">
                             <i className="material-icons prefix">account_circle</i>
-                            <input ref={username} id="username" type="text" />
-                            <label htmlFor="username">Usuário</label>
+                            <input ref={email} id="email" type="email" />
+                            <label htmlFor="email">Email</label>
                             
                         </div>
 
@@ -39,7 +63,7 @@ export default (props) => {
                             <input ref={password} id="password" type="password"/>
                             <label htmlFor="password">Senha</label>
                          </div>
-                        
+                        <p ref={messageError} className="red-text center hide">Email ou senha inválido.</p>
                         <div className="row">
                             <button 
                                 className="btn col s4 offset-s1 mt-4" 
@@ -50,6 +74,7 @@ export default (props) => {
                                 className="modal-close btn col s4 offset-s2 mt-4 red lighten-1"
                                 type="submit">Cacelar</button>
                         </div>
+                        
                     </form>
                 </div>
 
