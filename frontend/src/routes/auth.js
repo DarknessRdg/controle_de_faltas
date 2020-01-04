@@ -2,7 +2,7 @@
 
 
 const isAuthenticated = () => {
-    return true;
+    return localStorage.getItem('@user/token') ? true : false
 }
 
 
