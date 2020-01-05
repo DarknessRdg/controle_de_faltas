@@ -49,6 +49,11 @@ module.exports = {
           allowNull: false,
           unique: true
       },
+      
+      is_supersu: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
 
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE
