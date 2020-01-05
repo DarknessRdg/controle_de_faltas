@@ -22,13 +22,15 @@ class AuthenticateAuth {
                 exp: Math.floor(Date.now() / 1000) + 7200,
                 info: 'api',
                 data: {
-                  is_supersu: student.is_supersu
+                    id: student.student_id,
+                    is_supersu: student.is_supersu
                 }
             };
 
+            const id = student.student_id;
             const token = await Token.generate(JWTData);
 
-            return { token };
+            return { id, token };
         }
 
         if (teacher) {
@@ -41,13 +43,15 @@ class AuthenticateAuth {
                 exp: Math.floor(Date.now() / 1000) + 7200,
                 info: 'api',
                 data: {
-                  is_supersu: teacher.is_supersu
+                    id: teacher.teacher_id,
+                    is_supersu: teacher.is_supersu
                 }
             };
 
+            const id = teacher.teacher_id;
             const token = await Token.generate(JWTData);
 
-            return { token };
+            return { id, token };
         }
     }
 }

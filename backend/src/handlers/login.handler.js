@@ -6,9 +6,9 @@ class LoginHandler {
 
         try {
             
-            const { token } = await authenticateAuth.login(req.body);
+            const { id, token } = await authenticateAuth.login(req.body);
             
-            return res.status(200).json({ token: token }); 
+            return res.status(200).json({ id: id, token: token }); 
 
         } catch (error) {
             switch (error.message){
