@@ -4,7 +4,6 @@ import app from '../../src/app/App';
 import request from 'supertest';
 import { expect } from 'chai';
 
-const prefix = '/api/v1';
 
 describe('STUDENT', () => {
     
@@ -15,8 +14,8 @@ describe('STUDENT', () => {
     it('Create student', async (done) => {
 
         const res = await request(app)
-            .post(`${prefix}/students/`)
-            .send(mockes.student);
+            .post('/students/')
+            .send(mockes.student01);
                 
         expect(res.status).to.equal(201);
         
@@ -26,11 +25,12 @@ describe('STUDENT', () => {
     it('Get token student', async (done) => {
         
         const { status, body } = await request(app)
-            .post(`${prefix}/sessions/`)
+            .post('/sessions/')
             .send(mockes.credentialsStudent);
 
         expect(status).to.equal(200);
         expect(body).to.have.property('token');
+        expect(body).to.have.property('id');
 
         done();
     });

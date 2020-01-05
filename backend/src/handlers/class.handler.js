@@ -12,9 +12,11 @@ class ClassHandler {
 
             const modulee = await moduleRepository.getModule(module_id);
 
+            if (!req.auth.data.is_supersu) { throw new Error('UNAUTHORIZED ACCESS'); }  
+            
             if (!modulee) { throw new Error("MODULE NOT FOUND"); }
 
-            const teacher = await teacherRepository.getTeacher(req.auth.data.user_id);
+            const teacher = await teacherRepository.getTeacher(req.auth.data.id);
             
             req.body['module_id'] = modulee.module_id;
             req.body['teacher_id'] = teacher.teacher_id;
@@ -25,6 +27,8 @@ class ClassHandler {
 
         } catch (error) {
             switch (error.message) {
+                case 'UNAUTHORIZED ACCESS': 
+                    return res.status(404).json({error: 'UNAUTHORIZED ACCESS' });
                 case "MODULE NOT FOUND": 
                     return res.status(404).json({error: 'MODULE NOT FOUND' });
                 case error.errors:

@@ -35,7 +35,7 @@ class FrequencyHandler {
             }
         }
     }
-
+    
     async show(req, res) {
 
         try {
