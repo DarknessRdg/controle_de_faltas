@@ -8,8 +8,8 @@ class FrequencyHandler {
 
         try {
             
-            const student_id = req.params['student_id'];
-            const class_id = req.params['class_id'];
+            const { student_id } = req.params;
+            const { class_id } = req.params;
           
             const student = await studentRepository.getStudent(student_id);
             const classs = await classRepository.getClass(class_id);
@@ -36,11 +36,11 @@ class FrequencyHandler {
         }
     }
 
-    async index(req, res) {
+    async show(req, res) {
 
         try {
             
-            const frequency_id = req.params['frequency_id'];
+            const { frequency_id } = req.params;
 
             const frequency = await frequencyRepository.getFrequency(frequency_id);
 

@@ -1,6 +1,4 @@
-import Frequency from '../models/Frequency';
 import Student from '../models/Student';
-import Class from '../models/Class';
 
 class StudentRepository {
 
@@ -9,7 +7,17 @@ class StudentRepository {
     }
 
     async getAll() {
-        return await Student.findAll({});
+        const student = [
+            'student_id', 
+            'name', 
+            'email', 
+            'registration', 
+            'phone', 
+            'identity',
+            'updatedAt',
+            'createdAt'
+        ]
+        return await Student.findAll({attributes: student});
     }
 
     async getStudent(id) {
@@ -23,9 +31,8 @@ class StudentRepository {
             'updatedAt',
             'createdAt'
         ]
-        return await Student.findOne({where: {student_id: id}, attributes: student, include: [
-            {all: true}
-        ]});
+        return await Student.findOne({where: {student_id: id}, 
+            attributes: student, include: [ {all: true} ]});
     }
 
     async findByIndentity(identity) {

@@ -3,12 +3,12 @@ import moduleRepository from '../repositories/module.repository';
 import classRepository from '../repositories/class.repository';
 
 class ClassHandler {
-
+    
     async store(req, res) {
 
         try {
             
-            const module_id = req.params['module_id'];
+            const { module_id } = req.params;
 
             const modulee = await moduleRepository.getModule(module_id);
 
@@ -34,11 +34,11 @@ class ClassHandler {
     }
 
     
-    async index(req, res) {
+    async show(req, res) {
 
         try {
             
-            const class_id = req.params['class_id'];
+            const { class_id } = req.params;
             
             const classs = await classRepository.getClass(class_id);
 

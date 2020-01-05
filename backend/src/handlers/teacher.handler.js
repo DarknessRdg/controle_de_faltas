@@ -20,11 +20,12 @@ class TeacherHandler {
         }
     }
 
-    async index(req, res) {
+    async show(req, res) {
 
         try {
             
-            const teacher = await teacherRepository.getTeacher(req.auth.data.user_id);
+            const { id } = req.params;
+            const teacher = await teacherRepository.getTeacher(id);
             return res.status(200).json(teacher);
             
         } catch (error) {

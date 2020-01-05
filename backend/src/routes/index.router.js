@@ -25,9 +25,10 @@ router.use(authToken.checkToken);
 router.post('/modules/', moduleValidator, moduleHandler.store)
 router.post('/class/:module_id/', classValidator, classHandler.store)
 router.post('/:class_id/frequency/:student_id/', frequencyValidator, frequencyHandler.store)
-router.get('/teachers/', teacherHandler.index)
+router.get('/teachers/:id/', teacherHandler.show)
+router.get('/students/:id/', studentHandler.show)
 router.get('/students/', studentHandler.index)
-router.get('/class/:class_id/', classHandler.index)
-router.get('/frequency/:frequency_id/', frequencyHandler.index)
+router.get('/class/:class_id/', classHandler.show)
+router.get('/frequency/:frequency_id/', frequencyHandler.show)
 
 export default router;
