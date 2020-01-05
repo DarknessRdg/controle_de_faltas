@@ -4,6 +4,8 @@ import M from 'materialize-css';
 import './styles.css';
 
 import ClassModules from  '../../../components/ClassModules';
+import SideNavBar from '../../../components/SideNavBar';
+import SideNavBody from './SideNavBody';
 
 
 export default () => {
@@ -22,16 +24,13 @@ export default () => {
         getUser();
     }, [])
     
-    return (
-        <div className="row">
-            <div className="col s12">
-                <ul className="tabs">
-                    <li className="tab col s3"><a href="#schedule">Cronograma</a></li>
-                    <li className="tab col s3"><a href="#students">Alunos</a></li>
-                </ul>
-            </div>
+    const sideNavTarget = 'side-nav'
+    return (<>
+        <SideNavBar user={user} id={sideNavTarget} body={ <SideNavBody /> } />
 
-            <div id="schedule" className="col s12">
+        <div className="row">
+            <div id="modules" className="col s12">
+                <h3 className="center">Saiba mais!</h3>
                 <ClassModules modules={[
                     {
                         header: {
@@ -43,7 +42,8 @@ export default () => {
                         header: {
                             name: 'Python',
                         },
-                        body: <span>Lorem ipsum dolor sit amet.</span>
+                        body: <p className="text-justify">Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991. Atualmente possui um modelo de desenvolvimento comunitário, aberto e gerenciado pela organização sem fins lucrativos Python Software Foundation. Apesar de várias partes da linguagem possuírem padrões e especificações formais, a linguagem como um todo não é formalmente especificada. O padrão de facto é a implementação CPython.
+                        A linguagem foi projetada com a filosofia de enfatizar a importância do esforço do programador sobre o esforço computacional. Prioriza a legibilidade do código sobre a velocidade ou expressividade. Combina uma sintaxe concisa e clara com os recursos poderosos de sua biblioteca padrão e por módulos e frameworks desenvolvidos por terceiros.</p>
                     },
                     {
                         header: {
@@ -53,8 +53,6 @@ export default () => {
                     }
                 ]} />
             </div>
-            <div id="students" className="col s12">Alunos</div>
         </div>
-                
-    )
+    </>)
 }

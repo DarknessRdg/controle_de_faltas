@@ -32,7 +32,7 @@ export default () => {
             let urlPush;
             try {
                 await Api.get('/teachers', {headers})
-                urlPush = `home/teacher`
+                urlPush = `home`
             } catch (error) {
                 return
                 // urlPush = `/home/stuendt/${token}`
