@@ -3,8 +3,6 @@ import M from 'materialize-css';
 
 
 export default (props) => {
-    // const {user} = props;
-
     useEffect(() => {
         M.AutoInit();
     },[])
