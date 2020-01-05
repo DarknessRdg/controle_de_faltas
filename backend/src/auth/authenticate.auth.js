@@ -19,7 +19,7 @@ class AuthenticateAuth {
             if (!passwordOk) { throw new Error('ERR_INVALID_PASSWORD'); }
 
             const JWTData = {
-                exp: Math.floor(Date.now() / 1000) + 7200,
+                exp: Math.floor(Date.now() / 1000) + 54200,
                 info: 'api',
                 data: {
                     id: student.student_id,
@@ -38,9 +38,9 @@ class AuthenticateAuth {
             const passwordOk = await hash.compare(data.password, teacher.password);
 
             if (!passwordOk) { throw new Error('ERR_INVALID_PASSWORD'); }
-
+            
             const JWTData = {
-                exp: Math.floor(Date.now() / 1000) + 7200,
+                exp: Math.floor(Date.now() / 1000) + 54200,
                 info: 'api',
                 data: {
                     id: teacher.teacher_id,

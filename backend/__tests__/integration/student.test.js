@@ -1,6 +1,6 @@
 import truncate from '../utils/truncate';
 import mockes from '../utils/mockes';
-import app from '../../src/app/App';
+import App from '../../src/app/App';
 import request from 'supertest';
 import { expect } from 'chai';
 
@@ -14,7 +14,7 @@ describe('STUDENT', () => {
     
     it('Create student', async (done) => {
 
-        const res = await request(app)
+        const res = await request(App)
             .post(`${prefix}/students/`)
             .send(mockes.student);
                 
@@ -31,6 +31,7 @@ describe('STUDENT', () => {
 
         expect(status).to.equal(200);
         expect(body).to.have.property('token');
+        expect(body).to.have.property('id');
 
         done();
     });

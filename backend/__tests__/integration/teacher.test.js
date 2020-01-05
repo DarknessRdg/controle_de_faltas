@@ -17,7 +17,7 @@ describe('TEACHER', () => {
         const res = await request(app)
             .post(`${prefix}/teachers/`)
             .send(mockes.teacher);
-                
+        console.log(res)
         expect(res.status).to.equal(201);
         
         done();
@@ -31,6 +31,7 @@ describe('TEACHER', () => {
 
         expect(status).to.equal(200);
         expect(body).to.have.property('token');
+        expect(body).to.have.property('id');
 
         done();
     });
