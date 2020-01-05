@@ -15,7 +15,7 @@ const credentialsTeacher = {
 
 }
 
-const student = {
+const student01 = {
 
     name: "carlos",
 	sex: "masculino",
@@ -27,6 +27,18 @@ const student = {
     
 }
 
+const student02 = {
+
+    name: "carlos",
+	sex: "masculino",
+	email: "luan@gmail.com",
+	password: "test@123",
+	registration: "123457874787889",
+	phone: "999555555",
+    identity: "9878897889"
+    
+}
+
 const credentialsStudent = {
 
     identity: "98787889",
@@ -34,12 +46,12 @@ const credentialsStudent = {
 
 }
 
-
 export default { 
 
     teacher, 
     credentialsTeacher,
-    student,
+    student01,
+    student02,
     credentialsStudent
 
 };

@@ -13,7 +13,7 @@ class ConnectionDatabase {
         this.init();
     }
     
-    async init() {
+    init() {
         
         this.connection = new Sequelize(databaseConfig);
       
@@ -21,7 +21,7 @@ class ConnectionDatabase {
         .map(model => model.init(this.connection))
         .map(model => model.associate && model.associate(this.connection.models));
 
-        await this.connection.authenticate().then((msg) => {
+        this.connection.authenticate().then((msg) => {
             console.log("\nDatabase started successfully\n");
         });
     }
