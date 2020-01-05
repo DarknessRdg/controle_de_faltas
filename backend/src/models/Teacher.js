@@ -38,7 +38,7 @@ class Teacher extends Model {
                 allowNull: false,
                 unique: true
             },
-
+            
             is_supersu: {
                 type: Sequelize.BOOLEAN,
                 defaultValue: true

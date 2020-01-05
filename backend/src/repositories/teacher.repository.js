@@ -25,11 +25,9 @@ class TeacherRepository {
             'createdAt'
         ]
     
-       return await Teacher.findOne({where: {teacher_id: id},  attributes: teacher, 
-        include: [{as: 'class', model: Class,
-        //include: [{as: 'modules', model: Module}],
-        include: [{as: 'frequences', model: Frequency}]    
-    }]});
+       return await Teacher.findOne({where: {teacher_id: id}, attributes: teacher,
+        include: [{ all: true , include: [{ all: true}]}
+    ]});
     }
 
     async findByEmail(email) {

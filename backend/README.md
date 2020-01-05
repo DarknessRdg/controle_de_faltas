@@ -28,14 +28,17 @@ npm run test
 npm run postest
 ```
 
-| Endpoints 				| Verbos						| Funcionalidade |
-|:---------:				|:-----:						|:----------------|
-| www.hostname.com/sessions/ | POST | Login, recebe um token.
-| www.hostname.com/teachers/ | POST, GET | Listagem de um item, e cadastro do teacher
-| www.hostname.com/students/ | POST, GET |Listagem de um item, e cadastro do student
-| www.hostname.com/modules/ | POST | Cadastro do modulo		
-| www.hostname.com/class/module_id/ | POST | Cadastro da aula
-| www.hostname.com/class/class_id/ | GET | Listagem de um item aula
-| www.hostname.com/class_id/frequency/student_id/ | POST | Cadastro frequencia
-| www.hostname.com/frequency/frequency_id/ | GET | Listagem de um item frequency
+| Endpoints 				| Verbs			|Authorization			| Features |
+|:---------:				|:-----:			|:------------:		|:----------------|
+| http://www.hostname.com/sessions/ | POST | ALL | Login, recebe um token.
+| http://www.hostname.com/teachers/ | POST | ALL | Cadastro do teacher.
+| http://www.hostname.com/students/ | POST | ALL | Cadastro do student.
+| http://www.hostname.com/students/ | GET | TEACHER | Lista todos os students 
+| http://www.hostname.com/teachers/id/ | GET | TEACHER |Listagem de um item teacher.
+| http://www.hostname.com/students/id/ | GET | ALL | Listagem de um item student.
+| http://www.hostname.com/modules/ | POST | TEACHER | Cadastro do modulo.		
+| http://www.hostname.com/class/module_id/ | POST | TEACHER | Cadastro da aula.
+| http://www.hostname.com/class/id/ | GET | ALL |Listagem de um item aula.
+| http://www.hostname.com/class_id/frequency/student_id/ | POST | TEACHER | Cadastro frequencia.
+| http://www.hostname.com/frequency/id/ | GET | ALL | Listagem de um item frequency.
 			
