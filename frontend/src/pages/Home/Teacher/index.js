@@ -13,9 +13,11 @@ export default () => {
 
     async function getUser() {
         const token = localStorage.getItem('@user/token');
+        const userId = localStorage.getItem('@user/id');
+        console.log(userId)
         
         const header = {headers: {'Authorization': `Bearer ${token}`}}
-        const {data} = await Api.get('/teachers/', header)
+        const {data} = await Api.get(`/students/${userId}`, header)
         setUser(data)
     }
 
@@ -26,7 +28,7 @@ export default () => {
     
     const sideNavTarget = 'side-nav'
     return (<>
-        <SideNavBar user={user} id={sideNavTarget} body={ <SideNavBody /> } />
+        <SideNavBar user={user} id={sideNavTarget} body={ <SideNavBody user={user} /> } />
 
         <div className="row">
             <div id="modules" className="col s12">

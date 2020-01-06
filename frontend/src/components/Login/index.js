@@ -1,41 +1,43 @@
-import React, {useEffect, useRef} from 'react';
-import Api from '../../services/Api';
-import M from 'materialize-css';
-import './styles.css';
+import React, {useEffect, useRef} from 'react'
+import Api from '../../services/Api'
+import M from 'materialize-css'
+import './styles.css'
 
 
 export default () => {
-    const email = useRef();
-    const messageError = useRef();
-    const password = useRef();
+    const identity = useRef()
+    const messageError = useRef()
+    const password = useRef()
 
     useEffect(() => {
-        M.AutoInit();
+        M.AutoInit()
     }, [])
 
     const authenticate = async (e) => {
         e.preventDefault()
         
         const data = {
-            email: email.current.value,
+            identity: identity.current.value,
             password: password.current.value
         }
         
         try {
-            const response = await Api.post('/sessions', data);
+            const response = await Api.post('/sessions', data)
         
-            const {token} = response.data;
+            const {token} = response.data
+            const userId = response.data.id
 
-            localStorage.setItem('@user/token', token);
+            localStorage.setItem('@user/token', token)
+            localStorage.setItem('@user/id', userId)
 
             const headers = {'Authorization': 'Bearer ' + token}
-            let urlPush;
+            let urlPush
             try {
-                await Api.get('/teachers', {headers})
-                urlPush = `home`
+                await Api.get(`/students/${userId}`, {headers})
+                urlPush = 'home'
             } catch (error) {
+                messageError.current.classList.remove('hide')
                 return
-                // urlPush = `/home/stuendt/${token}`
             }
 
             window.location.href = window.location.href.replace('?', '') + urlPush
@@ -53,8 +55,8 @@ export default () => {
                     <form className="row pt-5 mb-0">
                         <div className="input-field col s12 m10 offset-m1">
                             <i className="material-icons prefix">account_circle</i>
-                            <input ref={email} id="email" type="email" />
-                            <label htmlFor="email">Email</label>
+                            <input ref={identity} id="identity" type="text" />
+                            <label htmlFor="identity">identity</label>
                             
                         </div>
 
@@ -63,7 +65,7 @@ export default () => {
                             <input ref={password} id="password" type="password"/>
                             <label htmlFor="password">Senha</label>
                          </div>
-                        <p ref={messageError} className="red-text center hide">Email ou senha inválido.</p>
+                        <p ref={messageError} className="red-text center hide">identity ou senha inválido.</p>
                         <div className="row">
                             <button 
                                 className="btn col s4 offset-s1 mt-4" 
