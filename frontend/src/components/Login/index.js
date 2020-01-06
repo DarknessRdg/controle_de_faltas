@@ -3,7 +3,7 @@ import M from 'materialize-css';
 import './styles.css';
 
 
-export default (props) => {
+export default () => {
     const username = useRef();
     const password = useRef();
 
@@ -15,11 +15,6 @@ export default (props) => {
         e.preventDefault();
         // TODO
     }
-
-    useEffect(() => {
-        M.AutoInit()
-    }, [])
-
     
     return (
         <div id="login" className="modal ">

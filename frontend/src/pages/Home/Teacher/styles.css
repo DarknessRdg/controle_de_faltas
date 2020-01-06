@@ -1,0 +1,21 @@
+.tabs {
+    
+}
+
+.tabs .tab a{
+    color:#26a69a;
+}
+
+.tabs .tab a:hover {
+    background-color:#eee;
+    color:#26a69a;
+}
+
+.tabs .tab a.active {
+    background-color:#eee !important;
+    color:#26a69a;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color:#26a69a;
+} /*Color of underline*/
