@@ -1,5 +1,7 @@
 import React from 'react'
 
+import logout from '../../../routes/logout'
+
 
 export default (props) => {
     const {user} = props
@@ -18,6 +20,6 @@ export default (props) => {
         <li><a href="#!">Minhas presenças</a></li>
         <li><a href="#!">Material</a></li>
         <li><a href="#!">Configuração</a></li>
-        <li><a href="#!">Sair</a></li>
+        <li><a href="#!" onClick={() => {logout()}}>Sair</a></li>
     </>)
 }

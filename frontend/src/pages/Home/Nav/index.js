@@ -1,5 +1,6 @@
 import React from 'react'
 import M from 'materialize-css'
+import redirect from '../../../routes/redirect'
 
 
 export default (props) => {
@@ -21,7 +22,8 @@ export default (props) => {
             </a>
 
             <ul className="right hide-on-med-and-down">
-                <li><a href="#!">Aulas</a></li>
+                <li><a href="#!" 
+                    onClick={() => redirect('/class')}>Aulas</a></li>
                 <li><a href="#!">Minhas presenças</a></li>
                 <li><a href="#!">Material</a></li>
                 <li className="mr-2"><a className="dropdown-trigger" href="#!" data-target="dropdown1">

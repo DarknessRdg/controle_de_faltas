@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Welcome from "../pages/Welcome";
 import HomeTeacher from '../pages/Home/Teacher';
 import Nav from '../pages/Home/Nav';
+
+import StudentClasses from '../pages/StudentClasses';
 import NotAuthenticated from '../pages/NotAuthenticated';
 import PrivateRoute from './privateRoute';
 
@@ -18,7 +20,10 @@ const Routes = () => (
             <Route exact path='/' component={Welcome} />
             <Route exact path='/not-authenticated' component={NotAuthenticated} />
             <PrivateRoute exact path='/home' component={HomeTeacher} />
+            <PrivateRoute exact path='/class' component={StudentClasses} />
         </Switch>
+        
+        
     </BrowserRouter>
 )
 
