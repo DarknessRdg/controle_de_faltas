@@ -1,10 +1,25 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import Api from '../../services/Api'
 
-import logout from '../../../routes/logout'
+import logout from '../../routes/logout'
 
 
-export default (props) => {
-    const {user} = props
+export default () => {
+    const [user, setUser] = useState({})
+
+    async function getUser() {
+        const token = localStorage.getItem('@user/token');
+        const userId = localStorage.getItem('@user/id');
+        
+        const header = {headers: {'Authorization': `Bearer ${token}`}}
+        const {data} = await Api.get(`/students/${userId}`, header)
+        setUser(data)
+    }
+
+    useEffect(() => {
+        getUser();
+    }, [])
+    
 
 
     return (<>

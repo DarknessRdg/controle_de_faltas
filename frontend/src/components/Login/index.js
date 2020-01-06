@@ -43,7 +43,6 @@ export default (props) => {
             
             redirect('/home')
         } catch (error) {
-            console.log(error)
             messageError.current.classList.remove('hide')
         }
     }

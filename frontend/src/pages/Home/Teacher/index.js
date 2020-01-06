@@ -1,35 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import Api from '../../../services/Api';
+import React, {useEffect} from 'react';
 import M from 'materialize-css';
 import './styles.css';
 
 import ClassModules from  '../../../components/ClassModules';
-import SideNavBar from '../../../components/SideNavBar';
-import SideNavBody from './SideNavBody';
 
 
 export default () => {
-    const [user, setUser] = useState({})
-
-    async function getUser() {
-        const token = localStorage.getItem('@user/token');
-        const userId = localStorage.getItem('@user/id');
-        console.log(userId)
-        
-        const header = {headers: {'Authorization': `Bearer ${token}`}}
-        const {data} = await Api.get(`/students/${userId}`, header)
-        setUser(data)
-    }
-
     useEffect(() => {
         M.AutoInit();
-        getUser();
     }, [])
-    
-    const sideNavTarget = 'side-nav'
-    return (<>
-        <SideNavBar user={user} id={sideNavTarget} body={ <SideNavBody user={user} /> } />
 
+    return (<>
         <div className="row">
             <div id="modules" className="col s12">
                 <h3 className="center">Saiba mais!</h3>
