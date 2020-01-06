@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import M from 'materialize-css';
 
+import SideNavBody from './SideNavBody';
+
 
 export default (props) => {
     useEffect(() => {
@@ -11,7 +13,7 @@ export default (props) => {
     return (
         <>
             <ul id={props.id} className="sidenav">
-                {props.body}
+                <SideNavBody />
             </ul>
         </>
     )

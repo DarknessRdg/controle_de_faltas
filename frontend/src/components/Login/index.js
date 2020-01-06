@@ -4,7 +4,10 @@ import M from 'materialize-css'
 import './styles.css'
 
 
-export default () => {
+import redirect from '../../routes/redirect'
+
+
+export default (props) => {
     const identity = useRef()
     const messageError = useRef()
     const password = useRef()
@@ -31,16 +34,14 @@ export default () => {
             localStorage.setItem('@user/id', userId)
 
             const headers = {'Authorization': 'Bearer ' + token}
-            let urlPush
             try {
                 await Api.get(`/students/${userId}`, {headers})
-                urlPush = 'home'
             } catch (error) {
                 messageError.current.classList.remove('hide')
                 return
             }
-
-            window.location.href = window.location.href.replace('?', '') + urlPush
+            
+            redirect('/home')
         } catch (error) {
             messageError.current.classList.remove('hide')
         }
@@ -56,7 +57,7 @@ export default () => {
                         <div className="input-field col s12 m10 offset-m1">
                             <i className="material-icons prefix">account_circle</i>
                             <input ref={identity} id="identity" type="text" />
-                            <label htmlFor="identity">identity</label>
+                            <label htmlFor="identity">Identidade</label>
                             
                         </div>
 
@@ -65,7 +66,7 @@ export default () => {
                             <input ref={password} id="password" type="password"/>
                             <label htmlFor="password">Senha</label>
                          </div>
-                        <p ref={messageError} className="red-text center hide">identity ou senha inválido.</p>
+                        <p ref={messageError} className="red-text center hide">Identidade ou senha inválido.</p>
                         <div className="row">
                             <button 
                                 className="btn col s4 offset-s1 mt-4" 

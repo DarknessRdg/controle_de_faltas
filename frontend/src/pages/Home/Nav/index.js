@@ -1,5 +1,8 @@
 import React from 'react'
 import M from 'materialize-css'
+import redirect from '../../../routes/redirect'
+
+import logout from '../../../routes/logout'
 
 
 export default (props) => {
@@ -21,7 +24,8 @@ export default (props) => {
             </a>
 
             <ul className="right hide-on-med-and-down">
-                <li><a href="#!">Aulas</a></li>
+                <li><a href="#!" 
+                    onClick={() => redirect('/class')}>Aulas</a></li>
                 <li><a href="#!">Minhas presenças</a></li>
                 <li><a href="#!">Material</a></li>
                 <li className="mr-2"><a className="dropdown-trigger" href="#!" data-target="dropdown1">
@@ -33,7 +37,7 @@ export default (props) => {
         </nav>
         <ul id="dropdown1" className="dropdown-content">
             <li><a href="#!" className="teal-text text-darken-2">Configurações</a></li>
-            <li><a href="#!" className="teal-text text-darken-2">Sair</a></li>
+            <li><a href="#!" className="teal-text text-darken-2"onClick={() => logout()}>Sair</a></li>
         </ul>
     </>)
 }
