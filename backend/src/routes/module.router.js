@@ -5,6 +5,7 @@ import router from './config.router';
 
 export default [
 
-    router.post('/modules/', moduleValidator, authToken.checkToken, moduleHandler.store)
+    router.post('/modules/', moduleValidator, authToken.checkToken, moduleHandler.store),
+    router.get('/modules/:id/', authToken.checkToken, moduleHandler.show)
 
 ]

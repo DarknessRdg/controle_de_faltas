@@ -16,6 +16,27 @@ class ModuleHandler {
             }
         }
     }
+
+    async show(req, res) {
+
+        try {
+            
+            const { id } = req.params;
+            const modulee = await moduleRepository.getModule(id);
+
+            if (!modulee) { throw new Error('MODULE NOT FOUND'); }
+
+            return res.status(200).json(modulee);
+            
+        } catch (error) { 
+            switch (error.message) {
+                case 'MODULE NOT FOUND':
+                    return res.status(401).json({ error: 'MODULE NOT FOUND' });
+                case error.errors:
+                    return res.status(401).json({error: error.errors[0].message });
+            }
+        }
+    }
 }
 
 export default new ModuleHandler();
