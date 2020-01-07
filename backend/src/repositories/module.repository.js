@@ -11,7 +11,8 @@ class ModuleRepository {
     }
 
     async getModule(id) {
-        return await Module.findOne({where: {module_id: id}});
+        return await Module.findOne({where: {module_id: id}, 
+        include: [ {all: true} ]});
     }
 }
 

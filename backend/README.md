@@ -166,7 +166,7 @@ npm run postest
 ```
 
 ### Module
-#### Allowed methods = [POST]
+#### Allowed methods = [POST, GET]
 
 [POST] http://www.hostname.com/modules/ [TOKEN: TEACHER]
 
@@ -175,6 +175,26 @@ npm run postest
 ```json
 {
 	"name": "Python conceitos basicos"
+}
+```
+##### Sample response
+
+[GET] http://www.hostname.com/modules/{id}/ [TOKEN: TEACHER, STUDENT]
+
+
+```json
+{
+  "module_id": 1,
+  "name": "Python conceitos basicos",
+  "class": [
+    {
+      "class_id": 1,
+      "teacher_id": 1,
+      "module_id": 1,
+      "date": "02/01/2020",
+      "descriptions": "Aula otima",
+    }
+  ]
 }
 ```
 
