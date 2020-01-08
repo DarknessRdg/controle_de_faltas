@@ -17,7 +17,7 @@ export default (props) => {
                     return (
                         <tr key={current.class_id}>
                             <td>
-                                {FormatText.firsUpper(current.descriptions)}
+                                {FormatText.firstUpper(current.descriptions)}
                             </td>
                             <td>
                                 {current.date.toLocaleDateString()}

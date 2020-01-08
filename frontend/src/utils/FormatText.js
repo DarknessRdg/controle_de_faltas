@@ -10,7 +10,7 @@ function capitalize(string) {
 }
 
 
-function firsUpper(string) {
+function firstUpper(string) {
     return string[0].toUpperCase() + string.slice(1)
 }
 
@@ -18,5 +18,5 @@ function firsUpper(string) {
 
 export default {
     capitalize,
-    firsUpper
+    firstUpper
 }
