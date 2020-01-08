@@ -300,30 +300,21 @@ npm run postest
 }
 ```
 
-[GET] http://www.hostname.com/frequency/{id}/ [TOKEN: TEACHER, STUDENT]
+[GET] http://www.hostname.com/frequency/{student_id}/ [TOKEN: TEACHER, STUDENT]
 
 ##### Sample response
 
 ```json
-{
-  "frequency_id": 1,
-  "class_id": 1,
-  "student_id": 1,
-  "present": true,
-  "students": {
-    "student_id": 1,
-    "name": "carlos",
-    "email": "carloss@gmail.com",
-    "registration": "12345787489",
-    "phone": "999555555",
-    "identity": "9878788889",
-  },
-  "classes": {
+[
+  {
+    "frequency_id": 1,
     "class_id": 1,
-    "teacher_id": 1,
-    "module_id": 1,
-    "date": "02/01/2020",
-    "descriptions": "Aula otima",
+    "present": true
+  },
+  {
+    "frequency_id": 3,
+    "class_id": 2,
+    "present": true
   }
-}
+]
 ```

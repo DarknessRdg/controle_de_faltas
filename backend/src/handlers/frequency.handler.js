@@ -35,14 +35,14 @@ class FrequencyHandler {
             }
         }
     }
-    
+
     async show(req, res) {
 
         try {
             
-            const { frequency_id } = req.params;
+            const { student_id } = req.params;
 
-            const frequency = await frequencyRepository.getFrequency(frequency_id);
+            const frequency = await frequencyRepository.getAll(student_id);
 
             if (!frequency) { throw new Error('FREQUENCY NOT FOUND'); }
 
