@@ -37,6 +37,21 @@ class ModuleHandler {
             }
         }
     }
+
+    async index(req, res) {
+
+        try {
+
+            const modules = await moduleRepository.getAll();
+            return res.status(200).json(modules);
+            
+        } catch (error) { 
+            switch (error.message) {
+                case error.errors:
+                    return res.status(401).json({error: error.errors[0].message });
+            }
+        }
+    }
 }
 
 export default new ModuleHandler();
