@@ -8,8 +8,15 @@ class FrequencyRepository {
         return await Frequency.create(data);
     }
 
-    async getAll() {
-        return await Frequency.findAll({});
+    async getAll(id) {
+        const frequency = [
+            "frequency_id",
+            "class_id",
+            "present",
+        ]
+
+        return await Frequency.findAll({ attributes: frequency, 
+        where: {student_id: id}});
     }
 
     async getFrequency(id) {
