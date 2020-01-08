@@ -258,6 +258,35 @@ npm run postest
 }
 ```
 
+
+##### Sample response
+
+[GET] http://www.hostname.com/class/ [TOKEN: TEACHER, STUDENT]
+
+```json
+[
+  {
+    "class_id": 1,
+    "teacher_id": 1,
+    "module_id": 1,
+    "date": "02/01/2020",
+    "descriptions": "Aula otima",
+    "modules": {
+      "module_id": 1,
+      "name": "Python conceitos basicos",
+    },
+    "frequences": [
+      {
+        "frequency_id": 1,
+        "class_id": 1,
+        "student_id": 1,
+        "present": true,
+      }
+    ]
+  }
+]
+```
+
 ### Frequency
 #### Allowed methods = [POST, GET]
 
