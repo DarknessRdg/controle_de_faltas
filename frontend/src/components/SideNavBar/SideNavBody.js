@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Api from '../../services/Api'
 
 import logout from '../../routes/logout'
+import redirect from '../../routes/redirect'
 
 
 export default () => {
@@ -31,7 +32,8 @@ export default () => {
                 </div>
             </div>
         </li>
-        <li className="mt-4"><a href="#!">Aluas</a></li>
+        <li className="mt-4"><a href="#!" onClick={() => redirect('/home')}>Início</a></li>
+        <li><a href="#!" onClick={() => redirect('/class')}>Aluas</a></li>
         <li><a href="#!">Minhas presenças</a></li>
         <li><a href="#!">Material</a></li>
         <li><a href="#!">Configuração</a></li>
