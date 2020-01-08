@@ -24,6 +24,7 @@ export default (props) => {
             </a>
 
             <ul className="right hide-on-med-and-down">
+                <li><a href="#!" onClick={() => redirect('/home')}>Início</a></li>
                 <li><a href="#!" 
                     onClick={() => redirect('/class')}>Aulas</a></li>
                 <li><a href="#!">Minhas presenças</a></li>
