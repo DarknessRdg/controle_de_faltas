@@ -59,6 +59,21 @@ class ClassHandler {
             }
         }
     }
+
+    async index(req, res) {
+
+        try {
+
+            const clas = await classRepository.getAll();
+            return res.status(200).json(clas);
+            
+        } catch (error) { 
+            switch (error.message) {
+                case error.errors:
+                    return res.status(401).json({error: error.errors[0].message });
+            }
+        }
+    }
 }
 
 export default new ClassHandler();

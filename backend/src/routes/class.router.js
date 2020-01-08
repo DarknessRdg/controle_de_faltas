@@ -6,6 +6,7 @@ import router from './config.router';
 export default [
 
     router.post('/class/:module_id/', classValidator, authToken.checkToken, classHandler.store),
-    router.get('/class/:class_id/', authToken.checkToken, classHandler.show)
+    router.get('/class/:class_id/', authToken.checkToken, classHandler.show),
+    router.get('/class/', authToken.checkToken, classHandler.index)
 
 ]

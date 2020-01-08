@@ -7,7 +7,7 @@ class ModuleRepository {
     }
 
     async getAll() {
-        return await Module.findAll({});
+        return await Module.findAll({ include: [ {all: true} ]});
     }
 
     async getModule(id) {

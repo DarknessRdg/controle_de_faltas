@@ -181,7 +181,6 @@ npm run postest
 
 [GET] http://www.hostname.com/modules/{id}/ [TOKEN: TEACHER, STUDENT]
 
-
 ```json
 {
   "module_id": 1,
@@ -196,6 +195,28 @@ npm run postest
     }
   ]
 }
+```
+
+##### Sample response
+
+[GET] http://www.hostname.com/modules/ [TOKEN: TEACHER, STUDENT]
+
+```json
+[
+  {
+    "module_id": 1,
+    "name": "Python conceitos basicos",
+    "class": [
+      {
+        "class_id": 1,
+        "teacher_id": 1,
+        "module_id": 1,
+        "date": "02/01/2020",
+        "descriptions": "Aula otima"
+      }
+    ]
+  }
+]
 ```
 
 ### Class
@@ -235,6 +256,35 @@ npm run postest
     }
   ]
 }
+```
+
+
+##### Sample response
+
+[GET] http://www.hostname.com/class/ [TOKEN: TEACHER, STUDENT]
+
+```json
+[
+  {
+    "class_id": 1,
+    "teacher_id": 1,
+    "module_id": 1,
+    "date": "02/01/2020",
+    "descriptions": "Aula otima",
+    "modules": {
+      "module_id": 1,
+      "name": "Python conceitos basicos",
+    },
+    "frequences": [
+      {
+        "frequency_id": 1,
+        "class_id": 1,
+        "student_id": 1,
+        "present": true,
+      }
+    ]
+  }
+]
 ```
 
 ### Frequency

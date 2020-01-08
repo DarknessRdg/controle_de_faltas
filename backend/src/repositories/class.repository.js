@@ -9,7 +9,7 @@ class ClassRepository {
     }
 
     async getAll() {
-        return await Class.findAll({});
+        return await Class.findAll({include: [ {all: true} ]});
     }
     
     async getClass(id) {
