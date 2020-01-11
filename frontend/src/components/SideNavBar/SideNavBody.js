@@ -34,7 +34,7 @@ export default () => {
         </li>
         <li className="mt-4"><a href="#!" onClick={() => redirect('/home')}>Início</a></li>
         <li><a href="#!" onClick={() => redirect('/class')}>Aluas</a></li>
-        <li><a href="#!">Minhas presenças</a></li>
+        <li><a href="#!" onClick={() => redirect('/frequency')}>Minhas presenças</a></li>
         <li><a href="#!">Material</a></li>
         <li><a href="#!">Configuração</a></li>
         <li><a href="#!" onClick={() => {logout()}}>Sair</a></li>

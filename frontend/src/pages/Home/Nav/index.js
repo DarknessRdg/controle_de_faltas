@@ -27,7 +27,7 @@ export default (props) => {
                 <li><a href="#!" onClick={() => redirect('/home')}>Início</a></li>
                 <li><a href="#!" 
                     onClick={() => redirect('/class')}>Aulas</a></li>
-                <li><a href="#!">Minhas presenças</a></li>
+                <li><a href="#!" onClick={() => redirect('/frequency')}>Minhas presenças</a></li>
                 <li><a href="#!">Material</a></li>
                 <li className="mr-2"><a className="dropdown-trigger" href="#!" data-target="dropdown1">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
