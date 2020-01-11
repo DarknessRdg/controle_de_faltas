@@ -11,6 +11,7 @@ import NotAuthenticated from '../pages/NotAuthenticated';
 import PrivateRoute from './privateRoute';
 import StudentFrequency from '../pages/Students/Frequency';
 import HelpMaterial from '../pages/Students/HelpMaterial';
+import PageNotFound from '../pages/PageNotFound';
 
 
 const sideNavTarget = 'side-nav';
@@ -34,6 +35,8 @@ const Routes = () => (
             <PrivateRoute exact path='/class' component={StudentClasses} />
             <PrivateRoute exact path='/frequency' component={StudentFrequency} />
             <PrivateRoute exact path='/materials' component={HelpMaterial} />
+
+            <Route component={PageNotFound} />
         </Switch>
         
         
