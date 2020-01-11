@@ -7,7 +7,8 @@ import logout from '../../../routes/logout'
 
 export default (props) => {
     
-    function openSideNav() {
+    function openSideNav(e) {
+        e.preventDefault()
         const sideNav = document.getElementById(props.sideNavTarget)
 
         const instance = M.Sidenav.getInstance(sideNav)
@@ -24,11 +25,11 @@ export default (props) => {
             </a>
 
             <ul className="right hide-on-med-and-down">
-                <li><a href="#!" onClick={() => redirect('/home')}>Início</a></li>
+                <li><a href="#!" onClick={(e) => redirect('/home', e)}>Início</a></li>
                 <li><a href="#!" 
-                    onClick={() => redirect('/class')}>Aulas</a></li>
-                <li><a href="#!" onClick={() => redirect('/frequency')}>Minhas presenças</a></li>
-                <li><a href="#!">Material</a></li>
+                    onClick={(e) => redirect('/class', e)}>Aulas</a></li>
+                <li><a href="#!" onClick={(e) => redirect('/frequency', e)}>Minhas presenças</a></li>
+                <li><a href="#!" onClick={(e) => redirect('/materials', e)}>Material</a></li>
                 <li className="mr-2"><a className="dropdown-trigger" href="#!" data-target="dropdown1">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <i className="material-icons right">arrow_drop_down</i>
