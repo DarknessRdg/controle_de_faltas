@@ -10,6 +10,7 @@ import StudentClasses from '../pages/StudentClasses';
 import NotAuthenticated from '../pages/NotAuthenticated';
 import PrivateRoute from './privateRoute';
 import StudentFrequency from '../pages/StudentFrequency';
+import HelpMaterial from '../pages/HelpMaterial';
 
 
 const sideNavTarget = 'side-nav';
@@ -17,7 +18,8 @@ const sideNavTarget = 'side-nav';
 const routesWithSideNav =  [
     '/home',
     '/class',
-    '/frequency'
+    '/frequency',
+    '/materials'
 ]
 
 const Routes = () => (
@@ -31,6 +33,7 @@ const Routes = () => (
             <PrivateRoute exact path='/home' component={HomeTeacher} />
             <PrivateRoute exact path='/class' component={StudentClasses} />
             <PrivateRoute exact path='/frequency' component={StudentFrequency} />
+            <PrivateRoute exact path='/materials' component={HelpMaterial} />
         </Switch>
         
         
