@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Api from '../../services/Api'
+import Api from '../../../services/Api'
 import './styles.css'
 
-import Date from '../../utils/Date'
+import Date from '../../../utils/Date'
 
-import ClassTable from '../../components/ClassTable'
+import ClassTable from '../../../components/ClassTable'
 
 export default () => {
     const [modules, setModules] = useState([])

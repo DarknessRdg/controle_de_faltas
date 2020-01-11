@@ -1,8 +1,8 @@
 import React from 'react'
 import M from 'materialize-css'
-import redirect from '../../../routes/redirect'
+import redirect from '../../../../routes/redirect'
 
-import logout from '../../../routes/logout'
+import logout from '../../../../routes/logout'
 
 
 export default (props) => {
