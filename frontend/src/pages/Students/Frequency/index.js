@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import Api from '../../services/Api'
-import User from '../../routes/user'
+import Api from '../../../services/Api'
+import User from '../../../routes/user'
 import './styles.css'
 
-import DateHanlder from '../../utils/Date'
+import DateHanlder from '../../../utils/Date'
 
 
 export default () => {

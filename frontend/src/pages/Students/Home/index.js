@@ -1,6 +1,5 @@
 import React, {useEffect} from 'react';
 import M from 'materialize-css';
-import './styles.css';
 
 import ClassModules from  '../../../components/ClassModules';
 

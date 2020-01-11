@@ -2,15 +2,15 @@ import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import Welcome from "../pages/Welcome";
-import StudentHome from '../pages/Home/Student';
-import Nav from '../pages/Home/Nav';
+import StudentHome from '../pages/Students/Home';
+import Nav from '../pages/Students/Home/Nav';
 import SideNavBar from '../components/SideNavBar'
 
-import StudentClasses from '../pages/StudentClasses';
+import StudentClasses from '../pages/Students/Classes';
 import NotAuthenticated from '../pages/NotAuthenticated';
 import PrivateRoute from './privateRoute';
-import StudentFrequency from '../pages/StudentFrequency';
-import HelpMaterial from '../pages/HelpMaterial';
+import StudentFrequency from '../pages/Students/Frequency';
+import HelpMaterial from '../pages/Students/HelpMaterial';
 
 
 const sideNavTarget = 'side-nav';
