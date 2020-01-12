@@ -56,6 +56,30 @@ class FrequencyHandler {
             }
         }
     }
+
+    async update(req, res) {
+
+        try {
+
+            const { id } = req.params;
+
+            const frequency = await frequencyRepository.getFrequency(id);
+
+            if (!frequency) { throw new Error('FREQUENCY NOT FOUND'); }
+           
+            const { frequency_id } = await frequencyRepository.update(frequency, req.body);
+
+            return res.status(200).json({frequency_id: frequency_id});
+            
+        } catch (error) { 
+            switch (error.message) {
+                case 'FREQUENCY NOT FOUND':
+                    return res.status(404).json({error: 'FREQUENCY NOT FOUND' });
+                case error.errors:
+                    return res.status(400).json({error: error.errors[0].message });
+            }
+        }
+    }
 }
 
 export default new FrequencyHandler();
