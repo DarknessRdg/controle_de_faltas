@@ -1,6 +1,3 @@
-import React from 'react'
-const imgPathBase = '../../../assets/img/admin/'
-
 /* eslint-disable import/first */
 import TeachersImg from '../../../assets/img/admin/teachers.png'
 import StudentsImg from '../../../assets/img/admin/students.png'
