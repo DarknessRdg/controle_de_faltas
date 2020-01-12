@@ -11,7 +11,7 @@ class Student extends Model {
                 autoIncrement: true,
                 primaryKey: true 
             },
-            
+
             name: {
                 type: Sequelize.STRING,
                 allowNull: false
@@ -55,9 +55,6 @@ class Student extends Model {
                 defaultValue: false
             },
 
-            createdAt: Sequelize.DATE,
-            updatedAt: Sequelize.DATE
-
         }, {
             sequelize
         });
@@ -67,8 +64,9 @@ class Student extends Model {
 
     static associate (models) { 
 
-        /* Relations (1, N)  Student -> Frequency */
-        this.hasMany(models.Frequency, {as: 'frequences', foreignKey: 'student_id', onDelete: 'cascade'});
+       /* Relations (1, N)  Student -> Frequency */
+        this.hasMany(models.Frequency, {as: 'student_frequences', foreignKey: 'student_id' });
+
     }
 }
 

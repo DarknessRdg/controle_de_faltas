@@ -10,7 +10,8 @@ class TeacherRepository {
     }
     
     async getAll() {
-        return await Teacher.findAll({});
+        return await Teacher.findAll({include: 
+        [{as: 'teacher_class', model: Class}]});
     }
 
     async getTeacher(id) {
@@ -26,8 +27,8 @@ class TeacherRepository {
         ]
     
        return await Teacher.findOne({where: {teacher_id: id}, attributes: teacher,
-        include: [{ all: true , include: [{ all: true}]}
-    ]});
+        include: [{ as: 'teacher_class', model: Class }]
+    });
     }
 
     async findByEmail(email) {

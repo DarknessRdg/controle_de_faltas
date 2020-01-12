@@ -12,28 +12,22 @@ class Class extends Model {
                 primaryKey: true 
             },
 
-            teacher_id: {
-                type: Sequelize.INTEGER,
-                onDelete: 'cascade',
-                allowNull: false,
-                references: {
-                    model: 'teacher',
-                    key:  'teacher_id',
-                    as: 'class',
-                }
-            },
-
             module_id: {
                 type: Sequelize.INTEGER,
-                onDelete: 'cascade',
                 allowNull: false,
-                references: {
-                    model: 'module',
-                    key:  'module_id',
-                    as: 'modules',
-                }
+                references: { model: 'module', key: 'module_id'},
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
-            
+
+            teacher_id: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                references: { model: 'teacher', key: 'teacher_id'},
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
+            },
+
             date: {
                 type: Sequelize.STRING,
                 allowNull: false,
@@ -43,12 +37,7 @@ class Class extends Model {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-
-            createdAt: Sequelize.DATE,
-            updatedAt: Sequelize.DATE
-
-        }, 
-        {
+        }, {
             sequelize
         });
 
@@ -56,15 +45,15 @@ class Class extends Model {
     }
 
     static associate (models) { 
-    
-        /* Relations (1, 1) Class -> Module */
-        this.hasOne(models.Module, {as: 'modules', foreignKey: 'module_id', onDelete: 'cascade'});
+       
+        /* Relations (1, 1) class -> Module */
+        this.belongsTo(models.Module, {as: 'class_modules', foreignKey: 'module_id'});
 
-        /* Relations (1, 1) Class -> Teacher */
-        //this.hasOne(models.Teacher, {as: 'teachers', foreignKey: 'teacher_id', onDelete: 'cascade'});
-        
+        /* Relations (1, 1) class -> Teacher */
+        this.belongsTo(models.Teacher, {as: 'class_teachers', foreignKey: 'teacher_id'});
+
         /* Relations (1, N) Class -> Frequency */
-        this.hasMany(models.Frequency, {as: 'frequences', foreignKey: 'class_id', onDelete: 'cascade'});
+        this.hasMany(models.Frequency, {as: 'class_frequences', foreignKey: 'class_id'});
     }
 }
 
