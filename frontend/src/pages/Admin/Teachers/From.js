@@ -3,6 +3,7 @@ import M from 'materialize-css'
 import Api from '../../../services/Api'
 import User from '../../../routes/user'
 import Toast from '../../../utils/Toast'
+import FormatText from '../../../utils/FormatText'
 
 
 export default (props) => {
@@ -57,11 +58,32 @@ export default (props) => {
         
     }
 
+    function fillFields() {
+        namelInput.current.value = teacher.name
+        emailInput.current.value = teacher.email
+        resgistrationInput.current.value =  teacher.registration
+
+        const sex =  FormatText.firstUpper(teacher.sex)
+        const instance = M.FormSelect.getInstance(sexInput.current)
+
+        document.querySelectorAll('option').forEach(e => {
+            if (e.value === sex)
+                e.setAttribute('selected', true)
+        })
+
+        M.updateTextFields()
+        M.AutoInit()
+    }
+
     function clearForm() {
         document.querySelector('form').reset()
     }
 
-    useEffect(() => M.AutoInit(), [])
+    useEffect(() => {
+        M.AutoInit()
+        if (teacher)
+            fillFields()
+    }, [])
 
     return (
         <form className="pl-3 pr-3">
@@ -100,7 +122,7 @@ export default (props) => {
                 <div className="input-field col s12 m3">
                     <select ref={sexInput}>
                         <option value="">Selecione o sexo</option>
-                        <option value="Maculino">Masculino</option>
+                        <option value="Masculino">Masculino</option>
                         <option value="Feminino">Feminino</option>
                         <option value="Outro">Outro</option>
                     </select>
