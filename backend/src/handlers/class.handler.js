@@ -71,6 +71,54 @@ class ClassHandler {
             }
         }
     }
+
+    async update(req, res) {
+
+        try {
+
+            const { id } = req.params;
+
+            const classs = await classRepository.getClass(id);
+
+            if (!classs) { throw new Error('CLASS NOT FOUND'); }
+           
+            const { class_id } = await classRepository.update(classs, req.body);
+
+            return res.status(200).json({class_id: class_id});
+            
+        } catch (error) { 
+            switch (error.message) {
+                case 'CLASS NOT FOUND':
+                    return res.status(401).json({error: 'CLASS NOT FOUND' });
+                case error.errors:
+                    return res.status(401).json({error: error.errors[0].message });
+            }
+        }
+    }
+
+    async destroy(req, res) {
+
+        try {
+
+            const { id } = req.params;
+
+            const classs = await classRepository.getClass(id);
+
+            if (!classs) { throw new Error('CLASS NOT FOUND'); }
+
+            const { class_id } = await classRepository.delete(id);
+
+            return res.status(200).json({class_id: class_id});
+            
+        } catch (error) { 
+             switch (error.message) {
+                case 'CLASS NOT FOUND':
+                    return res.status(401).json({error: 'CLASS NOT FOUND' });
+                case error.errors:
+                    return res.status(401).json({error: error.errors[0].message });
+            }
+        }
+    }
 }
 
 export default new ClassHandler();

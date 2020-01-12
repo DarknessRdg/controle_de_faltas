@@ -21,6 +21,14 @@ class ClassRepository {
             {as: 'class_frequences', model: Frequency} 
         ]});
     }
+
+    async delete(id) {
+        return await Class.destroy({where: {class_id: id}});
+    }
+
+    async update(instance, data) {
+        return await instance.update(data);
+    }
 }
 
 export default new ClassRepository();
