@@ -35,6 +35,21 @@ class TeacherHandler {
             }
         }
     }
+
+    async index(req, res) {
+
+        try {
+
+            const teachers = await teacherRepository.getAll();
+            return res.status(200).json(teachers);
+            
+        } catch (error) { 
+            switch (error.message) {
+                case error.errors:
+                    return res.status(400).json({error: error.errors[0].message });
+            }
+        }
+    }
 }
 
 export default new TeacherHandler();
