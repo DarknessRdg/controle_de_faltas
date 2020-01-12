@@ -38,6 +38,14 @@ class StudentRepository {
     async findByIndentity(identity) {
         return await Student.findOne({where: { identity: identity }});
     }
+
+    async delete(id) {
+        return await Student.destroy({where: {student_id: id}});
+    }
+
+    async update(instance, data) {
+        return await instance.update(data);
+    }
 }
 
 export default new StudentRepository();

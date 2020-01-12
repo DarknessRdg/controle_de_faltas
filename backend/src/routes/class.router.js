@@ -7,6 +7,8 @@ export default [
 
     router.post('/class/:module_id/', classValidator, authToken.checkToken, classHandler.store),
     router.get('/class/:class_id/', authToken.checkToken, classHandler.show),
-    router.get('/class/', authToken.checkToken, classHandler.index)
+    router.get('/class/', authToken.checkToken, classHandler.index),
+    router.delete('/class/:id/', authToken.checkToken, classHandler.destroy),
+    router.put('/class/:id/', authToken.checkToken, classHandler.update)
 
 ]

@@ -15,7 +15,7 @@ class TeacherHandler {
         } catch (error) { 
             switch (error.errors) {
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -31,7 +31,7 @@ class TeacherHandler {
         } catch (error) {
             switch (error.errors) {
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }

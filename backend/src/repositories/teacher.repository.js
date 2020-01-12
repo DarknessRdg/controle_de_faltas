@@ -13,7 +13,7 @@ class TeacherRepository {
         return await Teacher.findAll({include: 
         [{as: 'teacher_class', model: Class}]});
     }
-
+    
     async getTeacher(id) {
         const teacher = [
             'teacher_id',

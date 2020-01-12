@@ -7,6 +7,7 @@ export default [
 
     router.post('/students/', studentValidator, studentHandler.store),
     router.get('/students/:id/', authToken.checkToken, studentHandler.show),
-    router.get('/students/', authToken.checkToken, studentHandler.index)
-    
+    router.get('/students/', authToken.checkToken, studentHandler.index),
+    router.delete('/students/:id/', authToken.checkToken, studentHandler.destroy),
+    router.put('/students/:id/', authToken.checkToken, studentHandler.update)
 ]

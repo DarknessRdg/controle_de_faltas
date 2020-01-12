@@ -12,7 +12,7 @@ class ModuleHandler {
         } catch (error) {
             switch (error.errors) {
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -31,9 +31,9 @@ class ModuleHandler {
         } catch (error) { 
             switch (error.message) {
                 case 'MODULE NOT FOUND':
-                    return res.status(401).json({ error: 'MODULE NOT FOUND' });
+                    return res.status(404).json({ error: 'MODULE NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -48,7 +48,55 @@ class ModuleHandler {
         } catch (error) { 
             switch (error.message) {
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
+            }
+        }
+    }
+
+    async destroy(req, res) {
+
+        try {
+
+            const { id } = req.params;
+
+            const modulee = await moduleRepository.getModule(id);
+
+            if (!modulee) { throw new Error('MODULE NOT FOUND'); }
+
+            await moduleRepository.delete(id);
+
+            return res.status(200).json();
+            
+        } catch (error) { 
+            switch (error.message) {
+                case 'MODULE NOT FOUND':
+                    return res.status(404).json({ error: 'MODULE NOT FOUND' });
+                case error.errors:
+                    return res.status(400).json({error: error.errors[0].message });
+            }
+        }
+    }
+
+    async update(req, res) {
+
+        try {
+
+            const { id } = req.params;
+
+            const modulee = await moduleRepository.getModule(id);
+
+            if (!modulee) { throw new Error('MODULE NOT FOUND'); }
+           
+            const { module_id } = await moduleRepository.update(modulee, req.body);
+
+            return res.status(200).json({module_id: module_id});
+            
+        } catch (error) { 
+            switch (error.message) {
+                case 'MODULE NOT FOUND':
+                    return res.status(404).json({ error: 'MODULE NOT FOUND' });
+                case error.errors:
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }

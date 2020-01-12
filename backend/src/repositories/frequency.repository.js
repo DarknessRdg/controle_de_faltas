@@ -35,6 +35,10 @@ class FrequencyRepository {
             {as: 'frequency_class', model: Class}
         ]});
     }
+
+    async update(instance, data) {
+        return await instance.update(data);
+    }
 }
 
 export default new FrequencyRepository();

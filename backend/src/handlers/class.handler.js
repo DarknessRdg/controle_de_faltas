@@ -17,7 +17,6 @@ class ClassHandler {
             if (!modulee) { throw new Error("MODULE NOT FOUND"); }
             
             const teacher_id = req.auth.data.id;
-            console.log("\n\nTESTS: ", teacher_id)
             
             const { class_id } = await classRepository.create(
             {date, descriptions, module_id, teacher_id});
@@ -25,14 +24,13 @@ class ClassHandler {
             return res.status(201).json({class_id: class_id});
 
         } catch (error) {
-            console.log(error)
             switch (error.message) {
                 case 'UNAUTHORIZED ACCESS': 
                     return res.status(404).json({error: 'UNAUTHORIZED ACCESS' });
                 case "MODULE NOT FOUND": 
                     return res.status(404).json({error: 'MODULE NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -54,7 +52,7 @@ class ClassHandler {
                 case 'CLASS NOT FOUND':
                     return res.status(401).json({error: 'CLASS NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -69,7 +67,55 @@ class ClassHandler {
         } catch (error) { 
             switch (error.message) {
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
+            }
+        }
+    }
+
+    async update(req, res) {
+
+        try {
+
+            const { id } = req.params;
+
+            const classs = await classRepository.getClass(id);
+
+            if (!classs) { throw new Error('CLASS NOT FOUND'); }
+           
+            const { class_id } = await classRepository.update(classs, req.body);
+
+            return res.status(200).json({class_id: class_id});
+            
+        } catch (error) { 
+            switch (error.message) {
+                case 'CLASS NOT FOUND':
+                    return res.status(401).json({error: 'CLASS NOT FOUND' });
+                case error.errors:
+                    return res.status(400).json({error: error.errors[0].message });
+            }
+        }
+    }
+
+    async destroy(req, res) {
+
+        try {
+
+            const { id } = req.params;
+
+            const classs = await classRepository.getClass(id);
+
+            if (!classs) { throw new Error('CLASS NOT FOUND'); }
+
+            await classRepository.delete(id);
+
+            return res.status(200).json();
+            
+        } catch (error) { 
+             switch (error.message) {
+                case 'CLASS NOT FOUND':
+                    return res.status(401).json({error: 'CLASS NOT FOUND' });
+                case error.errors:
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
