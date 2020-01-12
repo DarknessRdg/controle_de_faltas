@@ -9,7 +9,7 @@ export default (props) => {
     return (
         <div className="card">
             <div className="card-image">
-                <img className="activator" src={data.img} />
+                <img className="activator" src={data.img} alt={data.title}/>
             </div>
             <div className="card-content">
                 <span className="card-title activator grey-text text-darken-4">{data.title}</span>
