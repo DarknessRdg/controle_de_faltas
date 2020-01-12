@@ -4,12 +4,25 @@ import redirect from './redirect'
 const userToken = '@user/token'
 const userId = '@user/id'
 
+const adminToken = '@user-admin/token'
+const adminId = '@user-admin/id'
 
-function isAuthenticated() {
-    const token = localStorage.getItem(userToken) ? true : false
-    const id = localStorage.getItem(userId) ? true : false
+
+function isAtuh(tokenStorage, idStorage) {
+    const token = localStorage.getItem(tokenStorage) ? true : false
+    const id = localStorage.getItem(idStorage) ? true : false
 
     return token && id
+}
+
+
+function isAuthenticated() {
+    return isAtuh(userToken, userId)
+}
+
+
+function isAdminAuthenticated() {
+    return isAtuh(adminToken, adminId)
 }
 
 
@@ -18,6 +31,18 @@ function logout() {
     localStorage.removeItem(userId)
     
     redirect('/')
+}
+
+
+function loginAdmin(token, id) {
+    localStorage.setItem(adminToken, token)
+    localStorage.setItem(adminId, id)
+}
+
+
+function logouAdmin() {
+    localStorage.removeItem(adminToken)
+    localStorage.removeItem(adminId)
 }
 
 
@@ -36,4 +61,12 @@ function getAtuhorizationHeader() {
 }
 
 
-export default {isAuthenticated, logout, getToken, getId, getAtuhorizationHeader}
+export default {
+    isAuthenticated,
+    isAdminAuthenticated,
+    logout, 
+    loginAdmin,
+    logouAdmin,
+    getToken, 
+    getId, 
+    getAtuhorizationHeader}
