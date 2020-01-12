@@ -7,9 +7,9 @@ export default () => {
     return (
         <div className="p-5 mb-0">
             <div className="row">
-                {Data.map(data => {
+                {Data.map((data, index) => {
                     return (
-                        <div className="col s12 m4 mb-4">
+                        <div key={index} className="col s12 m4 mb-4">
                             <Card data={data} />
                         </div>
                     )

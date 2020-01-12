@@ -29,7 +29,7 @@ export default (props) => {
 
         try {
             const session = await Api.post('/sessions', data)
-            User.loginAdmin(session.token, session.id)
+            User.loginAdmin(session.data.token, session.data.id)
             redirect('/admin')
         } catch (error) {
             setMessageError('Email ou senha inválido')

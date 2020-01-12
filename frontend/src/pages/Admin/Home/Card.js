@@ -7,7 +7,7 @@ export default (props) => {
     const {data} = props
 
     return (
-        <div className="card">
+        <div className="card hoverable">
             <div className="card-image">
                 <img className="activator" src={data.img} alt={data.title}/>
             </div>
