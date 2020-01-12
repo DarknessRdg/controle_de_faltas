@@ -21,9 +21,7 @@ class TeacherRepository {
             'createdAt'
         ]
 
-        return await Teacher.findAll({include: 
-        [{as: 'teacher_class', model: Class}],
-        attributes: teacher});
+        return await Teacher.findAll({attributes: teacher});
     }
     
     async getTeacher(id) {
@@ -39,7 +37,7 @@ class TeacherRepository {
         ]
     
        return await Teacher.findOne({where: {teacher_id: id}, attributes: teacher,
-        include: [{ as: 'teacher_class', model: Class }]
+        include: [{all: true, include: [{all: true}]}]
     });
     }
 

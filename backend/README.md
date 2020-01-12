@@ -88,28 +88,28 @@ $ npm run postest
 ```json
 {
   "teacher_id": 1,
-  "name": "luan",
+  "name": "carlos",
   "sex": "masculino",
-  "email": "luan@gmail.com",
-  "registration": "12345787741789",
+  "email": "carlos@gmail.com",
+  "registration": "123",
   "is_supersu": true,
-  "class": [
+  "teacher_class": [
     {
       "class_id": 1,
-      "teacher_id": 1,
       "module_id": 1,
-      "date": "02/01/2020",
-      "descriptions": "Aula otima",
-      "modules": {
+      "teacher_id": 1,
+      "date": "08/01/2020",
+      "descriptions": "Aula input/output",
+      "class_modules": {
         "module_id": 1,
-        "name": "Python conceitos basicos",
+        "name": "Python input"
       },
-      "frequences": [
+      "class_frequences": [
         {
           "frequency_id": 1,
           "class_id": 1,
           "student_id": 1,
-          "present": true,
+          "present": true
         }
       ]
     }
@@ -117,8 +117,25 @@ $ npm run postest
 }
 ```
 
+[GET] http://www.hostname.com/teachers/ [TOKEN: TEACHER, STUDENT]
+
+##### Sample response
+
+```json
+[
+  {
+    "teacher_id": 1,
+    "name": "carlos",
+    "sex": "masculino",
+    "email": "carlos@gmail.com",
+    "registration": "123",
+    "is_supersu": true
+  }
+]
+```
+
 ### Student
-#### Allowed methods = [POST, GET]
+#### Allowed methods = [POST, GET, DELETE, PUT]
 
 [POST] http://www.hostname.com/students/
 
@@ -147,7 +164,7 @@ $ npm run postest
   "registration": "12345787489",
   "phone": "999555555",
   "identity": "9878788889",
-  "frequences": [
+  "student_frequences": [
     {
       "frequency_id": 1,
       "class_id": 1,
@@ -175,8 +192,32 @@ $ npm run postest
 ]
 ```
 
+[PUT] http://www.hostname.com/students/{id}/ [TOKEN: TEACHER, STUDENT]
+
+##### Sample request
+
+```json
+[
+  {
+    "name": "carlos",
+    "email": "carloss@gmail.com",
+    "registration": "12345787489",
+    "phone": "999555555",
+    "identity": "9878788889",
+  }
+]
+```
+
+[DELETE] http://www.hostname.com/students/{id}/ [TOKEN: TEACHER]
+
+##### Sample response
+
+```json
+status_code: 200
+```
+
 ### Module
-#### Allowed methods = [POST, GET]
+#### Allowed methods = [POST, GET, PUT, DELETE]
 
 [POST] http://www.hostname.com/modules/ [TOKEN: TEACHER]
 
@@ -187,15 +228,16 @@ $ npm run postest
 	"name": "Python conceitos basicos"
 }
 ```
-##### Sample response
 
 [GET] http://www.hostname.com/modules/{id}/ [TOKEN: TEACHER, STUDENT]
+
+##### Sample response
 
 ```json
 {
   "module_id": 1,
   "name": "Python conceitos basicos",
-  "class": [
+  "module_class": [
     {
       "class_id": 1,
       "teacher_id": 1,
@@ -207,16 +249,26 @@ $ npm run postest
 }
 ```
 
-##### Sample response
+[PUT] http://www.hostname.com/modules/{id}/ [TOKEN: TEACHER]
+
+##### Sample request
+
+```json
+{
+  "name": "Python conceitos avançados",
+}
+```
 
 [GET] http://www.hostname.com/modules/ [TOKEN: TEACHER, STUDENT]
+
+##### Sample response
 
 ```json
 [
   {
     "module_id": 1,
     "name": "Python conceitos basicos",
-    "class": [
+    "module_class": [
       {
         "class_id": 1,
         "teacher_id": 1,
@@ -229,8 +281,16 @@ $ npm run postest
 ]
 ```
 
+[DELETE] http://www.hostname.com/modules/{id}/ [TOKEN: TEACHER]
+
+##### Sample response
+
+```json
+status_code: 200
+```
+
 ### Class
-#### Allowed methods = [POST, GET]
+#### Allowed methods = [POST, GET, PUT, DELETE]
 
 [POST] http://www.hostname.com/class/{module_id}/ [TOKEN: TEACHER]
 
@@ -253,11 +313,11 @@ $ npm run postest
   "module_id": 1,
   "date": "02/01/2020",
   "descriptions": "Aula otima",
-  "modules": {
+  "class_modules": {
     "module_id": 1,
     "name": "Python conceitos basicos",
   },
-  "frequences": [
+  "class_frequences": [
     {
       "frequency_id": 1,
       "class_id": 1,
@@ -268,10 +328,9 @@ $ npm run postest
 }
 ```
 
+[GET] http://www.hostname.com/class/ [TOKEN: TEACHER, STUDENT]
 
 ##### Sample response
-
-[GET] http://www.hostname.com/class/ [TOKEN: TEACHER, STUDENT]
 
 ```json
 [
@@ -281,11 +340,11 @@ $ npm run postest
     "module_id": 1,
     "date": "02/01/2020",
     "descriptions": "Aula otima",
-    "modules": {
+    "class_modules": {
       "module_id": 1,
       "name": "Python conceitos basicos",
     },
-    "frequences": [
+    "class_frequences": [
       {
         "frequency_id": 1,
         "class_id": 1,
@@ -297,8 +356,27 @@ $ npm run postest
 ]
 ```
 
+[PUT] http://www.hostname.com/class/{id}/ [TOKEN: TEACHER]
+
+##### Sample request
+
+```json
+{
+	"date": "11/01/2020",
+	"descriptions": "Implementando Input"
+}
+```
+
+[DELETE] http://www.hostname.com/class/{id}/ [TOKEN: TEACHER]
+
+##### Sample response
+
+```json
+status_code: 200
+```
+
 ### Frequency
-#### Allowed methods = [POST, GET]
+#### Allowed methods = [POST, GET, PUT, DELETE]
 
 [POST] http://www.hostname.com/{class_id}/frequency/{student_id}/ [TOKEN: TEACHER]
 
@@ -327,4 +405,14 @@ $ npm run postest
     "present": true
   }
 ]
+```
+
+[PUT] http://www.hostname.com/frequency/{id}/ [TOKEN: TEACHER]
+
+##### Sample request
+
+```json
+{
+	"present": false
+}
 ```
