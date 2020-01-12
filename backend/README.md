@@ -6,11 +6,21 @@
 3. No terminal, execute:
 
 ```bash
-npm install
+/* Install dependencies */
 
-cp env.example .env
+$ npm install
 
-npm run start
+/* Environment variables */
+
+$ cp env.example .env
+
+/* Database migrates */
+
+$ npx sequelize db:migrate
+
+/* Run project */
+
+$ npm run start
 ```
    4. Abra o host [localhost:3000](http://localhost:3000) e comece a usá-lo
 
@@ -21,11 +31,11 @@ npm run start
 ## Running the tests
 
 ```bash
-npm run pretest
+$ npm run pretest
 
-npm run test
+$ npm run test
 
-npm run postest
+$ npm run postest
 ```
 
 ## Endpoints access
