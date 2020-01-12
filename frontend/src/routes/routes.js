@@ -21,6 +21,8 @@ import AdminTeacher from '../pages/Admin/Teachers'
 import AdminTeacherUpdate from '../pages/Admin/Teachers/Update'
 import AdminModules from '../pages/Admin/Modules'
 import AdminModulesUpdate from '../pages/Admin/Modules/Update'
+import AdminStudents from '../pages/Admin/Students'
+import AdminStudentsUpdate from '../pages/Admin/Students/Update'
 import AdminNav from '../pages/Admin/Nav'
 
 
@@ -50,10 +52,15 @@ const Routes = () => (
 
             <Route exact path='/login/admin' component={LoginAdmin} />
             <AdminRoute exact path='/admin' component={AdminHome} />
+            
             <AdminRoute exact path='/admin/teachers' component={AdminTeacher} />
             <AdminRoute exact path='/admin/teachers/update/:id' component={AdminTeacherUpdate} />
+            
             <AdminRoute exact path='/admin/modules' component={AdminModules} />
             <AdminRoute exact path='/admin/modules/update/:id' component={AdminModulesUpdate} />
+
+            <AdminRoute exact path='/admin/students' component={AdminStudents} />
+            <AdminRoute exact path='/admin/students/update/:id' component={AdminStudentsUpdate} />
 
             <Route component={PageNotFound} />
         </Switch>
