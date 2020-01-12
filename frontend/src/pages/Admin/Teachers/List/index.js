@@ -16,7 +16,6 @@ export default () => {
         
         try {
             const {data} = await Api.get('/teachers/1', {headers})
-            console.log(data)
             setTeachers(data)
         } catch (error) {
             console.log(error)
