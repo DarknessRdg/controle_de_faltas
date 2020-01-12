@@ -7,7 +7,7 @@ import From from '../From'
 export default (props) => {
     const {id} = props.match.params 
 
-    const [teacher, setTeacher] = useState({})
+    const [teacher, setTeacher] = useState(false)
 
     async function getTeacher() {
         
@@ -27,7 +27,7 @@ export default (props) => {
     return (
         <>
             <h3 className="center">Alterar dados de {teacher.name}</h3>
-            <From teacher={teacher} />
+            {teacher ? <From teacher={teacher} /> : <></> }
         </>
     )
 }
