@@ -106,9 +106,9 @@ class ClassHandler {
 
             if (!classs) { throw new Error('CLASS NOT FOUND'); }
 
-            const { class_id } = await classRepository.delete(id);
+            await classRepository.delete(id);
 
-            return res.status(200).json({class_id: class_id});
+            return res.status(200).json();
             
         } catch (error) { 
              switch (error.message) {

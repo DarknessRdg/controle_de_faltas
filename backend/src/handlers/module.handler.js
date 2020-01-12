@@ -63,9 +63,9 @@ class ModuleHandler {
 
             if (!modulee) { throw new Error('MODULE NOT FOUND'); }
 
-            const { module_id } = await moduleRepository.delete(id);
+            await moduleRepository.delete(id);
 
-            return res.status(200).json({module_id: module_id});
+            return res.status(200).json();
             
         } catch (error) { 
             switch (error.message) {
