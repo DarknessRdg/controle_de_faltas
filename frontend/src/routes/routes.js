@@ -16,6 +16,8 @@ import HelpMaterial from '../pages/Students/HelpMaterial';
 import PageNotFound from '../pages/PageNotFound';
 
 import LoginAdmin from '../pages/Admin/Login'
+import AdminHome from '../pages/Admin/Home'
+import AdminNav from '../pages/Admin/Nav'
 
 
 const sideNavTarget = 'side-nav';
@@ -32,6 +34,7 @@ const Routes = () => (
         <Route path={routesWithSideNav} component={() => <Nav sideNavTarget={sideNavTarget}/>} />
         <Route path={routesWithSideNav} component={() => <SideNavBar id={sideNavTarget}/>} />
 
+        <Route path='/admin' component={AdminNav} />
         <Switch>
             <Route exact path='/' component={Welcome} />
             <Route exact path='/not-authenticated' component={NotAuthenticated} />
@@ -41,7 +44,8 @@ const Routes = () => (
             <PrivateRoute exact path='/frequency' component={StudentFrequency} />
             <PrivateRoute exact path='/materials' component={HelpMaterial} />
 
-            <Route exact path='/admin/login' component={LoginAdmin} />
+            <Route exact path='/login/admin' component={LoginAdmin} />
+            <AdminRoute exact path='/admin' component={AdminHome} />
 
             <Route component={PageNotFound} />
         </Switch>
