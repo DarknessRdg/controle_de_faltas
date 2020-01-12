@@ -15,7 +15,7 @@ class StudentHandler {
         } catch (error) {
             switch (error.errors) {
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -31,7 +31,7 @@ class StudentHandler {
         } catch (error) { 
             switch (error.errors) {
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -50,7 +50,7 @@ class StudentHandler {
                 case 'UNAUTHORIZED ACCESS':
                     return res.status(401).json({ error: 'UNAUTHORIZED ACCESS' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -72,9 +72,9 @@ class StudentHandler {
         } catch (error) { 
             switch (error.message) {
                 case 'STUDENT NOT FOUND':
-                    return res.status(401).json({error: 'STUDENT NOT FOUND' });
+                    return res.status(404).json({error: 'STUDENT NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -98,11 +98,11 @@ class StudentHandler {
         } catch (error) { 
              switch (error.message) {
                 case 'STUDENT NOT FOUND':
-                    return res.status(401).json({error: 'STUDENT NOT FOUND' });
+                    return res.status(404).json({error: 'STUDENT NOT FOUND' });
                 case 'UNAUTHORIZED ACCESS':
                     return res.status(401).json({ error: 'UNAUTHORIZED ACCESS' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }

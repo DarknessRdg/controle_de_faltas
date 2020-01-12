@@ -30,7 +30,7 @@ class ClassHandler {
                 case "MODULE NOT FOUND": 
                     return res.status(404).json({error: 'MODULE NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -52,7 +52,7 @@ class ClassHandler {
                 case 'CLASS NOT FOUND':
                     return res.status(401).json({error: 'CLASS NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -67,7 +67,7 @@ class ClassHandler {
         } catch (error) { 
             switch (error.message) {
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -91,7 +91,7 @@ class ClassHandler {
                 case 'CLASS NOT FOUND':
                     return res.status(401).json({error: 'CLASS NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -115,7 +115,7 @@ class ClassHandler {
                 case 'CLASS NOT FOUND':
                     return res.status(401).json({error: 'CLASS NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }

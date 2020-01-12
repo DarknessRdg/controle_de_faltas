@@ -15,11 +15,11 @@ class LoginHandler {
                 case 'ERR_INVALID_PASSWORD':
                     return res.status(401).json({ error: 'ERR_INVALID_PASSWORD' });
                 case 'ERR_USER_NOT_FOUND':
-                    return res.status(401).json({ error: 'ERR_USER_NOT_FOUND' });
+                    return res.status(404).json({ error: 'ERR_USER_NOT_FOUND' });
                 case 'ERR_INVALID_TOKEN':
-                    return res.status(401).json({ error: 'ERR_INVALID_TOKEN' });
+                    return res.status(400).json({ error: 'ERR_INVALID_TOKEN' });
                 default:
-                    return res.status(401).json({ error: error.message });
+                    return res.status(400).json({ error: error.message });
             }
         }
     }

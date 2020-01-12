@@ -30,7 +30,7 @@ class FrequencyHandler {
                 case 'CLASS NOT FOUND': 
                     return res.status(404).json({error: 'CLASS NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
@@ -52,7 +52,7 @@ class FrequencyHandler {
                 case 'FREQUENCY NOT FOUND':
                     return res.status(401).json({error: 'FREQUENCY NOT FOUND' });
                 case error.errors:
-                    return res.status(401).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.errors[0].message });
             }
         }
     }
