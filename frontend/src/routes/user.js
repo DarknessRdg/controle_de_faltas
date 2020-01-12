@@ -40,7 +40,7 @@ function loginAdmin(token, id) {
 }
 
 
-function logouAdmin() {
+function logoutAdmin() {
     localStorage.removeItem(adminToken)
     localStorage.removeItem(adminId)
 }
@@ -66,7 +66,7 @@ export default {
     isAdminAuthenticated,
     logout, 
     loginAdmin,
-    logouAdmin,
+    logoutAdmin,
     getToken, 
     getId, 
     getAtuhorizationHeader}

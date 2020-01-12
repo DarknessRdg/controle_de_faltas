@@ -8,7 +8,7 @@ const AdminRoute = ({component: Component, ...rest}) => (
         User.isAdminAuthenticated() ? (
             <Component {...props} /> 
         ) : (
-            <Redirect to={{pathname: '/admin/login', state: { from: props.location }}} />
+            <Redirect to={{pathname: '/login/admin', state: { from: props.location }}} />
         )
     } />
 )
