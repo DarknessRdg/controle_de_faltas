@@ -1,4 +1,3 @@
-import teacherRepository from '../repositories/teacher.repository';
 import moduleRepository from '../repositories/module.repository';
 import classRepository from '../repositories/class.repository';
 
@@ -8,24 +7,25 @@ class ClassHandler {
 
         try {
             
+            const { date, descriptions } = req.body;
             const { module_id } = req.params;
-
+     
             const modulee = await moduleRepository.getModule(module_id);
 
             if (!req.auth.data.is_supersu) { throw new Error('UNAUTHORIZED ACCESS'); }  
             
             if (!modulee) { throw new Error("MODULE NOT FOUND"); }
-
-            const teacher = await teacherRepository.getTeacher(req.auth.data.id);
             
-            req.body['module_id'] = modulee.module_id;
-            req.body['teacher_id'] = teacher.teacher_id;
+            const teacher_id = req.auth.data.id;
+            console.log("\n\nTESTS: ", teacher_id)
             
-            const { class_id } = await classRepository.create(req.body);
+            const { class_id } = await classRepository.create(
+            {date, descriptions, module_id, teacher_id});
 
             return res.status(201).json({class_id: class_id});
 
         } catch (error) {
+            console.log(error)
             switch (error.message) {
                 case 'UNAUTHORIZED ACCESS': 
                     return res.status(404).json({error: 'UNAUTHORIZED ACCESS' });
@@ -37,7 +37,6 @@ class ClassHandler {
         }
     }
 
-    
     async show(req, res) {
 
         try {

@@ -4,7 +4,7 @@ class Module extends Model {
 
     static init(sequelize) { 
         super.init({
-
+            
             module_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
@@ -15,13 +15,9 @@ class Module extends Model {
             name: {
                 type: Sequelize.STRING,
                 allowNull: false
-            },
+            }
 
-            createdAt: Sequelize.DATE,
-            updatedAt: Sequelize.DATE
-
-        }, 
-        {
+        }, {
             sequelize
         });
 
@@ -30,8 +26,8 @@ class Module extends Model {
 
     static associate (models) { 
 
-        /* Relations (1, N)  Module -> class */
-        this.hasMany(models.Class, {as: 'class', foreignKey: 'class_id', onDelete: 'cascade'});
+        /* Relations (1, N)  Module -> Class */
+        this.hasMany(models.Class, {as: 'module_class', foreignKey: 'module_id'});
     }
 }
 

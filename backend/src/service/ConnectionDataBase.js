@@ -6,7 +6,7 @@ import Module from '../models/Module';
 import Class from '../models/Class';
 import Sequelize from 'sequelize';
 
-const models = [Teacher, Class, Student, Frequency, Module];
+const models = [Teacher, Module, Class, Student, Frequency];
 
 class ConnectionDatabase {
     constructor() {

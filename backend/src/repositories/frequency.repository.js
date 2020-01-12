@@ -31,8 +31,8 @@ class FrequencyRepository {
             'createdAt'
         ]
         return await Frequency.findOne({where: {frequency_id: id}, include: [
-            {as: 'students', model: Student, attributes: student},
-            {as: 'classes', model: Class}
+            {as: 'frequency_student', model: Student, attributes: student},
+            {as: 'frequency_class', model: Class}
         ]});
     }
 }

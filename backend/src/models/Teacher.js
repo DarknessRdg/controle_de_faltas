@@ -4,14 +4,14 @@ class Teacher extends Model {
 
     static init(sequelize) {
         super.init({
-
+            
             teacher_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true 
             },
-            
+
             name: {
                 type: Sequelize.STRING(20),
                 allowNull: false
@@ -43,9 +43,6 @@ class Teacher extends Model {
                 type: Sequelize.BOOLEAN,
                 defaultValue: true
             },
-            
-            createdAt: Sequelize.DATE,
-            updatedAt: Sequelize.DATE
 
         }, {
             sequelize
@@ -57,7 +54,8 @@ class Teacher extends Model {
     static associate (models) { 
         
         /* Relations (1, N) Teacher -> Class  */
-        this.hasMany(models.Class, {as: 'class', foreignKey: 'teacher_id', onDelete: 'cascade'});
+        this.hasMany(models.Class, {as: 'teacher_class', foreignKey: 'teacher_id'});
+
     }
 }
 

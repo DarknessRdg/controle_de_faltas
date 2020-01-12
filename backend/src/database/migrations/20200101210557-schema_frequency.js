@@ -13,27 +13,21 @@ module.exports = {
       },
 
       class_id: {
-          type: Sequelize.INTEGER,
-          onDelete: 'cascade',
-          allowNull: false,
-          references: {
-              model: 'class',
-              key:  'class_id',
-              as: 'classes',
-          }
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'class', key: 'class_id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
 
       student_id: {
-          type: Sequelize.INTEGER,
-          onDelete: 'cascade',
-          allowNull: false,
-          references: {
-              model: 'student',
-              key:  'student_id',
-              as: 'students',
-          }
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'student', key: 'student_id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
-      
+
       present: {
           type: Sequelize.BOOLEAN,
           allowNull: false,
