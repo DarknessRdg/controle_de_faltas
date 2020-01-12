@@ -48,7 +48,6 @@ class FrequencyHandler {
             return res.status(200).json(frequency);
             
         } catch (error) { 
-            console.log(error)
             switch (error.message) {
                 case 'FREQUENCY NOT FOUND':
                     return res.status(401).json({error: 'FREQUENCY NOT FOUND' });

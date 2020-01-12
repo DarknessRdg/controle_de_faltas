@@ -17,7 +17,6 @@ class ClassHandler {
             if (!modulee) { throw new Error("MODULE NOT FOUND"); }
             
             const teacher_id = req.auth.data.id;
-            console.log("\n\nTESTS: ", teacher_id)
             
             const { class_id } = await classRepository.create(
             {date, descriptions, module_id, teacher_id});
@@ -25,7 +24,6 @@ class ClassHandler {
             return res.status(201).json({class_id: class_id});
 
         } catch (error) {
-            console.log(error)
             switch (error.message) {
                 case 'UNAUTHORIZED ACCESS': 
                     return res.status(404).json({error: 'UNAUTHORIZED ACCESS' });
