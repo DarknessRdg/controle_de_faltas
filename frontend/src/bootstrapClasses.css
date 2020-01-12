@@ -1,4 +1,8 @@
 /* boostratp classes */
+.bold {
+    font-weight: bolder;
+}
+
 .hidden {
   display: none;
 }

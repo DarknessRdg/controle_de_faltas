@@ -20,17 +20,29 @@ function isAuthenticated() {
     return isAtuh(userToken, userId)
 }
 
-
-function isAdminAuthenticated() {
-    return isAtuh(adminToken, adminId)
-}
-
-
 function logout() {
     localStorage.removeItem(userToken)
     localStorage.removeItem(userId)
     
     redirect('/')
+}
+
+function getToken() {
+    return localStorage.getItem(userToken)
+}
+
+function getId() {
+    return localStorage.getItem(userId)
+}
+
+
+function getAtuhorizationHeader() {
+    return  {'Authorization': `Bearer ${getToken()}`}
+}
+
+
+function isAdminAuthenticated() {
+    return isAtuh(adminToken, adminId)
 }
 
 
@@ -46,19 +58,23 @@ function logoutAdmin() {
 }
 
 
-function getToken() {
-    return localStorage.getItem(userToken)
+function getAdminToken() {
+    return localStorage.getItem(adminToken)
 }
 
 
-function getId() {
-    return localStorage.getItem(userId)
+function getAdminId() {
+    return localStorage.getItem(adminId)
 }
 
 
-function getAtuhorizationHeader() {
-    return  {'Authorization': `Bearer ${getToken()}`}
+function getAdminAuthorizationHeader() {
+    return  {'Authorization': `Bearer ${getAdminToken()}`}
 }
+
+
+
+
 
 
 export default {
@@ -67,6 +83,10 @@ export default {
     logout, 
     loginAdmin,
     logoutAdmin,
-    getToken, 
+    getToken,
+    getAdminToken,
     getId, 
-    getAtuhorizationHeader}
+    getAdminId,
+    getAtuhorizationHeader,
+    getAdminAuthorizationHeader
+}
