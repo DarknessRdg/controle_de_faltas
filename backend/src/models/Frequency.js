@@ -14,36 +14,25 @@ class Frequency extends Model {
 
             class_id: {
                 type: Sequelize.INTEGER,
-                onDelete: 'cascade',
                 allowNull: false,
-                references: {
-                    model: 'class',
-                    key:  'class_id',
-                    as: 'classes',
-                }
+                references: { model: 'class', key: 'class_id'},
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
 
             student_id: {
                 type: Sequelize.INTEGER,
-                onDelete: 'cascade',
                 allowNull: false,
-                references: {
-                    model: 'student',
-                    key:  'student_id',
-                    as: 'students',
-                }
+                references: { model: 'student', key: 'student_id'},
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
-            
+
             present: {
                 type: Sequelize.BOOLEAN,
                 allowNull: false,
-            },
-
-            createdAt: Sequelize.DATE,
-            updatedAt: Sequelize.DATE
-
-        }, 
-        {
+            }
+        }, {
             sequelize
         });
 
@@ -51,12 +40,13 @@ class Frequency extends Model {
     }
 
     static associate (models) { 
-        
-        /* Relations (1, 1)  Frenquency -> Class */
-        this.hasOne(models.Class, {as: 'classes', foreignKey: 'class_id', onDelete: 'cascade'});
-        
+       
+        /* Relations (1, 1) Frequency -> Class */
+        this.belongsTo(models.Class, {as: 'frequency_class', foreignKey: 'class_id'});
+
         /* Relations (1, 1) Frequency -> Student */
-        this.belongsTo(models.Student, {as: 'students', foreignKey: 'frequency_id', onDelete: 'cascade'});
+        this.belongsTo(models.Student, {as: 'frequency_student', foreignKey: 'student_id'});
+
     }
 }
 

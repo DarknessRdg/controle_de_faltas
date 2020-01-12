@@ -9,13 +9,16 @@ class ClassRepository {
     }
 
     async getAll() {
-        return await Class.findAll({include: [ {all: true} ]});
+        return await Class.findAll({include: [
+            {as: 'class_modules', model: Module},
+            {as: 'class_frequences', model: Frequency} 
+        ]});
     }
     
     async getClass(id) {
         return await Class.findOne({where: {class_id: id}, include: [
-            {as: 'modules', model: Module},
-            {as: 'frequences', model: Frequency} 
+            {as: 'class_modules', model: Module},
+            {as: 'class_frequences', model: Frequency} 
         ]});
     }
 }
