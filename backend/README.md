@@ -6,6 +6,26 @@
   Fault control - Backend
 </h1>
 
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/nelsondiaas/controle_de_faltas?color=%2304D361">
+
+  <a href="https://github.com/nelsondiaas">
+    <img alt="Made by @nelsondiaas" src="https://img.shields.io/badge/made%20by-%40nelsondiaas-%2304D361">
+  </a>
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
+
+  <a href="https://github.com/nelsondiaas/controle_de_faltas/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/nelsondiaas/controle_de_faltas?style=social">
+  </a>
+</p>
+
+<p align="center">
+  <a href="#-Getting-Started">Getting Started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-Endpoints-access">Endpoints access</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-licença">License</a>
+</p>
+
 ## Getting Started
 1. Fork este repositório e clone em sua máquina
 2. Mude o diretório para `backend` onde você o clonou;
@@ -431,4 +451,9 @@ status_code: 200
 	"present": false
 }
 ```
+
+## Licença
+
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
 ---
