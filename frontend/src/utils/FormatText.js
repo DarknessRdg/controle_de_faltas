@@ -16,10 +16,10 @@ function capitalize(string) {
     
     let stringFormated = ''
     split.forEach(sub => {
-        stringFormated += firstUpper(sub)
+        stringFormated += " " + firstUpper(sub)
     });
 
-    return stringFormated.trim()
+    return stringFormated
 }
 
 
