@@ -27,7 +27,7 @@ export default (props) => {
             let message;
 
             if (module) {
-                await Api.put('/modules', data, {headers})
+                await Api.put(`/modules/${module.module_id}`, data, {headers})
                 message = 'Módulo atualizado!'
             }
             else {

@@ -3,6 +3,8 @@ import Api from '../../../../services/Api'
 import user from '../../../../routes/user'
 import redirect from '../../../../routes/redirect'
 
+import deleteInstance from '../../utils/deleteInstance'
+import Toast from '../../../../utils/Toast'
 
 export default () => {
 
@@ -20,6 +22,20 @@ export default () => {
         redirect('/admin/students/update/' + id)
     }
 
+    async function remove(id) {
+        const endpoint = '/students'
+
+        try {
+            await deleteInstance(endpoint, id)
+
+            Toast(`Estudante ${id} deletado.`, true)
+            getStudents()
+        } catch (error) {
+            Toast('Error ao deletar estudante.', false)
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         getStudents()
     }, [])
@@ -28,7 +44,7 @@ export default () => {
         <ul className="collapsible">
             {students.map(current => {
                 return (
-                    <li>
+                    <li key={current.student_id}>
                         <div className="collapsible-header">{current.name}</div>
                         <div className="collapsible-body">
                             <p>
@@ -52,7 +68,7 @@ export default () => {
 
                             <div className="mt-3">
                                 <button type="button" className="btn mr-3" onClick={() => edit(current.student_id)}>Editar</button>
-                                <button type="button" className="btn red darken-2">Excluir</button>
+                                <button type="button" className="btn red darken-2" onClick={() => remove(current.student_id)} >Excluir</button>
                             </div>
                         </div>
                     </li>

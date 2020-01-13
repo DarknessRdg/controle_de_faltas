@@ -40,9 +40,6 @@ export default () => {
 
         setModules(data)
         setClasses(classList)
-
-        
-
     }
 
     useEffect(() => {
@@ -53,7 +50,7 @@ export default () => {
         <h1 className="center">Cronograma de aulas</h1>
     
         {modules.map(currentModule => (
-            <div className="mb-5">
+            <div key={currentModule.module_id} className="mb-5">
                 <h5 className="green-text text-darken-3 module-title">{currentModule.name}</h5>
                 <ClassTable key={currentModule.module_id} classes={
                     classes.filter((currentClass) => {

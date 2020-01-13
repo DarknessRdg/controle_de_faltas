@@ -41,6 +41,10 @@ class TeacherRepository {
     });
     }
 
+    async delete(id) {
+        return await Teacher.destroy({where: {teacher_id: id}});
+    }
+
     async findByEmail(email) {
         return await Teacher.findOne({where: {email: email}});
     }

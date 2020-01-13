@@ -32,25 +32,19 @@ export default () => {
                 return DateHanlder.compare(classDate, today) === -1
             })
         }
-
         
         data.map(filterClasses)
 
         setModules(data)
-      
         setAllModules(data)
-        
     }
 
     function filterList() {
         if ((presentFilter && missedFilter) || (!presentFilter && !missedFilter)) {
             setModules(allModules)
-           
         }
         else {
-           
             let newModules = []
-           
             allModules.map(currentModule => {
                 
                 let classes = currentModule.module_class.filter(({class_id}) => {
@@ -63,7 +57,7 @@ export default () => {
                     return false
                 })
 
-                newModules.push({...currentModule, class: classes})
+                newModules.push({...currentModule, module_class: classes})
             })
             
             setModules(newModules)
