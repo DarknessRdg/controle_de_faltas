@@ -18,7 +18,7 @@ export default () => {
         let classList = []
         let promisses = []
         data.forEach(current => {
-            current.class.forEach(currentClass => {
+            current.module_class.forEach(currentClass => {
 
                 currentClass.date = Date.fromString(currentClass.date)
                 
@@ -30,7 +30,7 @@ export default () => {
                 )
             })
 
-            classList.push(...current.class)            
+            classList.push(...current.module_class)            
         });
 
         await Promise.all(promisses)
