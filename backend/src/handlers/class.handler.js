@@ -7,8 +7,8 @@ class ClassHandler {
 
         try {
             
-            const { date, descriptions, teacher_id } = req.body;
-            const { module_id } = req.params;
+            const { date, descriptions } = req.body;
+            const { module_id, teacher_id } = req.params;
      
             const modulee = await moduleRepository.getModule(module_id);
 

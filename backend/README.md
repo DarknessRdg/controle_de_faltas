@@ -72,7 +72,7 @@ $ npm run postest
 ```
 
 ### Teacher
-#### Allowed methods = [POST, GET]
+#### Allowed methods = [POST, GET, DELETE]
 
 [POST] http://www.hostname.com/teachers/
 
@@ -138,6 +138,14 @@ $ npm run postest
     "is_supersu": true
   }
 ]
+```
+
+[DELETE] http://www.hostname.com/teacher/{id}/ [TOKEN: TEACHER]
+
+##### Sample response
+
+```json
+status_code: 200
 ```
 
 ### Student
@@ -298,7 +306,7 @@ status_code: 200
 ### Class
 #### Allowed methods = [POST, GET, PUT, DELETE]
 
-[POST] http://www.hostname.com/class/{module_id}/ [TOKEN: TEACHER]
+[POST] http://www.hostname.com/{teacher_id}/class/{module_id}/ [TOKEN: TEACHER]
 
 ##### Sample request
 
