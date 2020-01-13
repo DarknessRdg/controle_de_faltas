@@ -26,7 +26,8 @@ class StudentRepository {
         const student = [
             'student_id', 
             'name', 
-            'email', 
+            'email',
+            'sex',  
             'registration', 
             'phone', 
             'identity',
