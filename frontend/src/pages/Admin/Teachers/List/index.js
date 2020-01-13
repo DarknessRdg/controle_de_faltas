@@ -3,19 +3,19 @@ import M from 'materialize-css'
 import Api from '../../../../services/Api'
 import User from '../../../../routes/user'
 import redirect from '../../../../routes/redirect'
+import deleteInstance from '../../utils/deleteInstance'
+import Toast from '../../../../utils/Toast'
 
 
 export default () => {
 
-    const [teachers, setTeachers] = useState({
-        name: ''
-    })
+    const [teachers, setTeachers] = useState([])
 
     async function getTeachers() {
         const headers = User.getAdminAuthorizationHeader()
         
         try {
-            const {data} = await Api.get('/teachers/1', {headers})
+            const {data} = await Api.get('/teachers ', {headers})
             setTeachers(data)
         } catch (error) {
             console.log(error)
@@ -26,6 +26,20 @@ export default () => {
         redirect('/admin/teachers/update/' + id)
     }
 
+    async function remove(id) {
+        const endpoint = '/teachers'
+
+        try {
+            await deleteInstance(endpoint, id)
+
+            Toast(`Professor ${id} deletado.`, true)
+            getTeachers()
+        } catch (error) {
+            Toast('Error ao deletar professor.', false)
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         getTeachers()
         M.AutoInit()
@@ -33,21 +47,26 @@ export default () => {
 
     return (
         <ul className="collapsible">
-            <li>
-                <div className="collapsible-header">
-                    {teachers.name}
-                </div>
-                <div className="collapsible-body pb-3">
-                    <p> <span className="bold">Nome: </span> {teachers.sex}</p>
-                    <p className="mt-1"><span className="bold">Email: </span>{teachers.email}</p>
-                    <p className="mt-1"><span className="bold">Matrícula: </span>{teachers.registration}</p>
-                    <p className="mt-1"><span className="bold">Superusuário: </span>{teachers.is_supersu?'Sim':'Não'}</p>
-                    <div className="mt-3">
-                        <button type="button" className="btn mr-3" onClick={() => edit(teachers.teacher_id)}>Editar</button>
-                        <button type="button" className="btn red darken-2">Excluir</button>
-                    </div>
-                </div>
-            </li>
+            {teachers.map(teacher => {
+                return (
+                    <li key={teacher.teacher_id}>
+                        <div className="collapsible-header">
+                            {teacher.name}
+                        </div>
+                        <div className="collapsible-body pb-3">
+                            <p> <span className="bold">Nome: </span> {teacher.sex}</p>
+                            <p className="mt-1"><span className="bold">Email: </span>{teacher.email}</p>
+                            <p className="mt-1"><span className="bold">Matrícula: </span>{teacher.registration}</p>
+                            <p className="mt-1"><span className="bold">Superusuário: </span>{teacher.is_supersu?'Sim':'Não'}</p>
+                            <div className="mt-3">
+                                <button type="button" className="btn mr-3" onClick={() => edit(teacher.teacher_id)}>Editar</button>
+                                <button type="button" className="btn red darken-2" onClick={() => remove(teacher.teacher_id)}>Excluir</button>
+                            </div>
+                        </div>
+                    </li>
+                )
+            })}
+            
         </ul>
     )
 }

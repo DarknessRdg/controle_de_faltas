@@ -1,0 +1,31 @@
+.datepicker-date-display {
+    background-color: rgb(118, 186, 241);
+}
+
+.datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
+    color: rgb(69, 143, 204);
+}
+
+.datepicker-table td.is-today {
+    color: rgb(69, 143, 204);
+}
+
+.datepicker-table td.is-selected {
+    background-color: rgb(118, 186, 241);
+    color: #fff;
+}
+
+span.badge {
+    min-width: 8rem;
+    padding: 1px 8px;
+    margin-left: auto;
+    text-align: center;
+    font-size: 1.1rem !important;
+    line-height: 26px;
+    font-weight: 300;
+    height: 28px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    border-radius: 2px;
+}

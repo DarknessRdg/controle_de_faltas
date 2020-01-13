@@ -50,11 +50,11 @@ export default (props) => {
     return (
         <div className="container login-content-admin">
             <div className="row">
-                <div className="col s12 m12 l3 teal white-text center-contet left-content">
+                <div className="col s12 m12 l3 blue white-text center-contet left-content">
                     <i className="material-icons large">account_circle</i>
                 </div>
                 <form className="col s12 m12 l9 pl-5 pr-5">
-                    <h5 className="teal-text center">Login admin</h5>
+                    <h5 className="blue-text center">Login admin</h5>
                     <div className="center-content">
                         <div className="input-field">
                             <input ref={email} id="email" type="email" />
@@ -66,7 +66,7 @@ export default (props) => {
                             <label htmlFor="password">Senha</label>
                         </div>
                         <div className="mt-5">
-                            <button type="submit" className="btn col s4 offset-s4" onClick={(e) => login(e)}>Entrar</button>
+                            <button type="submit" className="btn blue col s4 offset-s4" onClick={(e) => login(e)}>Entrar</button>
                         </div>
                     </div>
                 </form>

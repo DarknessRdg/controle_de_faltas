@@ -39,7 +39,7 @@ export default (props) => {
         try {
             let messsage;
             if (student) {
-                await Api.put('/students' , data, {headers})
+                await Api.put(`/students/${student.student_id}` , data, {headers})
                 messsage = 'Estudante atualizado!'
             }
             else {
@@ -48,6 +48,7 @@ export default (props) => {
             }
 
             Toast(messsage, true)
+            clearForm()
         } catch (error) {
             Toast('Dados inválidos', false)
             console.log(error)
@@ -75,7 +76,7 @@ export default (props) => {
             sex = ''
         document.querySelectorAll('option').forEach(e => {
             if (e.value === sex)
-                e.setAttribute('selected', 'true')
+                e.setAttribute('selected', true)
         })
         
         M.updateTextFields()
