@@ -407,3 +407,13 @@ status_code: 200
   }
 ]
 ```
+
+[PUT] http://www.hostname.com/frequency/{id}/ [TOKEN: TEACHER]
+
+##### Sample request
+
+```json
+{
+	"present": false
+}
+```
