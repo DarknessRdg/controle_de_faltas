@@ -1,19 +1,26 @@
+function firstUpper(string) {
+    if (!string)
+        return ''
+    else if (string.length === 1)
+        return string.toUpperCase()
+    else
+        return string[0].toUpperCase() + string.slice(1)
+}
+
+
 function capitalize(string) {
+    if (!string.includes(' '))
+        return firstUpper(string)
+    
     let split = string.split(' ')
     
     let stringFormated = ''
-    split.forEach(string => {
-        stringFormated += string[0].toUpperCase() + string.slice(1).toLowerCase() + ' '
+    split.forEach(sub => {
+        stringFormated += firstUpper(sub)
     });
 
     return stringFormated.trim()
 }
-
-
-function firstUpper(string) {
-    return string[0].toUpperCase() + string.slice(1)
-}
-
 
 
 export default {
