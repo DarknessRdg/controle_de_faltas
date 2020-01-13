@@ -7,7 +7,7 @@ class ClassHandler {
 
         try {
             
-            const { date, descriptions } = req.body;
+            const { date, descriptions, teacher_id } = req.body;
             const { module_id } = req.params;
      
             const modulee = await moduleRepository.getModule(module_id);
@@ -15,8 +15,6 @@ class ClassHandler {
             if (!req.auth.data.is_supersu) { throw new Error('UNAUTHORIZED ACCESS'); }  
             
             if (!modulee) { throw new Error("MODULE NOT FOUND"); }
-            
-            const teacher_id = req.auth.data.id;
             
             const { class_id } = await classRepository.create(
             {date, descriptions, module_id, teacher_id});
