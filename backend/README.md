@@ -377,7 +377,7 @@ status_code: 200
 ```
 
 ### Frequency
-#### Allowed methods = [POST, GET, PUT, DELETE]
+#### Allowed methods = [POST, GET, PUT]
 
 [POST] http://www.hostname.com/{class_id}/frequency/{student_id}/ [TOKEN: TEACHER]
 
