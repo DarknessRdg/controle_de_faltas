@@ -18,37 +18,42 @@ export default () => {
     const userId = User.getId()
     const headers = User.getAtuhorizationHeader()
 
-
     async function getFrequences() {
         const {data} = await Api.get(`/students/${userId}`, {headers})
-        setFrequences(data.frequences)
+        setFrequences(data.student_frequences)
     }
 
     async function getClasses() {
         let data = (await Api.get('/modules', {headers})).data
         let today = new Date()
         const filterClasses = (module) => {
-            module.class = module.class.filter(currentClass =>{
+            module.module_class = module.module_class.filter(currentClass =>{
                 const classDate = DateHanlder.fromString(currentClass.date)
                 return DateHanlder.compare(classDate, today) === -1
             })
         }
 
-
-        data.map(filterClasses)
         
+        data.map(filterClasses)
+
         setModules(data)
+      
         setAllModules(data)
+        
     }
 
     function filterList() {
         if ((presentFilter && missedFilter) || (!presentFilter && !missedFilter)) {
             setModules(allModules)
+           
         }
         else {
+           
             let newModules = []
+           
             allModules.map(currentModule => {
-                let classes = currentModule.class.filter(({class_id}) => {
+                
+                let classes = currentModule.module_class.filter(({class_id}) => {
                     
                     if (presentFilter && isUserPresent(class_id))
                         return true
@@ -67,6 +72,7 @@ export default () => {
     }
 
     function isUserPresent(classId){
+        
         const filter = frequences.filter(frequency => {
             return frequency.class_id === classId && frequency.present
         })
@@ -85,7 +91,7 @@ export default () => {
     useEffect(() => {
         filterList()
     }, [presentFilter, missedFilter])
-    
+   
     return (<div className="p-5 row">
         <h1 className="center">Frequência de aulas</h1>
         <p className="center">Presente: {frequences.filter(current => current.present).length}</p>
@@ -110,9 +116,11 @@ export default () => {
         </div>
 
         <ul className="collection col s12 m8">
+            
             {modules.map(currentModules => {
+                
                 return (
-                    currentModules.class.map(currentClass => (
+                    currentModules.module_class.map(currentClass => (
                         <li key={currentClass.class_id} className="collection-item avatar p-3">
                             <span className="title">{currentModules.name}</span>
                             <p>{currentClass.descriptions} <br />
