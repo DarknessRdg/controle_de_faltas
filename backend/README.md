@@ -1,4 +1,10 @@
-# Fault control - Backend
+<h1 align="center">
+  <img src="https://user-images.githubusercontent.com/40550247/72228004-81071600-3581-11ea-9972-1cbe906001ed.png" width="120px" />
+</h1>
+
+<h1 align="center">
+  Fault control - Backend
+</h1>
 
 ## Getting Started
 1. Fork este repositório e clone em sua máquina
