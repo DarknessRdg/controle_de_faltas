@@ -298,7 +298,8 @@ status_code: 200
 
 ```json
 {
-	"name": "Python conceitos basicos"
+	"descriptions": "Python conceitos basicos",
+	"date": "11/01/2020"
 }
 ```
 
