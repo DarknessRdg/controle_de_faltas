@@ -9,3 +9,7 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background: #FFFFFF;
 }
+
+html {
+	scroll-behavior: smooth;
+}

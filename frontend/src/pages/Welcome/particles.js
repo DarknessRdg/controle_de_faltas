@@ -1,20 +1,18 @@
-import React from "react";
-import Particles from "react-particles-js";
-import "./styles.css";
-
-import Navbar from "../Navbar";
-
-const particleStyle = {
+const styles = {
     width: '100%',
     color: '#000000',
     position: "absolute",
     top: "0"
 }
 
-const particleOptions = {
+const params = {
     particles: {
         number: {
-            value: 50,
+            value: 40,
+            density: {
+                enable: true,
+                value_area: 1000
+            }
         },
         color: {
             value: "#000000"
@@ -49,25 +47,31 @@ const particleOptions = {
         move: {
             enable: true,
             speed: 2,
-            direction: "none"
+            random: true
         },
     }
 }
 
-const Welcome = () => (
-    <div className="welcome" id="particles-js">
-        <Navbar />
-        <Particles 
-                params={particleOptions}
-                style={particleStyle}
-            />
-        <div className="course-title">
-            
-            <h1>Curso de Lógica de Programação</h1>
-            <p>com <strong> Scratch </strong>,  <strong>Python</strong> e <strong>Arduino</strong></p>
-        </div>
-    </div>
-);
+const interactivity = {
+    detect_on: "window",
+    events: {
+        onresize: {
+            enable: true,
+            density_auto: true,
+            density_area: 300 
+      },
+      onhover: {
+          enable: true,
+          mode: "grab",
+          distance: 150
+      },
+    },
+    modes: {
+        repulse: {
+            distance: 200,
+            duration: 0.2
+        }
+    }
+}
 
-
-export default Welcome
+module.exports = {styles, params, interactivity}

@@ -1,6 +1,9 @@
 .navbar {
     background: transparent;
     box-shadow: 0 0 0;
+    position: sticky;
+    top: 0;
+    float: left;
 }
 
 .brand-logo {
@@ -11,5 +14,12 @@
 .brand-logo i {
     margin-left: 10px;
     float: right !important;
-    /* font-weight: 500; */
+}
+
+.relative {
+    position: relative;
+}
+
+.clearfix {
+    clear: both;
 }
