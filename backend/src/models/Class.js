@@ -49,9 +49,10 @@ class Class extends Model {
         /* Relations (1, 1) class -> Module */
         this.belongsTo(models.Module, {as: 'class_modules', foreignKey: 'module_id'});
 
-        /* Relations (1, 1) class -> Teacher */
+        /* Relations (1, 1) class -> Teacher
         this.belongsTo(models.Teacher, {as: 'class_teachers', foreignKey: 'teacher_id'});
-
+        */
+       
         /* Relations (1, N) Class -> Frequency */
         this.hasMany(models.Frequency, {as: 'class_frequences', foreignKey: 'class_id'});
     }
