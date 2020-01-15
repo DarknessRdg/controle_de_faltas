@@ -5,7 +5,7 @@ import router from './config.router';
 
 export default [
 
-    router.post('/:class_id/frequency/:student_id/', frequencyValidator, authToken.checkToken, frequencyHandler.store),
+    router.post('/frequency/:class_id/', authToken.checkToken, frequencyHandler.store),
     router.get('/frequency/:student_id/', authToken.checkToken, frequencyHandler.show),
     router.put('/frequency/:id/', authToken.checkToken, frequencyHandler.update)
     
