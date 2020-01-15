@@ -44,9 +44,7 @@ export default (props) => {
                 await Api.post('/teachers', data, {headers})
                 message = 'Professor criado!'
             } else {
-                console.log('awuiiiiiiiiiii');
-                
-                await Api.put('/teachers', data, {headers})
+                await Api.put(`/teachers/${teacher.teacher_id}`, data, {headers})
                 message = 'Professor atualizado!'
             }
                 
