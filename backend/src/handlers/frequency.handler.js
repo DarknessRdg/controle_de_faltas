@@ -31,13 +31,12 @@ class FrequencyHandler {
             return res.status(201).json(req.body.frequencyList);
         
         } catch (error) {
-            console.log(error)
             switch (error.message) {
                 case 'STUDENT NOT FOUND': 
                     return res.status(404).json({error: 'STUDENT NOT FOUND' });
                 case 'CLASS NOT FOUND': 
                     return res.status(404).json({error: 'CLASS NOT FOUND' });
-                case error.errors:
+                case error.message:
                     return res.status(400).json({error: error.errors[0].message });
             }
         }
