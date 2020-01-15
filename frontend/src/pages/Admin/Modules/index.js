@@ -12,7 +12,7 @@ const tabs = [
         component: <All />
     },
     {
-        title: 'Adicionar professor',
+        title: 'Adicionar módulo',
         id: 'create',
         component: <Create />
     }

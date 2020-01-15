@@ -14,10 +14,10 @@ export default () => {
     
 
     return (<div className="p-5">
-        <h1 className="center">Materia de apoio</h1>
+        <h1 className="center">Material de apoio</h1>
         {materials.map(current => 
             <ul className="collection with-header">
-                <li class="collection-header"><h4 className="green-text text-darken-3">{current.title}</h4></li>
+                <li className="collection-header"><h4 className="green-text text-darken-3">{current.title}</h4></li>
 
                 {current.materials.video? current.materials.video.map(video => <li className="collection-item">
                     <i className="material-icons">desktop_mac</i> {video.description} 
