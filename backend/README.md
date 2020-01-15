@@ -413,14 +413,25 @@ status_code: 200
 ### Frequency
 #### Allowed methods = [POST, GET, PUT]
 
-[POST] http://www.hostname.com/{class_id}/frequency/{student_id}/ [TOKEN: TEACHER]
+[POST] http://www.hostname.com/frequency/{class_id}/ [TOKEN: TEACHER]
 
 ##### Sample request
 
 ```json
-{
-	"present": true
-}
+[
+	{
+		"student_id": 1,
+		"present": true
+	},
+	{
+		"student_id": 2,
+		"present": true
+	},
+	{
+		"student_id": 3,
+		"present": false
+	}
+]
 ```
 
 [GET] http://www.hostname.com/frequency/{student_id}/ [TOKEN: TEACHER, STUDENT]
