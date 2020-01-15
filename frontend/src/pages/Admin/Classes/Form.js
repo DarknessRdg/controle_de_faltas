@@ -76,7 +76,7 @@ export default (props) => {
                 message = 'Aula editada!'
             }
             else {
-                await Api.post(`/class/${moduleId}`, data, {headers})
+                await Api.post(`${teacherId}/class/${moduleId}`, data, {headers})
                 message = 'Aula criada!'
             }
 
