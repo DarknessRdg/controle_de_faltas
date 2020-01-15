@@ -25,6 +25,7 @@ import AdminStudents from '../pages/Admin/Students'
 import AdminStudentsUpdate from '../pages/Admin/Students/Update'
 import AdminClasses from '../pages/Admin/Classes'
 import AdminClassesUpdate from '../pages/Admin/Classes/Update'
+import AdminFrequency from '../pages/Admin/Frequency'
 import AdminFrequencyRegister from '../pages/Admin/FrequencyRegister'
 import AdminNav from '../pages/Admin/Nav'
 
@@ -67,6 +68,8 @@ const Routes = () => (
 
             <AdminRoute exact path='/admin/classes' component={AdminClasses} />
             <AdminRoute exact path='/admin/classes/update/:id' component={AdminClassesUpdate} />
+
+            <AdminRoute exact path='/admin/frequency' component={AdminFrequency} />
 
             <AdminRoute exact path='/admin/frequency/register' component={AdminFrequencyRegister} />
             
