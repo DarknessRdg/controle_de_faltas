@@ -11,7 +11,7 @@ const tabs = [
         component: <All />
     },
     {
-        title: 'Adicionar professor',
+        title: 'Adicionar aluno',
         id: 'create',
         component: <Create />
     }

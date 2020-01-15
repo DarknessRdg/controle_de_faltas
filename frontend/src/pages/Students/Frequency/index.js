@@ -15,6 +15,10 @@ export default () => {
     const [presentFilter, setPresentFilter] = useState(false)
     const [missedFilter, setMissedFilter] = useState(false)
 
+    const [countPresent, setCountPresent] = useState(0)
+    const [countMissed, setCountMissed] = useState(0)
+        
+
     const userId = User.getId()
     const headers = User.getAtuhorizationHeader()
 
@@ -37,6 +41,21 @@ export default () => {
 
         setModules(data)
         setAllModules(data)
+
+        let present = 0
+        let missed = 0
+
+        data.map(module => {
+            module.module_class.forEach(currentClass => {
+                if (isUserPresent(currentClass.class_id))
+                    present += 1
+                else
+                    missed += 1
+            })
+        })
+
+        setCountPresent(present)
+        setCountMissed(missed)
     }
 
     function filterList() {
@@ -88,8 +107,8 @@ export default () => {
    
     return (<div className="p-5 row">
         <h1 className="center">Frequência de aulas</h1>
-        <p className="center">Presente: {frequences.filter(current => current.present).length}</p>
-        <p className="center">Faltadas: {frequences.filter(current => !current.present).length}</p>
+        <p className="center">Presente: {countPresent}</p>
+        <p className="center">Faltadas: {countMissed}</p>
 
         <div className="col s12 l2 m3 mt-2 mr-2 p-3" id="filter">
             <h5 className="mt-0">Mostrar as aulas:</h5>

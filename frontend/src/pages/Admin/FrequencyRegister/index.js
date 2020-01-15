@@ -75,34 +75,18 @@ export default () => {
             return
         }
 
-        let postedSuccessfully = []
-        let postPromisses = []
-
-        students.map(currentStudent => {
-            const data = {
-                present: currentStudent.present
-            }
-
-            const post = Api.post(`/${classSelected.class_id}/frequency/${currentStudent.student_id}`, data, {headers})
-                    .then(r => {
-                        postedSuccessfully.push(r.data)
-                    })
-            
-            postPromisses.push(post)
-        })
-        
-        await Promise.all(postPromisses)
-
-        if (postedSuccessfully.length !== students.length) {
-            Toast('Error ao salvar.', false)
-        } else {
+        try {
+            const response = await Api.post(`/frequency/${classSelected.class_id}`, students, {headers})
             Toast('Frequência salva.', true)
+
             clearForm()
             loadStudents()
             setClassSelected(false)
             M.AutoInit()
+        } catch (error) {
+            Toast('Error ao salvar.', false)
+            console.log(error)
         }
-
     }
 
     useEffect(() => {
