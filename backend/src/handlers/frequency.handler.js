@@ -8,28 +8,35 @@ class FrequencyHandler {
 
         try {
             
-            const { student_id } = req.params;
             const { class_id } = req.params;
-            const { present } = req.body;
           
-            const student = await studentRepository.getStudent(student_id);
             const classs = await classRepository.getClass(class_id);
             
-            if (!student) { throw new Error('STUDENT NOT FOUND'); }
             if (!classs) { throw new Error('CLASS NOT FOUND'); }
 
-            const { frequency_id } = await frequencyRepository.create(
-            { present, student_id, class_id });
+            req.body['frequencyList'] = [];
 
-            return res.status(201).json({frequency_id: frequency_id});
-            
+            const promises = req.body.map(async data => {
+                
+                const { frequency_id } = await frequencyRepository.create({
+                    class_id: class_id, 
+                    student_id: data.student_id,
+                    present: data.present});
+                
+                req.body.frequencyList.push({frequency_id: frequency_id});
+            });
+
+            await Promise.all(promises);
+   
+            return res.status(201).json(req.body.frequencyList);
+        
         } catch (error) {
             switch (error.message) {
                 case 'STUDENT NOT FOUND': 
                     return res.status(404).json({error: 'STUDENT NOT FOUND' });
                 case 'CLASS NOT FOUND': 
                     return res.status(404).json({error: 'CLASS NOT FOUND' });
-                case error.errors:
+                case error.message:
                     return res.status(400).json({error: error.errors[0].message });
             }
         }
