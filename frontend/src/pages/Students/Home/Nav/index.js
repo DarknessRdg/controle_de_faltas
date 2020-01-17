@@ -38,7 +38,7 @@ export default (props) => {
             </ul>
         </nav>
         <ul id="dropdown1" className="dropdown-content">
-            <li><a href="#!" className="teal-text text-darken-2">Configurações</a></li>
+            <li><a href="#!" className="teal-text text-darken-2" onClick={(e) => {redirect('/update', e)}}>Configurações</a></li>
             <li><a href="#!" className="teal-text text-darken-2"onClick={() => logout()}>Sair</a></li>
         </ul>
     </>)
