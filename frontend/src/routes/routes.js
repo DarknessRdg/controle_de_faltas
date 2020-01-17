@@ -12,6 +12,7 @@ import SideNavBar from '../components/SideNavBar'
 import StudentClasses from '../pages/Students/Classes';
 import NotAuthenticated from '../pages/NotAuthenticated';
 import StudentFrequency from '../pages/Students/Frequency';
+import StudentsUpdateData from '../pages/Students/UpdateData'
 import HelpMaterial from '../pages/Students/HelpMaterial';
 import PageNotFound from '../pages/PageNotFound';
 
@@ -36,7 +37,8 @@ const routesWithSideNav =  [
     '/home',
     '/class',
     '/frequency',
-    '/materials'
+    '/materials',
+    '/update'
 ]
 
 const Routes = () => (
@@ -53,6 +55,7 @@ const Routes = () => (
             <PrivateRoute exact path='/class' component={StudentClasses} />
             <PrivateRoute exact path='/frequency' component={StudentFrequency} />
             <PrivateRoute exact path='/materials' component={HelpMaterial} />
+            <PrivateRoute exact path='/update' component={StudentsUpdateData} />
 
             <Route exact path='/login/admin' component={LoginAdmin} />
             <AdminRoute exact path='/admin' component={AdminHome} />
