@@ -19,7 +19,3 @@ Projeto para controlar faltas de alunos do projeto intregrador
 - [x] Login professor
 - [x] Listar alunos
 - [x] Adicionar presença / falta do aluno
-
-
-# Documentação da API
-#TODO: fazer documantação a medida que for fazendo a API
