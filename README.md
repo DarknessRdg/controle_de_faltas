@@ -2,22 +2,23 @@
 Projeto para controlar faltas de alunos do projeto intregrador
 
 ### backend - API:
-- [ ] CRUD professores
-- [ ] CRUD alunos
-- [ ] CRUD faltas
-- [ ] Auth professor
+- [x] CRUD professores
+- [x] CRUD alunos
+- [x] CRUD faltas
+- [x] Auth professor
+- [x] Auth aluno
 
 ### backend - API:
-- [ ] Alunos
-- [ ] Faltas
+- [x] Alunos
+- [x] Faltas
 - [ ] Manter no registro quem criou
 
 ### Frontend
-- [ ] Cadastro de professor
-- [ ] Cadastro de aluno
-- [ ] Login professor
-- [ ] Listar alunos
-- [ ] Adicionar presença / falta do aluno
+- [x] Cadastro de professor
+- [x] Cadastro de aluno
+- [x] Login professor
+- [x] Listar alunos
+- [x] Adicionar presença / falta do aluno
 
 
 # Documentação da API
