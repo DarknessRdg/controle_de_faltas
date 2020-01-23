@@ -37,6 +37,8 @@ export default (props) => {
         const headers = user.getAdminAuthorizationHeader()
 
         try {
+            console.log(data, student.student_id);
+            
             let messsage;
             if (student) {
                 await Api.put(`/students/${student.student_id}` , data, {headers})
@@ -89,7 +91,7 @@ export default (props) => {
     }, [])
 
     return (
-        <form>
+        <form className="blue-form">
             <div className="row">
                 <div className="input-field col s12 m6 mt-5">
                     <input ref={namelInput} type="text" id="name"/>

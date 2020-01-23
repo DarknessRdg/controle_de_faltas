@@ -103,7 +103,7 @@ export default () => {
                 </a>
             </div>
 
-            <div className="row">
+            <form className="row blue-form">
                 <div className="col s12 m8 offset-m2">
                     <select ref={selectClassInput} onChange={selectClass}>
                         <option value="">Selecione a aula</option>
@@ -116,7 +116,7 @@ export default () => {
                         })}
                     </select>
                 </div>
-            </div>
+            </form>
 
             <div className="row ">
                 <div className="col s12 m10 offset-m1">

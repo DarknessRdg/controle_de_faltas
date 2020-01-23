@@ -3,7 +3,9 @@ import M from 'materialize-css'
 import Api from '../../../services/Api'
 import user from '../../../routes/user'
 
-import ListFrequencyResgistered  from './ListFrequencyResgistered'
+import DateHelper from '../../../utils/Date'
+
+import ListFrequencyResgistered from './ListFrequencyResgistered'
 
 
 export default () => {
@@ -15,7 +17,18 @@ export default () => {
     const headers = user.getAdminAuthorizationHeader()
 
     async function getClasses() {
-        const {data} = await Api.get('/class', {headers})
+        let { data } = await Api.get('/class', { headers })
+
+        const today = new Date()
+        data = data.filter(current => {
+            const date = DateHelper.fromString(current.date)
+            const before = -1
+            const equal = 0
+
+            const compare = DateHelper.compare(date, today)
+            return (compare === before || compare === equal)
+        })
+
         setClasses(data)
 
         M.AutoInit()
@@ -24,7 +37,7 @@ export default () => {
     function selectClass() {
         const id = parseInt(selectClassInput.current.value)
         const selected = classes.filter(current => current.class_id === id)[0]
-        console.log(selected)
+
         setSelectedClass(selected)
     }
 
@@ -35,10 +48,10 @@ export default () => {
     return (
         <>
             <div>
-                <h1 className="center">{'Frequência ' + (selectedClass? `do dia ${selectedClass.date}`: '')}</h1>
+                <h1 className="center">{'Frequência ' + (selectedClass ? `do dia ${selectedClass.date}` : '')}</h1>
             </div>
             <div className="row">
-                <div className="col s12 m8 offset-m2">
+                <form className="col s12 m8 offset-m2 blue-form">
                     <select ref={selectClassInput} onChange={selectClass}>
                         <option value="">Selecione a aula</option>
                         {classes.map(current => {
@@ -49,15 +62,15 @@ export default () => {
                             )
                         })}
                     </select>
-                </div>
+                </form>
             </div>
             
             <div className="row">
                 <div className="col s12 m10 offset-m1">
-                    {selectedClass? <ListFrequencyResgistered  selectedClass={selectedClass} /> : <p className="center red-text">Selecione uma aula</p>}
+                    {selectedClass ? <ListFrequencyResgistered selectedClass={selectedClass} /> : <p className="center red-text">Selecione uma aula</p>}
                 </div>
             </div>
-            
+
         </>
     )
 }
