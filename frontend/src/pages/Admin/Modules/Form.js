@@ -56,7 +56,7 @@ export default (props) => {
     }, [])
 
     return (
-        <form>
+        <form className="blue-form">
             <div className="row">
                 <div className="input-field">
                     <input ref={nameInput} type="text" id="name"/>

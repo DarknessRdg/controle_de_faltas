@@ -19,7 +19,7 @@ export default (props) => {
         const passwordValue = password.current.value
 
         if (!emailValue || !passwordValue) {
-            setMessageError('Preencha todos os campos')   
+            setMessageError('Preencha todos os campos')
         }
 
         const data = {
@@ -34,44 +34,48 @@ export default (props) => {
         } catch (error) {
             setMessageError('Email ou senha inválido')
         }
-        
+
     }
 
     useEffect(() => {
         if (messageError) {
-            M.toast({html: messageError, classes: 'red rounded'})
+            M.toast({ html: messageError, classes: 'red rounded' })
             setTimeout(() => setMessageError(''), 10)
         }
-            
+
     }, [messageError])
 
     if (User.isAdminAuthenticated())
         return redirect('/admin')
     return (
-        <div className="container login-content-admin">
-            <div className="row">
-                <div className="col s12 m12 l3 blue white-text center-contet left-content">
-                    <i className="material-icons large">account_circle</i>
-                </div>
-                <form className="col s12 m12 l9 pl-5 pr-5">
-                    <h5 className="blue-text center">Login admin</h5>
-                    <div className="center-content">
-                        <div className="input-field">
-                            <input ref={email} id="email" type="email" />
-                            <label htmlFor="email">Email</label>
-                        </div>
-                        
-                        <div className="input-field mt-4">
-                            <input ref={password} id="password" type="password" />
-                            <label htmlFor="password">Senha</label>
-                        </div>
-                        <div className="mt-5">
-                            <button type="submit" className="btn blue col s4 offset-s4" onClick={(e) => login(e)}>Entrar</button>
-                        </div>
+        <div className="vh valign-wrapper">
+            <div className="container login-content-admin">
+                <div className="row">
+                    <div className="col s12 m12 l3 blue white-text center-contet left-content">
+                        <i className="material-icons large">account_circle</i>
                     </div>
-                </form>
+                    <form className="col s12 m12 l9 pl-5 pr-5 blue-form">
+                        <h5 className="blue-text center">Login admin</h5>
+                        <div className="center-content">
+                            <div className="input-field">
+                                <input ref={email} id="email" type="email" />
+                                <label htmlFor="email">Email</label>
+                            </div>
+
+                            <div className="input-field mt-4">
+                                <input ref={password} id="password" type="password" />
+                                <label htmlFor="password">Senha</label>
+                            </div>
+                            <div className="mt-5">
+                                <button type="submit" className="btn blue col s4 offset-s4" onClick={(e) => login(e)}>Entrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
+
+
         </div>
-        
+
     )
 }

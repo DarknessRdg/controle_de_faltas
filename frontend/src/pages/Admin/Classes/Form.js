@@ -127,7 +127,7 @@ export default (props) => {
     
 
     return (
-        <form className="pr-3 pl-3">
+        <form className="pr-3 pl-3 blue-form">
             <div className="row">
                 <div className="input-field">
                     <input ref={descriptionInput} type="text" id="name"/>

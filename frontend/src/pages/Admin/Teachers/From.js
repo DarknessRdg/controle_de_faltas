@@ -84,7 +84,7 @@ export default (props) => {
     }, [])
 
     return (
-        <form className="pl-3 pr-3">
+        <form className="pl-3 pr-3 blue-form">
             <div className="row">
                 <div className="input-field col s12 m6 mt-5">
                     <input ref={namelInput} type="text" id="name"/>
