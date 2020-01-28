@@ -62,7 +62,7 @@ export default (props) => {
         resgistrationInput.current.value =  teacher.registration
 
         const sex =  FormatText.firstUpper(teacher.sex)
-        const instance = M.FormSelect.getInstance(sexInput.current)
+        M.FormSelect.getInstance(sexInput.current)
 
         document.querySelectorAll('option').forEach(e => {
             if (e.value === sex)
@@ -81,6 +81,7 @@ export default (props) => {
         M.AutoInit()
         if (teacher)
             fillFields()
+        // eslint-disable-next-line
     }, [])
 
     return (

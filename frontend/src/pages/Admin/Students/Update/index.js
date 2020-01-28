@@ -17,6 +17,7 @@ export default (props) => {
 
     useEffect(() => {
         getStudent()
+        // eslint-disable-next-line
     }, [])
     
     return (

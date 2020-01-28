@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import FormatText from '../../../../utils/FormatText'
 
 
@@ -19,6 +19,7 @@ export default (props) => {
             if (currentStudent.student_id === id) {
                 currentStudent.present = !currentStudent.present
             }
+            return undefined
         })
 
         setTimeout(() => {
@@ -32,7 +33,7 @@ export default (props) => {
     return (
         <>
             <ul className="collection with-header">
-                <li className="collection-header"><h4>Nome <span className="bold right">Presente</span></h4></li>
+                <li className="collection-header"><h4>Nome <span className="right">Presente</span></h4></li>
                 
                 {students.map((currentStudent, index) => {
                     return (

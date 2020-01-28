@@ -5,6 +5,7 @@ import redirect from '../../../../routes/redirect'
 
 import deleteInstance from '../../utils/deleteInstance'
 import Toast from '../../../../utils/Toast'
+import FormatText from '../../../../utils/FormatText'
 
 export default () => {
 
@@ -48,10 +49,10 @@ export default () => {
                         <div className="collapsible-header">{current.name}</div>
                         <div className="collapsible-body">
                             <p>
-                                <span className="bold">Nome: </span> {current.name}
+                                <span className="bold">Nome: </span> {FormatText.capitalize(current.name)}
                             </p>
                             <p>
-                                <span className="bold">Sexo: </span> {current.sex}
+                                <span className="bold">Sexo: </span> {FormatText.capitalize(current.sex)}
                             </p>
                             <p>
                                 <span className="bold">Teleone: </span> {current.phone}

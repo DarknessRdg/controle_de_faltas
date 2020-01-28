@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Api from '../../../../services/Api'
 import User from '../../../../routes/user'
-import From from '../From'
+import From from '../Form'
 
 
 export default (props) => {
@@ -22,6 +22,7 @@ export default (props) => {
 
     useEffect(() => {
         getTeacher()
+        // eslint-disable-next-line
     }, [])
     
     return (

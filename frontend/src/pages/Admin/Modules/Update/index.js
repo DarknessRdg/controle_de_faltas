@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Form from '../Form'
 import Api from '../../../../services/Api'
@@ -17,6 +17,7 @@ export default (props) => {
 
     useEffect(() => {
         getModule()
+        // eslint-disable-next-line
     }, [])
 
     return (

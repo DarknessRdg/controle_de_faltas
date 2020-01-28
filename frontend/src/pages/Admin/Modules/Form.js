@@ -53,6 +53,7 @@ export default (props) => {
     useEffect(() => {
         if (module)
             setModule()
+        // eslint-disable-next-line
     }, [])
 
     return (

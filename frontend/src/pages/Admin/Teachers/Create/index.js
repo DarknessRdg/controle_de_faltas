@@ -1,5 +1,5 @@
 import React from 'react'
-import From from '../From'
+import From from '../Form'
 
 
 export default () => {

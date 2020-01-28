@@ -121,8 +121,9 @@ export default (props) => {
     useEffect(() => {
         getModules().then(r => {
             if (classEdit)
-                fillFields()       
+                fillFields()
         })
+        // eslint-disable-next-line
     }, [])
     
 

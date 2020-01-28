@@ -22,6 +22,7 @@ export default (props) => {
 
     useEffect(() => {
         getClass()
+        // eslint-disable-next-line
     }, [])
     return (
         <div>

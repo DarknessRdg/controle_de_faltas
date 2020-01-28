@@ -30,12 +30,12 @@ export default () => {
     async function getClasses() {
         let data = (await Api.get('/modules', {headers})).data
         let today = new Date()
-        const filterClasses = (module) => {
+        const filterClasses = (module) => (
             module.module_class = module.module_class.filter(currentClass =>{
                 const classDate = DateHanlder.fromString(currentClass.date)
                 return DateHanlder.compare(classDate, today) === -1
             })
-        }
+        )
         
         data.map(filterClasses)
 
@@ -45,14 +45,14 @@ export default () => {
         let present = 0
         let missed = 0
 
-        data.map(module => {
+        data.map(module => (
             module.module_class.forEach(currentClass => {
                 if (isUserPresent(currentClass.class_id))
                     present += 1
                 else
                     missed += 1
             })
-        })
+        ))
 
         setCountPresent(present)
         setCountMissed(missed)
@@ -76,7 +76,7 @@ export default () => {
                     return false
                 })
 
-                newModules.push({...currentModule, module_class: classes})
+                return newModules.push({...currentModule, module_class: classes})
             })
             
             setModules(newModules)
@@ -95,14 +95,17 @@ export default () => {
 
     useEffect(() => {
         getFrequences()
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
         getClasses()
+        // eslint-disable-next-line
     }, [frequences])
 
     useEffect(() => {
         filterList()
+        // eslint-disable-next-line
     }, [presentFilter, missedFilter])
    
     return (<div className="p-5 row">
