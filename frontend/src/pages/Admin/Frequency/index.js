@@ -43,6 +43,7 @@ export default () => {
 
     useEffect(() => {
         getClasses()
+        // eslint-disable-next-line
     }, [])
 
     return (

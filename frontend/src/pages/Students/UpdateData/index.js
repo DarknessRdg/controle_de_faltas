@@ -99,10 +99,12 @@ export default () => {
 
     useEffect(() => {
         loadData()
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
         fillFields()
+        // eslint-disable-next-line
     }, [student])
 
     return (

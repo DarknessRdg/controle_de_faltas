@@ -5,6 +5,7 @@ import redirect from '../../../../routes/redirect'
 import deleteInstance from '../../utils/deleteInstance'
 import Toast from '../../../../utils/Toast'
 import DateUtil from '../../../../utils/Date'
+import FormatText from '../../../../utils/FormatText'
 
 
 export default () => {
@@ -71,10 +72,10 @@ export default () => {
                         </div>
                         <div className="collapsible-body">
                             <p>
-                                <span className="bold">Modulo: </span> {current.class_modules.name}
+                                <span className="bold">Modulo: </span> {FormatText.capitalize(current.class_modules.name)}
                             </p>
                             <p>
-                                <span className="bold">Professor: </span> {current.teacher.name}
+                                <span className="bold">Professor: </span> {FormatText.capitalize(current.teacher.name)}
                             </p>
                             <p>
                                 <span className="bold">Descrição: </span> {current.descriptions}

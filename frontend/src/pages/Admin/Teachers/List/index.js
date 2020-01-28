@@ -5,7 +5,7 @@ import User from '../../../../routes/user'
 import redirect from '../../../../routes/redirect'
 import deleteInstance from '../../utils/deleteInstance'
 import Toast from '../../../../utils/Toast'
-
+import FormatText from '../../../../utils/FormatText'
 
 export default () => {
 
@@ -54,10 +54,15 @@ export default () => {
                             {teacher.name}
                         </div>
                         <div className="collapsible-body pb-3">
-                            <p> <span className="bold">Nome: </span> {teacher.sex}</p>
+                            <p> <span className="bold">Nome: </span> {FormatText.capitalize(teacher.sex)}</p>
                             <p className="mt-1"><span className="bold">Email: </span>{teacher.email}</p>
                             <p className="mt-1"><span className="bold">Matrícula: </span>{teacher.registration}</p>
-                            <p className="mt-1"><span className="bold">Superusuário: </span>{teacher.is_supersu?'Sim':'Não'}</p>
+                            <p className="mt-1 valign-wrapper">
+                                <span className="bold mr-2">Superusuário: </span>
+                                <i className={`material-icons green-text ${teacher.is_supersu?'green-text' : 'red-text'}`}>
+                                    {teacher.is_supersu? 'check':'clear'}
+                                </i>
+                            </p>
                             <div className="mt-3">
                                 <button type="button" className="btn mr-3" onClick={() => edit(teacher.teacher_id)}>Editar</button>
                                 <button type="button" className="btn red darken-2" onClick={() => remove(teacher.teacher_id)}>Excluir</button>

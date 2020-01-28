@@ -45,9 +45,7 @@ export default () => {
                 return 0
         })
 
-        dataStudents.map(student => {
-            student.present = false
-        })
+        dataStudents.map(student => student.present = false)
 
         setStudents([...dataStudents])
     }
@@ -76,7 +74,7 @@ export default () => {
         }
 
         try {
-            const response = await Api.post(`/frequency/${classSelected.class_id}`, students, {headers})
+            await Api.post(`/frequency/${classSelected.class_id}`, students, {headers})
             Toast('Frequência salva.', true)
 
             clearForm()
@@ -91,6 +89,7 @@ export default () => {
 
     useEffect(() => {
         loadDatas()
+        // eslint-disable-next-line
     }, [])
 
     return (

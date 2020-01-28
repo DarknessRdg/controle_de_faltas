@@ -24,7 +24,8 @@ export default (props) => {
                     student.present = classFound.present
                 else
                     student.present = false
-
+                
+                return undefined
             })
 
             setStudents([...data])
@@ -34,7 +35,7 @@ export default (props) => {
         }
     }
 
-    function changeStatus(id) {
+    // function changeStatus(id) {
         // const element = document.querySelector(`#status-${id}`)
 
         // const hiddenClass = 'scale-out'
@@ -56,10 +57,11 @@ export default (props) => {
         //     element.classList.remove(hiddenClass)
         //     element.classList.add(showClass)
         // }, 300)
-    }
+    // }
 
     useEffect(() => {
         getFrequency()
+        // eslint-disable-next-line
     }, [selectedClass])
 
     return (
