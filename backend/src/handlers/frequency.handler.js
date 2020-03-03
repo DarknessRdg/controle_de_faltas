@@ -19,7 +19,7 @@ class FrequencyHandler {
             const sequelize = new Sequelize(databaseConfig);
             const transaction = await sequelize.transaction();
 
-            req.body['frequencyList'] = [];
+            const frequences = [];
 
             try {
                 
@@ -32,15 +32,15 @@ class FrequencyHandler {
                             student_id: data.student_id,
                             present: data.present},
                             { transaction: transaction });
-                        
-                            req.body.frequencyList.push({frequency_id: frequency_id});
+      
+                            frequences.push({frequency_id: frequency_id});
                         }
                     )
                 );
                 
                 await transaction.commit();
                 
-                return res.status(201).json(req.body.frequencyList);
+                return res.status(201).json(frequences);
 
             } catch (error) {
                 
@@ -54,7 +54,7 @@ class FrequencyHandler {
                 case 'CLASS NOT FOUND': 
                     return res.status(404).json({error: 'CLASS NOT FOUND' });
                 case error.message:
-                    return res.status(400).json({error: error.errors[0].message });
+                    return res.status(400).json({error: error.message});
             }
         }
     }
