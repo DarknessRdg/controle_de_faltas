@@ -22,7 +22,6 @@ class Frequency extends Model {
 
             student_id: {
                 type: Sequelize.INTEGER,
-                unique: true,
                 allowNull: false,
                 references: { model: 'student', key: 'student_id'},
                 onUpdate: 'CASCADE',

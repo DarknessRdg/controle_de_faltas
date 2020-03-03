@@ -39,7 +39,7 @@ $ npm install
 
 /* Environment variables */
 
-$ cp env.example .env
+$ cp .env.example .env
 
 /* Database migrates */
 
