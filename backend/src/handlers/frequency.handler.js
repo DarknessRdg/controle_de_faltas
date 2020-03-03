@@ -1,6 +1,8 @@
 import frequencyRepository from '../repositories/frequency.repository';
-import studentRepository from '../repositories/student.repository';
 import classRepository from '../repositories/class.repository';
+import databaseConfig from '../database/config/config';
+import Sequelize from 'sequelize';
+
 
 class FrequencyHandler {
 
@@ -14,22 +16,37 @@ class FrequencyHandler {
             
             if (!classs) { throw new Error('CLASS NOT FOUND'); }
 
+            const sequelize = new Sequelize(databaseConfig);
+            const transaction = await sequelize.transaction();
+
             req.body['frequencyList'] = [];
 
-            const promises = req.body.map(async data => {
+            try {
                 
-                const { frequency_id } = await frequencyRepository.create({
-                    class_id: class_id, 
-                    student_id: data.student_id,
-                    present: data.present});
-                
-                req.body.frequencyList.push({frequency_id: frequency_id});
-            });
+                await Promise.all(
 
-            await Promise.all(promises);
-   
-            return res.status(201).json(req.body.frequencyList);
-        
+                    req.body.map(async data => {
+                
+                        const { frequency_id } = await frequencyRepository.create({
+                            class_id: class_id, 
+                            student_id: data.student_id,
+                            present: data.present},
+                            { transaction: transaction });
+                        
+                            req.body.frequencyList.push({frequency_id: frequency_id});
+                        }
+                    )
+                );
+                
+                await transaction.commit();
+                
+                return res.status(201).json(req.body.frequencyList);
+
+            } catch (error) {
+                
+                if (transaction) await transaction.rollback();
+            }
+
         } catch (error) {
             switch (error.message) {
                 case 'STUDENT NOT FOUND': 
