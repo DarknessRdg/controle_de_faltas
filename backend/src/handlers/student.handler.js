@@ -65,6 +65,9 @@ class StudentHandler {
 
             if (!student) { throw new Error('STUDENT NOT FOUND'); }
            
+            if (req.body.password)
+                req.body.password = await hash.encrypt(req.body.password);
+
             const { student_id } = await studentRepository.update(student, req.body);
 
             return res.status(200).json({student_id: student_id});
