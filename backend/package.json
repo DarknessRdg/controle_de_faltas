@@ -6,9 +6,9 @@
   "scripts": {
     "start": "nodemon src/Server.js",
     "build": "sucrase ./src -d ./dist --transforms imports",
-    "pretest": "set NODE_ENV=test&& sequelize db:migrate",
-    "test": "set NODE_ENV=test&& jest",
-    "postest": "set NODE_ENV=test&& sequelize db:migrate:undo:all"
+    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "test": "NODE_ENV=test jest",
+    "postest": "NODE_ENV=test sequelize db:migrate:undo:all"
   },
   "author": "Nelson Dias",
   "license": "MIT",
@@ -16,7 +16,9 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "faker": "^4.1.0",
     "jsonwebtoken": "^8.5.1",
+    "random": "^2.2.0",
     "sequelize": "^5.21.3",
     "yup": "^0.28.0"
   },

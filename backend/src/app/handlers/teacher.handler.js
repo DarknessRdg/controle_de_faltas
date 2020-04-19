@@ -13,9 +13,9 @@ class TeacherHandler {
             return res.status(201).json({teacher_id: teacher_id});
 
         } catch (error) { 
-            switch (error.errors) {
-                case error.errors:
-                    return res.status(400).json({error: error.errors[0].message });
+            switch (error.message) {
+                default:
+                    return res.status(400).json({error: error.message });
             }
         }
     }
