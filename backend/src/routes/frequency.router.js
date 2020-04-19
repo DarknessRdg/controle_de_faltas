@@ -1,6 +1,6 @@
-import frequencyValidator from '../validators/frequency.validator';
-import frequencyHandler from '../handlers/frequency.handler';
-import authToken from '../auth/token.auth';
+import frequencyValidator from '../app/validators/frequency.validator';
+import frequencyHandler from '../app/handlers/frequency.handler';
+import authToken from '../services/auth/token.auth';
 import router from './config.router';
 
 export default [

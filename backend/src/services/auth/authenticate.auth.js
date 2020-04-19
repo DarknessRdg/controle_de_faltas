@@ -1,5 +1,5 @@
-import teacherRepository from '../repositories/teacher.repository';
-import studentRepository from '../repositories/student.repository';
+import teacherRepository from '../../app/repositories/teacher.repository';
+import studentRepository from '../../app/repositories/student.repository';
 import Token from './token.auth';
 import hash from './hash.auth';
 

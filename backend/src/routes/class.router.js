@@ -1,6 +1,6 @@
-import classValidator from '../validators/class.validator';
-import classHandler from '../handlers/class.handler';
-import authToken from '../auth/token.auth';
+import classValidator from '../app/validators/class.validator';
+import classHandler from '../app/handlers/class.handler';
+import authToken from '../services/auth/token.auth';
 import router from './config.router';
 
 export default [

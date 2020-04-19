@@ -1,5 +1,5 @@
 import teacherRepository from '../repositories/teacher.repository';
-import hash from '../auth/hash.auth';
+import hash from '../../services/auth/hash.auth';
 
 class TeacherHandler {
 

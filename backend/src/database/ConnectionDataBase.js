@@ -1,9 +1,9 @@
-import databaseConfig from '../database/config/config';
-import Frequency from '../models/Frequency';
-import Student from '../models/Student';
-import Teacher from '../models/Teacher';
-import Module from '../models/Module';
-import Class from '../models/Class';
+import databaseConfig from '../config/config';
+import Frequency from '../app/models/Frequency';
+import Student from '../app/models/Student';
+import Teacher from '../app/models/Teacher';
+import Module from '../app/models/Module';
+import Class from '../app/models/Class';
 import Sequelize from 'sequelize';
 
 const models = [Teacher, Module, Class, Student, Frequency];

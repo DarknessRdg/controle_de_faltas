@@ -1,6 +1,6 @@
 import frequencyRepository from '../repositories/frequency.repository';
 import classRepository from '../repositories/class.repository';
-import databaseConfig from '../database/config/config';
+import databaseConfig from '../../config/config';
 import Sequelize from 'sequelize';
 
 
