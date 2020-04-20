@@ -1,5 +1,5 @@
 import studentRepository from '../repositories/student.repository';
-import hash from '../auth/hash.auth';
+import hash from '../../services/auth/hash.auth';
 
 class StudentHandler {
 

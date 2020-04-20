@@ -1,4 +1,4 @@
-import authenticateAuth from '../auth/authenticate.auth';
+import authenticateAuth from '../../services/auth/authenticate.auth';
 
 class LoginHandler {
 

@@ -17,8 +17,8 @@ class TeacherRepository {
             'email',
             'registration',
             'is_supersu',
-            'updatedAt',
-            'createdAt'
+            'updated_at',
+            'created_at'
         ]
 
         return await Teacher.findAll({attributes: teacher});
@@ -32,8 +32,8 @@ class TeacherRepository {
             'email',
             'registration',
             'is_supersu',
-            'updatedAt',
-            'createdAt'
+            'updated_at',
+            'created_at'
         ]
     
        return await Teacher.findOne({where: {teacher_id: id}, attributes: teacher,
