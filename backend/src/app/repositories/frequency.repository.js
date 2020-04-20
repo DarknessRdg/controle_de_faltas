@@ -27,8 +27,8 @@ class FrequencyRepository {
             'registration', 
             'phone', 
             'identity',
-            'updatedAt',
-            'createdAt'
+            'updated_at',
+            'created_at'
         ]
         return await Frequency.findOne({where: {frequency_id: id}, include: [
             {as: 'frequency_student', model: Student, attributes: student},

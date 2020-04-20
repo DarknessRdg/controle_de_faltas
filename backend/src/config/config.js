@@ -13,6 +13,7 @@ module.exports = {
   logging: process.env.NODE_ENV === 'test' ? false : true,
   define: {
     freezeTableName: true,
+    underscored: true,
     timestamps: true
   }
 };

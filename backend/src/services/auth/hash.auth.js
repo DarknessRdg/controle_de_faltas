@@ -4,11 +4,11 @@ class HashAuth {
 
    async encrypt(value) {
         const salt = await bcrypt.genSalt(10);
-        return bcrypt.hash(value, salt);
+        return await bcrypt.hash(value, salt);
     }
 
-    compare(value, valueHash) {
-        return bcrypt.compare(value, valueHash);
+    async compare(value, valueHash) {
+        return await bcrypt.compare(value, valueHash);
     }
 }
 
