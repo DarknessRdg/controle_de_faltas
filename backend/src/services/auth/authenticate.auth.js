@@ -5,22 +5,12 @@ import hash from './hash.auth';
 
 class AuthenticateAuth {
 
-    async setupLogin(data, currentModel) {
-        const passwordOk = await hash.compare(data.password, student.password);
+    async setupLogin(id, data, currentModel, jwtData) {
+        const passwordOk = await hash.compare(data.password, currentModel.password);
 
         if (!passwordOk) { throw new Error('ERR_INVALID_PASSWORD'); }
 
-        const JWTData = {
-            exp: Math.floor(Date.now() / 1000) + 54200,
-            info: 'api',
-            data: {
-                id: student.student_id,
-                is_supersu: student.is_supersu
-            }
-        };
-
-        const id = student.student_id;
-        const token = await Token.generate(JWTData);
+        const token = await Token.generate(jwtData);
 
         return { id, token };
     }
@@ -33,10 +23,6 @@ class AuthenticateAuth {
         if (!teacher && !student) { throw new Error('ERR_USER_NOT_FOUND'); }
 
         if (student) {
-            
-            const passwordOk = await hash.compare(data.password, student.password);
-
-            if (!passwordOk) { throw new Error('ERR_INVALID_PASSWORD'); }
 
             const JWTData = {
                 exp: Math.floor(Date.now() / 1000) + 54200,
@@ -46,19 +32,12 @@ class AuthenticateAuth {
                     is_supersu: student.is_supersu
                 }
             };
-
-            const id = student.student_id;
-            const token = await Token.generate(JWTData);
-
-            return { id, token };
+            
+            return await this.setupLogin(student.student_id, data, student, JWTData);
         }
 
         if (teacher) {
-
-            const passwordOk = await hash.compare(data.password, teacher.password);
-            
-            if (!passwordOk) { throw new Error('ERR_INVALID_PASSWORD'); }
-            
+ 
             const JWTData = {
                 exp: Math.floor(Date.now() / 1000) + 54200,
                 info: 'api',
@@ -68,10 +47,7 @@ class AuthenticateAuth {
                 }
             };
 
-            const id = teacher.teacher_id;
-            const token = await Token.generate(JWTData);
-
-            return { id, token };
+            return await this.setupLogin(teacher.teacher_id, data, teacher, JWTData);
         }
     }
 }
