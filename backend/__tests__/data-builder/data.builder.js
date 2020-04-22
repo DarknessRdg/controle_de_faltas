@@ -7,7 +7,7 @@ const Teacher = () => {
         sex: random.int(0, 1) === 1 ? 'male' : 'female',
         email: faker.internet.email(),
         password: "admin@123",
-        registration: `${faker.random.number(8)}` 
+        registration: `${random.int(0, 100000000)}` 
     });
 }
 

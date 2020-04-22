@@ -12,8 +12,9 @@ describe(`${prefix}`, () => {
         
         const teacher = data.Teacher();
         teacher.email = "test@gmail.com";
-
+        
         await request(app).post('/teachers/').send(teacher);
+
         const credentials = {email: 'test@gmail.com', password: 'admin@123'};
         
         const { status, body } = await request(app)
