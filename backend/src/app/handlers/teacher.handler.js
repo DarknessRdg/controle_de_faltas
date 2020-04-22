@@ -15,7 +15,7 @@ class TeacherHandler {
         } catch (error) { 
             switch (error.message) {
                 default:
-                    return res.status(400).json({error: error.message });
+                    return res.status(400).json({error: error });
             }
         }
     }

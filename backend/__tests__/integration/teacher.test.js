@@ -11,11 +11,11 @@ describe(`${prefix}`, () => {
     it('It should create teacher with success / status: 201', async (done) => {
         
         const teacher = data.Teacher();
-        
+      
         const res = await request(app)
             .post(prefix)
             .send(teacher);
-      
+ 
         expect(res.status).to.equal(201);
 
         done();

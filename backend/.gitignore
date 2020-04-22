@@ -1,3 +1,5 @@
 node_modules/
 .env
-
+__tests__/coverage
+__tests__/tests.sqlite
+src/database/database.sqlite
